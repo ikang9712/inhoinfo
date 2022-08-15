@@ -12,9 +12,11 @@ import { ChevronRightIcon } from '@chakra-ui/icons'
 import Section from '../components/section'
 import Paragraph from '../components/paragraph'
 import { BioSection, BioYear } from '../components/bio'
+import Layout from '../components/layouts/article'
 
 const Page = () => {
   return (
+    <Layout>
       <Container>
         <Box borderRadius = "lg" bg={useColorModeValue('#c3b091', 'whiteAlpha.200')} p={3} mb={5} align="center">
           Hello, I&apos;m a junior developer based in the U.S.!
@@ -95,6 +97,7 @@ const Page = () => {
           </Paragraph>
         </Section>
       </Container>
+      </Layout>
   )
 }
 

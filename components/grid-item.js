@@ -44,13 +44,6 @@ export const WorkGridItem = ({children, id, title, thumbnail})=> {
     </Box> )
 }
 
-const TestGridItem = ({children}) => {
-    return( 
-    <Box w="100%" align="center">
-        dqwdqwd
-    </Box>)
-}
-
 export const GridItemStyle =() => (
     <Global styles={`
         .grid-item-thumbnail {
@@ -58,5 +51,3 @@ export const GridItemStyle =() => (
         }
     `}/>
 )
-
-export default TestGridItem

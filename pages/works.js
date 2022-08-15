@@ -5,11 +5,12 @@ import {
     Divider
 } from '@chakra-ui/react';
 import Section from '../components/section';
-import TestGridItem, {WorkGridItem} from '../components/grid-item'
+import {WorkGridItem} from '../components/grid-item'
 import thumbInkdrop from '../public/images/works/museicon.png'
-
+import Layout from '../components/layouts/article';
 const Works = () => {
     return (
+        <Layout>
         <Container>
             <Heading as="h3" fontSize={20} mb={4}>
                 Works
@@ -22,6 +23,7 @@ const Works = () => {
                 </Section>
             </SimpleGrid>
         </Container>
+        </Layout>
     )
 }
 
