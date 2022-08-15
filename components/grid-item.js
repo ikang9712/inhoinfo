@@ -25,13 +25,14 @@ export const GridItem = ({children, href, title, thumbnail}) => {
 }
 
 export const WorkGridItem = ({children, id, title, thumbnail})=> {
-    <Box w="100%" align="center">
+    return (<Box w="100%" align="center">
         <NextLink href={`/works/${id}`} passHref scroll={false}>
             <LinkBox cursor="pointer">
-                <Image src={thumbnail}
-                alt={title}
-                className="grid-item-thumbnail"
-                placeholder="blur"/>
+                <Image 
+                    src={thumbnail}
+                    alt={title}
+                    className="grid-item-thumbnail"
+                    placeholder="blur"/>
                 <LinkOverlay href={`/works/${id}`}>
                     <Text mt={2} fontSize={20}>
                         {title}
@@ -40,7 +41,14 @@ export const WorkGridItem = ({children, id, title, thumbnail})=> {
                 <Text fontSize={14}> {children} </Text>
             </LinkBox>
         </NextLink>
-    </Box>
+    </Box> )
+}
+
+const TestGridItem = ({children}) => {
+    return( 
+    <Box w="100%" align="center">
+        dqwdqwd
+    </Box>)
 }
 
 export const GridItemStyle =() => (
@@ -50,3 +58,5 @@ export const GridItemStyle =() => (
         }
     `}/>
 )
+
+export default TestGridItem
