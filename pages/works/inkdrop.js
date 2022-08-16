@@ -9,12 +9,20 @@ const Work = () => {
         <Layout title="Inkdrop">
             <Container>
                 <Title>
-                    Inkdrop <Badge>2016</Badge>
+                    museLIVE <Badge>2022</Badge>
                 </Title>
                 <Paragraph>
                     A Markdown note-taking app with 111
                 </Paragraph>
-                <List ml={4} my={4}></List>
+                <List ml={4} my={4}>
+                    <ListItem>
+                        <Meta>Website</Meta>
+                        <Link href="https://www.muse.live">
+                            https://www.muse.live <ExternalLinkIcon mx="2px"/>
+                        </Link>
+                    </ListItem>
+                </List>
+                {/* <WorkImage src="" alt="~~" /> */}
             </Container>
         </Layout>
     )
