@@ -6,13 +6,28 @@ import {
   Image, 
   useColorModeValue, 
   Link,
-  Button
+  Button,
+  SimpleGrid,
+  List,
+  ListItem,
+  Icon,
 } from '@chakra-ui/react'
 import { ChevronRightIcon } from '@chakra-ui/icons'
 import Section from '../components/section'
 import Paragraph from '../components/paragraph'
 import { BioSection, BioYear } from '../components/bio'
 import Layout from '../components/layouts/article'
+import { GridItem } from '../components/grid-item'
+import {
+  IoLogoTwitter,
+  IoLogoInstagram,
+  IoLogoGithub,
+  IoLogoLinkedin,
+  IoMailOpenOutline,
+  IoMailUnread,
+  IoMailOpen,
+  IoLogoDiscord
+} from 'react-icons/io5'
 
 const Page = () => {
   return (
@@ -96,8 +111,43 @@ const Page = () => {
             Music, Surfing, Workout, Good food, Ice cream
           </Paragraph>
         </Section>
+
+        {/* Social Media */}
+        <Section delay={0.3}>
+          <Heading as ="h3" variant="section-title">
+            Contacts
+          </Heading>
+          <List>
+            <ListItem>
+              <Link href="https://github.com/ikang9712/" target="_blank">
+                <Button variant="ghost" colorScheme="teal" leftIcon={<Icon as={IoLogoGithub}/>}>
+                  @ikang9712
+                </Button>
+              </Link>
+            </ListItem>
+            <ListItem>
+              <Link href="https://www.linkedin.com/in/inho-kang-6813261a8/" target="_blank">
+                <Button variant="ghost" colorScheme="teal" leftIcon={<Icon as={IoLogoLinkedin}/>}>
+                  @inho-kang
+                </Button>
+              </Link>
+            </ListItem>
+            <ListItem>
+              <Link href="https://www.discordapp.com/users/inho#5759" target="_blank">
+                <Button variant="ghost" colorScheme="teal" leftIcon={<Icon as={IoLogoDiscord}/>}>
+                  @inho
+                </Button>
+              </Link>
+            </ListItem>
+          </List>
+          <Box align="center" my={4}>
+            <Button leftIcon={<Icon as={IoMailOpenOutline}/>} colorScheme={"teal"}>
+              Contact Me!
+            </Button>
+          </Box>
+        </Section>
       </Container>
-      </Layout>
+    </Layout>
   )
 }
 
