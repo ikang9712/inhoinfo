@@ -31,17 +31,13 @@ import Section from '../components/section'
 import Paragraph from '../components/paragraph'
 import { BioSection, BioYear } from '../components/bio'
 import Layout from '../components/layouts/article'
-import { GridItem } from '../components/grid-item'
 import {
-  IoLogoTwitter,
-  IoLogoInstagram,
   IoLogoGithub,
   IoLogoLinkedin,
   IoMailOpenOutline,
-  IoMailUnread,
-  IoMailOpen,
   IoLogoDiscord
 } from 'react-icons/io5'
+import emailjs from '@emailjs/browser';
 
 const Page = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -52,9 +48,28 @@ const Page = () => {
   const handleEmailChange = (e) => setEmail(e.target.value)
   const handleContentChange = (e) => setContent(e.target.value)
   const isError = email === ''
+  const serviceID = "service_df5xhs9"
+  const templateID = "template_76y2jkb"
+  const publicKey = "a_dCPqoyR2Rr37z20"
 
-  const sendEmail = () => {
-    console.log("send email")
+  const sendEmail = async() => {
+    const emailContent = document.createElement("form")
+    emailContent.setAttribute("charset", "UTF-8")
+    const fromEmail = document.createElement("input");
+    fromEmail.setAttribute('name', 'from_email')
+    fromEmail.setAttribute('value', email)
+    const message = document.createElement("input");
+    message.setAttribute('name', 'message')
+    message.setAttribute('value', content)
+    emailContent.appendChild(fromEmail)
+    emailContent.appendChild(message)
+    await emailjs.sendForm(serviceID, templateID, emailContent, publicKey)
+    .then((result)=> {
+      console.log(`Success! Message: ${result.text}`)
+    }, (error) => {
+      console.log(`Error! Message: ${error.text}`)
+    })
+
     onClose()
     setEmail("")
     setContent("")
@@ -199,8 +214,7 @@ const Page = () => {
                 <ModalHeader>Send email to Inho Kang</ModalHeader>
                 <ModalCloseButton/>
                 <ModalBody>
-                <FormControl isRequired
-                  isInvalid={isError}>
+                <FormControl isRequired isInvalid={isError}>
                   <FormLabel>Your Email</FormLabel>
                   <Input 
                   type='email'
