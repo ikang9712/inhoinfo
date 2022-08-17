@@ -1,4 +1,5 @@
 import NextLink from 'next/link'
+import { useRef, useState, useEffect } from 'react'
 import { 
   Container, 
   Box, 
@@ -7,10 +8,23 @@ import {
   useColorModeValue, 
   Link,
   Button,
-  SimpleGrid,
   List,
   ListItem,
   Icon,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure,
+  FormControl,
+  FormLabel,
+  FormErrorMessage,
+  FormHelperText,
+  Input,
+  Textarea
 } from '@chakra-ui/react'
 import { ChevronRightIcon } from '@chakra-ui/icons'
 import Section from '../components/section'
@@ -30,9 +44,33 @@ import {
 } from 'react-icons/io5'
 
 const Page = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const initialRef = useRef(null)
+  const finalRef = useRef(null)
+  const [email, setEmail] = useState('')
+  const [content, setContent] = useState('')
+  const handleEmailChange = (e) => setEmail(e.target.value)
+  const handleContentChange = (e) => setContent(e.target.value)
+  const isError = email === ''
+
+  const sendEmail = () => {
+    console.log("send email")
+    onClose()
+    setEmail("")
+    setContent("")
+  }
+
+  const closeEmail = () => {
+    onClose()
+    setEmail("")
+    setContent("")
+  }
+
+
   return (
     <Layout>
       <Container>
+        {/* Header */}
         <Box borderRadius = "lg" bg={useColorModeValue('#c3b091', 'whiteAlpha.200')} p={3} mb={5} align="center">
           Hello, I&apos;m a junior developer based in the U.S.!
         </Box>
@@ -60,6 +98,8 @@ const Page = () => {
              />
           </Box>
         </Box>
+
+        {/* Work */}
         <Section delay={0.1}>
           <Heading as="h3" variant="section-title">
             Work
@@ -82,6 +122,7 @@ const Page = () => {
           </Box>
         </Section>
 
+        {/* Bio */}
         <Section delay={0.2}>
           <Heading as="h3" variant="section-title">
             Bio
@@ -140,10 +181,62 @@ const Page = () => {
               </Link>
             </ListItem>
           </List>
+
+          {/* Contact */}
           <Box align="center" my={4}>
-            <Button leftIcon={<Icon as={IoMailOpenOutline}/>} colorScheme={"teal"}>
+            <Button 
+            leftIcon={<Icon as={IoMailOpenOutline}/>} 
+            colorScheme={"teal"}
+            onClick={onOpen}>
               Contact Me!
             </Button>
+            <Modal 
+            isOpen={isOpen} 
+            onClose={onClose}
+            initialFocusRef={initialRef}>
+              <ModalOverlay />
+              <ModalContent>
+                <ModalHeader>Send email to Inho Kang</ModalHeader>
+                <ModalCloseButton/>
+                <ModalBody>
+                <FormControl isRequired
+                  isInvalid={isError}>
+                  <FormLabel>Your Email</FormLabel>
+                  <Input 
+                  type='email'
+                  value={email}
+                  onChange={handleEmailChange}
+                  ref={initialRef} 
+                  placeholder='Your Email' />
+                  {!isError ? (
+                    <FormHelperText>
+                      Enter the sender's email.
+                    </FormHelperText>
+                  ) : (
+                    <FormErrorMessage>Email is required.</FormErrorMessage>
+                  )}
+                </FormControl>
+
+                <FormControl mt={4}>
+                  <FormLabel>Content</FormLabel>
+                  <Textarea 
+                  value={content}
+                  onChange={handleContentChange}
+                  placeholder='Here is a sample placeholder'
+                  size='sm'
+                  />
+                </FormControl>
+                </ModalBody>
+                <ModalFooter>
+                  <Button colorScheme='blue' mr={3} onClick={sendEmail}>
+                    Send Email
+                  </Button>
+                  <Button colorScheme='blue' mr={3} onClick={closeEmail}>
+                    Close
+                  </Button>
+                </ModalFooter>
+              </ModalContent>
+            </Modal>
           </Box>
         </Section>
       </Container>
