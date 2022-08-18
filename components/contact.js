@@ -16,7 +16,8 @@ import {
   FormErrorMessage,
   FormHelperText,
   Input,
-  Textarea
+  Textarea,
+  useToast
 } from '@chakra-ui/react'
 import {
   IoMailOpenOutline,
@@ -34,8 +35,41 @@ const Contact = () => {
     const serviceID = "service_df5xhs9"
     const templateID = "template_76y2jkb"
     const publicKey = "a_dCPqoyR2Rr37z20"
+    const toast = useToast()
+
+    const checkEmailFormat = () => {
+        if (!email){
+            toast({
+                title: 'Please put your email address.',
+                description: "",
+                status: 'warning',
+                duration: 9000,
+                isClosable: true,
+            })
+            return false
+        } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)){
+            toast({
+                title: 'Email format is invalid',
+                description: "",
+                status: 'warning',
+                duration: 9000,
+                isClosable: true,
+            })
+            return false
+        }
+        return true
+    }
 
     const sendEmail = async() => {
+        if (!checkEmailFormat()){
+            return
+        }
+        toast({
+            title: 'Sending email right now!',
+            description: "",
+            status: 'loading',
+            duration: 9000,
+          })
         const emailContent = document.createElement("form")
         emailContent.setAttribute("charset", "UTF-8")
         const fromEmail = document.createElement("input");
@@ -48,12 +82,44 @@ const Contact = () => {
         emailContent.appendChild(message)
         await emailjs.sendForm(serviceID, templateID, emailContent, publicKey)
         .then((result)=> {
-          console.log(`Success! Message: ${result.text}`)
+            toast.closeAll()
+            toast({
+                title: 'Email has been sent successfully!',
+                description: "Inho will reach out to you shortly :)",
+                status: 'success',
+                duration: 9000,
+                isClosable: true,
+            })
         }, (error) => {
-          console.log(`Error! Message: ${error.text}`)
+            toast.closeAll()
+            toast({
+                title: 'Error!',
+                description: "Please try again after refreshing the browser.",
+                status: 'error',
+                duration: 9000,
+                isClosable: true,
+            })
         })
     
         closeEmail()
+      }
+
+      const test = () => {
+        toast({
+            title: 'Please put your email address.',
+            description: "",
+            status: 'warning',
+            duration: 9000,
+            isClosable: true,
+        })
+        toast({
+            title: 'Email format is invalid',
+            description: "",
+            status: 'warning',
+            duration: 9000,
+            isClosable: true,
+        })
+        
       }
     
       const closeEmail = () => {
@@ -64,6 +130,11 @@ const Contact = () => {
 
     return (
         <Box align="center" my={4}>
+            <Button 
+            colorScheme={"teal"}
+            onClick={test}>
+              test toast
+            </Button>
             <Button 
             leftIcon={<Icon as={IoMailOpenOutline}/>} 
             colorScheme={"teal"}
@@ -85,7 +156,8 @@ const Contact = () => {
                   type='email'
                   value={email}
                   onChange={handleEmailChange}
-                  ref={initialRef} 
+                  ref={initialRef}
+                  variant={"flushed"}
                   placeholder='Your Email' />
                   {!isError ? (
                     <FormHelperText>
@@ -101,7 +173,7 @@ const Contact = () => {
                   <Textarea 
                   value={content}
                   onChange={handleContentChange}
-                  placeholder='Here is a sample placeholder'
+                  placeholder=''
                   size='sm'
                   />
                 </FormControl>
