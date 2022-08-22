@@ -6,7 +6,8 @@ import {
     Button,
     Icon,
     Link,
-    Box
+    Box,
+    textDecoration
 } from '@chakra-ui/react';
 import Section from '../components/section';
 import {WorkGridItem} from '../components/grid-item'
@@ -18,26 +19,31 @@ import {
     IoFileTrayFull,
   } from 'react-icons/io5'
   import { useColorModeValue } from '@chakra-ui/react';
+  import styled from '@emotion/styled'
+  import NextLink from 'next/link'
+
+// const StyledLink = styled(Link)`
+//     text-decoration: none;
+//     &:focus, &:hover, &:visited, &:link, &:active {
+//         text-decoration: none;
+//     }
+// `
+
 
 const Works = () => {
-
-    const download = async() => {
-
-    }
 
     return (
         <Layout>
         <Container>
             <Box align="center" my={4}>
-                <Link href='https://inhoinfotest.s3.amazonaws.com/testfile.docx' target='_blank'>
+                <NextLink href='https://inhoinfotest.s3.amazonaws.com/testfile.docx' target='_blank'>
                     <Button 
                     leftIcon={<Icon as={IoFileTrayFull}/>} 
                     bg={useColorModeValue('whiteAlpha.800', 'whiteAlpha.200')}
-                    
                     >
                     Download Full Resume
                     </Button>
-                </Link>
+                </NextLink>
             </Box>
             <Heading as="h3" fontSize={20} mb={4}>
                 Works
