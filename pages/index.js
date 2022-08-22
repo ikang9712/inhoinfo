@@ -125,7 +125,7 @@ const Page = () => {
             <ListItem>
               <Link href="https://github.com/ikang9712/" target="_blank">
                 <Button 
-                _hover={{bg: "teal.600"}}
+                _hover={{}}
                 variant="ghost" textColor={useColorModeValue('#FE8D01', '#805AD5')} leftIcon={<Icon as={IoLogoGithub}/>}>
                   @ikang9712
                 </Button>
@@ -133,14 +133,18 @@ const Page = () => {
             </ListItem>
             <ListItem>
               <Link href="https://www.linkedin.com/in/inho-kang-6813261a8/" target="_blank">
-                <Button variant="ghost" textColor={useColorModeValue('#FE8D01', '#805AD5')} leftIcon={<Icon as={IoLogoLinkedin}/>}>
+                <Button 
+                _hover={{}}
+                variant="ghost" textColor={useColorModeValue('#FE8D01', '#805AD5')} leftIcon={<Icon as={IoLogoLinkedin}/>}>
                   @inho-kang
                 </Button>
               </Link>
             </ListItem>
             <ListItem>
               <Link href="https://www.discordapp.com/users/inho#5759" target="_blank">
-                <Button variant="ghost" textColor={useColorModeValue('#FE8D01', '#805AD5')} leftIcon={<Icon as={IoLogoDiscord}/>}>
+                <Button 
+                _hover={{}}
+                variant="ghost" textColor={useColorModeValue('#FE8D01', '#805AD5')} leftIcon={<Icon as={IoLogoDiscord}/>}>
                   @inho
                 </Button>
               </Link>
