@@ -23,6 +23,7 @@ import {
   IoMailOpenOutline,
 } from 'react-icons/io5'
 import emailjs from '@emailjs/browser';
+import { useColorModeValue } from '@chakra-ui/react';
 
 const Contact = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
@@ -103,24 +104,6 @@ const Contact = () => {
     
         closeEmail()
       }
-
-      const test = () => {
-        toast({
-            title: 'Please put your email address.',
-            description: "",
-            status: 'warning',
-            duration: 9000,
-            isClosable: true,
-        })
-        toast({
-            title: 'Email format is invalid',
-            description: "",
-            status: 'warning',
-            duration: 9000,
-            isClosable: true,
-        })
-        
-      }
     
       const closeEmail = () => {
         onClose()
@@ -131,13 +114,8 @@ const Contact = () => {
     return (
         <Box align="center" my={4}>
             <Button 
-            colorScheme={"teal"}
-            onClick={test}>
-              test toast
-            </Button>
-            <Button 
             leftIcon={<Icon as={IoMailOpenOutline}/>} 
-            colorScheme={"teal"}
+            bg={useColorModeValue('whiteAlpha.800', 'whiteAlpha.200')}
             onClick={onOpen}>
               Contact Me!
             </Button>

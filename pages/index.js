@@ -24,14 +24,16 @@ import { BioSection, BioYear } from '../components/bio'
 import Layout from '../components/layouts/article'
 import Contact from '../components/contact'
 
+const socialButtonStyle = ""
+
 const Page = () => {
 
   return (
     <Layout>
       <Container>
         {/* Header */}
-        <Box borderRadius = "lg" bg={useColorModeValue('#c3b091', 'whiteAlpha.200')} p={3} mb={5} align="center">
-          Hello, I&apos;m a junior developer based in the U.S.!
+        <Box borderRadius = "lg" bg={useColorModeValue('whiteAlpha.800', 'whiteAlpha.200')} p={3} mb={5} align="center">
+          Hello, I&apos;m a software engineer based in the U.S.!
         </Box>
         <Box display={{md:'flex'}}>
           <Box flexGrow={1}>
@@ -65,7 +67,7 @@ const Page = () => {
           </Heading>
           <Paragraph>
             Inho is a freelance and a full passion for building digital services.
-            He is very passionate in weed industry. His dream is to become a weed vendor in South Korea.
+            put more body here
             Please check here {''}
             <NextLink href="/works/inkdrop">
               <Link>Inkdrop</Link>
@@ -74,7 +76,9 @@ const Page = () => {
           </Paragraph>
           <Box align="center" my={4}>
             <NextLink href="/works">
-              <Button rightIcon={<ChevronRightIcon/>}>
+              <Button
+              bg={useColorModeValue('whiteAlpha.800', 'whiteAlpha.200')}
+              rightIcon={<ChevronRightIcon/>}>
                 My portfolio 
               </Button>
             </NextLink>
@@ -88,7 +92,7 @@ const Page = () => {
           </Heading>
           <BioSection>
             <BioYear>1997</BioYear>
-            Born in Daegu (대구), South Korea
+            Born in Daegu, South Korea
           </BioSection>
           <BioSection>
             <BioYear>2017</BioYear>
@@ -96,7 +100,7 @@ const Page = () => {
           </BioSection>
           <BioSection>
             <BioYear>2020</BioYear>
-            Discharged from Korean military service, the 5th Artillery Brigade(제5포병여단)
+            Discharged from Korean military service, the 5th Artillery Brigade
           </BioSection>
           <BioSection>
             <BioYear>~Present</BioYear>
@@ -120,21 +124,23 @@ const Page = () => {
           <List>
             <ListItem>
               <Link href="https://github.com/ikang9712/" target="_blank">
-                <Button variant="ghost" colorScheme="teal" leftIcon={<Icon as={IoLogoGithub}/>}>
+                <Button 
+                _hover={{bg: "teal.600"}}
+                variant="ghost" textColor={useColorModeValue('#FE8D01', '#805AD5')} leftIcon={<Icon as={IoLogoGithub}/>}>
                   @ikang9712
                 </Button>
               </Link>
             </ListItem>
             <ListItem>
               <Link href="https://www.linkedin.com/in/inho-kang-6813261a8/" target="_blank">
-                <Button variant="ghost" colorScheme="teal" leftIcon={<Icon as={IoLogoLinkedin}/>}>
+                <Button variant="ghost" textColor={useColorModeValue('#FE8D01', '#805AD5')} leftIcon={<Icon as={IoLogoLinkedin}/>}>
                   @inho-kang
                 </Button>
               </Link>
             </ListItem>
             <ListItem>
               <Link href="https://www.discordapp.com/users/inho#5759" target="_blank">
-                <Button variant="ghost" colorScheme="teal" leftIcon={<Icon as={IoLogoDiscord}/>}>
+                <Button variant="ghost" textColor={useColorModeValue('#FE8D01', '#805AD5')} leftIcon={<Icon as={IoLogoDiscord}/>}>
                   @inho
                 </Button>
               </Link>
