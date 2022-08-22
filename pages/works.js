@@ -2,16 +2,43 @@ import {
     Container,
     Heading,
     SimpleGrid,
-    Divider
+    Divider,
+    Button,
+    Icon,
+    Link,
+    Box
 } from '@chakra-ui/react';
 import Section from '../components/section';
 import {WorkGridItem} from '../components/grid-item'
 import thumbInkdrop from '../public/images/works/museicon.png'
 import Layout from '../components/layouts/article';
+
+//download
+import {
+    IoFileTrayFull,
+  } from 'react-icons/io5'
+  import { useColorModeValue } from '@chakra-ui/react';
+
 const Works = () => {
+
+    const download = async() => {
+
+    }
+
     return (
         <Layout>
         <Container>
+            <Box align="center" my={4}>
+                <Link href='https://inhoinfotest.s3.amazonaws.com/testfile.docx' target='_blank'>
+                    <Button 
+                    leftIcon={<Icon as={IoFileTrayFull}/>} 
+                    bg={useColorModeValue('whiteAlpha.800', 'whiteAlpha.200')}
+                    
+                    >
+                    Download Full Resume
+                    </Button>
+                </Link>
+            </Box>
             <Heading as="h3" fontSize={20} mb={4}>
                 Works
             </Heading>
