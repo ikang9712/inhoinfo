@@ -5,9 +5,7 @@ import {
     Divider,
     Button,
     Icon,
-    Link,
     Box,
-    textDecoration
 } from '@chakra-ui/react';
 import Section from '../components/section';
 import {WorkGridItem} from '../components/grid-item'
@@ -19,7 +17,6 @@ import {
     IoFileTrayFull,
   } from 'react-icons/io5'
   import { useColorModeValue } from '@chakra-ui/react';
-  import styled from '@emotion/styled'
   import NextLink from 'next/link'
 
 // const StyledLink = styled(Link)`
@@ -54,6 +51,16 @@ const Works = () => {
                         A markdown note-taking app
                     </WorkGridItem>
                 </Section>
+            </SimpleGrid>
+            <Section delay={0.2}>
+                <Divider my={6} />
+
+                <Heading as="h3" fontSize={20} mb={4}>
+                School Works
+                </Heading>
+            </Section>
+            <SimpleGrid columns={[1,1,2]} gap={6}>
+
             </SimpleGrid>
         </Container>
         </Layout>
