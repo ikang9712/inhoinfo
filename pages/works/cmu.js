@@ -6,21 +6,24 @@ import Layout from '../../components/layouts/article'
 
 const Work = () => {
     return(
-        <Layout title="Inkdrop">
+        <Layout title="webapp">
             <Container>
                 <Title>
-                    museLIVE <Badge>2022</Badge>
+                    17437 Web App Project <Badge>2022</Badge>
                 </Title>
                 <Paragraph>
                     A Markdown note-taking app with 111
                 </Paragraph>
                 <List ml={4} my={4}>
                     <ListItem>
-                        <Meta>Website</Meta>
-                        <Link href="https://www.muse.live">
-                            https://www.muse.live <ExternalLinkIcon mx="2px"/>
-                        </Link>
+                        <Meta>Platform</Meta>
+                        <span>Windows/macOS/Linux/iOS/Android</span>
                     </ListItem>
+                    <ListItem>
+                        <Meta>Stack</Meta>
+                        <span>NodeJS, Django, SQL </span>
+                    </ListItem>
+                               
                 </List>
                 {/* <WorkImage src="" alt="~~" /> */}
             </Container>

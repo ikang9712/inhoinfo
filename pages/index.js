@@ -10,7 +10,6 @@ import {
   List,
   ListItem,
   Icon,
-
 } from '@chakra-ui/react'
 import { ChevronRightIcon } from '@chakra-ui/icons'
 import {
@@ -23,8 +22,7 @@ import Paragraph from '../components/paragraph'
 import { BioSection, BioYear } from '../components/bio'
 import Layout from '../components/layouts/article'
 import Contact from '../components/contact'
-
-const socialButtonStyle = ""
+import ThemeGlowBox from '../components/theme-glow-box'
 
 const Page = () => {
 
@@ -32,9 +30,9 @@ const Page = () => {
     <Layout>
       <Container>
         {/* Header */}
-        <Box borderRadius = "lg" bg={useColorModeValue('whiteAlpha.800', 'whiteAlpha.200')} p={3} mb={5} align="center">
-          Hello, I&apos;m a software engineer based in the United States!
-        </Box>
+        <ThemeGlowBox fromColor={useColorModeValue('#FEB264','#3a3a3a')} toColor={useColorModeValue('#E77A7B','#5d5d5d')}>
+          Actively Seeking for full time roles starting Spring 2023 😍
+        </ThemeGlowBox>
         <Box display={{md:'flex'}}>
           <Box flexGrow={1}>
             <Heading as="h2" variant="page-title">
@@ -74,7 +72,6 @@ const Page = () => {
               <Link> museLIVE</Link>
             </NextLink>
             .
-            Actively seeking for full time roles starting Spring 2023 :)
           </Paragraph>
           <Box align="center" my={4}>
             <NextLink href="/works">
@@ -134,15 +131,21 @@ const Page = () => {
               </Link>
           </BioSection>
           <BioSection>
+            <BioYear>17-303</BioYear>
+              <Link href="https://www.coursicle.com/cmu/courses/ISR/17303/" target="_blank"> 
+              Cryptocurrencies, Blockchains, and Applications
+              </Link>
+          </BioSection>
+          <BioSection>
             <BioYear>15-351</BioYear>
               <Link href="https://www.coursicle.com/cmu/courses/CS/15351/" target="_blank"> 
               Algorithms and Advanced Data Structures
               </Link>
           </BioSection>
           <BioSection>
-            <BioYear>17-303</BioYear>
-              <Link href="https://www.coursicle.com/cmu/courses/ISR/17303/" target="_blank"> 
-              Cryptocurrencies, Blockchains, and Applications
+            <BioYear>36-402</BioYear>
+              <Link href="https://www.coursicle.com/cmu/courses/STA/36402/" target="_blank"> 
+              Advanced Methods for Data Analysis
               </Link>
           </BioSection>
         </Section>
