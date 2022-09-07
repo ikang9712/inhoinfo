@@ -1,36 +1,115 @@
-import { Container, Badge, Link, List, ListItem } from '@chakra-ui/react'
-import { ExternalLinkIcon } from '@chakra-ui/icons'
+import { Container, Badge, Link, List, ListItem, ListIcon, Heading, Center, SimpleGrid } from '@chakra-ui/react'
+import { ExternalLinkIcon, CheckCircleIcon } from '@chakra-ui/icons'
 import { Title, WorkImage, Meta } from '../../components/work'
 import Paragraph from '../../components/paragraph'
 import Layout from '../../components/layouts/article'
+import Section from '../../components/section'
+import video from '../../public/videos/muse_video.mp4';
+import WorkVideo from '../../components/work-video'
+
 
 const Work = () => {
+    const playerRef = React.useRef(null);
+    const videoJsOptions = {
+        controls: true,
+        sources: [{
+        src: video,
+        type: 'video/mp4'
+        }]
+    }
+    const handlePlayerReady = (player) => {
+        playerRef.current = player;
+
+        player.on ('waiting', () => {
+        videojs.log('player is ready')
+        })
+        player.on('dispose', () => {
+        videojs.log('player will dispose')
+        })
+    }
     return(
         <Layout title="museLIVE">
             <Container>
                 <Title>
                     museLIVE <Badge>2022</Badge>
                 </Title>
+                <Heading as="h4" fontSize={16} my={6}>
+                        <Center> Intro </Center>
+                    </Heading>
                 <Paragraph>
-                    A Markdown note-taking app with 111
+                    <Link pr={1}
+                    href="https://www.muse.live" target="_blank">
+                        museLIVE
+                    </Link>
+                    is a web3 online live music platform where users can perform and mint their performances into NFTs (
+                    <Link href="https://opensea.io/collection/muselive-official" target="_blank">
+                        OpenSea link
+                    </Link>
+                    ).
+                    Currently, they only support iOS(
+                    <Link href="https://apps.apple.com/en/app/muselive-online-concerts/id1564042040" target="_blank">
+                        AppStore link
+                    </Link>
+                    ).
                 </Paragraph>
+                <Paragraph>
+                    My role was to create a web application with online live performance and real-time voice chat features using React and Typescript.
+                    (Below images are from Figma.)
+                    <Heading as="h4" fontSize={16} my={6}>
+                        <Center> Summary </Center>
+                    </Heading>
+                    <List spacing={1} my={2}>
+                        <ListItem>
+                            <ListIcon as={CheckCircleIcon} color='green.500' />
+                            set up the local environment using GVM and GO.
+                        </ListItem>
+                        <ListItem>
+                            <ListIcon as={CheckCircleIcon} color='green.500' />
+                            built passwordless email signin/signup with JWT.
+                        </ListItem>
+                        <ListItem>
+                            <ListIcon as={CheckCircleIcon} color='green.500' />
+                            enabled bi-directional, real-time communication between the web browser and mobile application with Socket and JWT.
+                        </ListItem>
+                        <ListItem>
+                            <ListIcon as={CheckCircleIcon} color='green.500' />
+                            enabled real-time crossplatform voice chat with AgoraRTC.
+                        </ListItem>
+                        <ListItem>
+                            <ListIcon as={CheckCircleIcon} color='green.500' />
+                            enabled online live streaming service with MUX.
+                        </ListItem>
+                        <ListItem>
+                            <ListIcon as={CheckCircleIcon} color='green.500' />
+                            customized webpack configuration 
+                        </ListItem>
+                    </List>
+                    
+                    
+
+                </Paragraph>
+                <Heading as="h4" fontSize={16} my={6}>
+                        <Center> Meta </Center>
+                </Heading>
                 <List ml={4} my={4}>
                     <ListItem>
-                        <Meta>Website</Meta>
-                        <Link href="https://www.muse.live">
-                            https://www.muse.live <ExternalLinkIcon mx="2px"/>
-                        </Link>
-                    </ListItem>
-                    <ListItem>
                         <Meta>Platform</Meta>
-                        <span>Windows/macOS/Linux/iOS/Android</span>
+                        <span>iOS, (on plan) Windows/macOS/Linux</span>
                     </ListItem>
                     <ListItem>
                         <Meta>Stack</Meta>
-                        <span>NodeJS, Typescript, React</span>
+                        <span>NodeJS, Typescript, React, GO, GVM</span>
                     </ListItem>
                 </List>
-                {/* <WorkImage src="" alt="~~" /> */}
+                <SimpleGrid columns={[1,1,2]} gap={6}>
+                        <Section>
+                            <WorkImage src="/images/works/muse_img1.png" alt="muse_img1" />
+                        </Section>
+                        <Section>
+                            <WorkImage src="/images/works/muse_img2.png" alt="muse_img2" />
+                        </Section>
+                </SimpleGrid>
+                <WorkVideo options={videoJsOptions} onReady={handlePlayerReady}/>
             </Container>
         </Layout>
     )

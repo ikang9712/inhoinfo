@@ -31,7 +31,7 @@ const Page = () => {
       <Container>
         {/* Header */}
         <ThemeGlowBox fromColor={useColorModeValue('#FEB264','#3a3a3a')} toColor={useColorModeValue('#E77A7B','#5d5d5d')}>
-          Actively Seeking for full time roles starting Spring 2023 😍
+          Actively Seeking for full time roles starting Summer 2023 😍
         </ThemeGlowBox>
         <Box display={{md:'flex'}}>
           <Box flexGrow={1}>
@@ -64,15 +64,22 @@ const Page = () => {
             About
           </Heading>
           <Paragraph>
-            I am a final-year undergraduate student at Carnegie Mellon University, 
-            majoring in Statistics and Machine Learning with minors in Software Engineering.
-            My most recent work was creating an web app using React for real-time voice chat (Agora RTC) and high quality music performance (Mux API).
+            🙋‍♂️ Hello, I am a fullstack web developer interested in machine learning and crypto. 
+            I will be finishing my Bachelor's degree on Statistics and Machine Learning in 2023 Spring. 
+          </Paragraph>
+          <Paragraph>
+            📚 During my senior year, I am assisting Professor Jeff Eppinger in guiding 100+ students to program end-to-end web application servers (HTML/CSS/JS, XML, Security, Cloud Deployment, etc). 
+
+          </Paragraph>
+          <Paragraph>
+            💪 My most recent work was creating a React/Typescript web application with real-time voice chat and live loseless audio performance.
             You can check more details here: 
-            <NextLink href="/works/inkdrop">
+            <NextLink href="/works/muselive">
               <Link> museLIVE</Link>
             </NextLink>
             .
           </Paragraph>
+          
           <Box align="center" my={4}>
             <NextLink href="/works">
               <Button
@@ -94,16 +101,16 @@ const Page = () => {
             Born in Daegu, South Korea
           </BioSection>
           <BioSection>
-            <BioYear>2017</BioYear>
+            <BioYear>2014~2017</BioYear>
             Graduated from Culver Academies, Indiana
           </BioSection>
           <BioSection>
-            <BioYear>2020</BioYear>
-            Discharged from Korean military service, the 5th Artillery Brigade
+            <BioYear>2018~2020</BioYear>
+            Discharged from Korean military, 5th Artillery Brigade
           </BioSection>
           <BioSection>
-            <BioYear>~Present</BioYear>
-            Will complete my Bachelor&apos;s Degree in Statistics and Machine Learning at CMU(Carnegie Mellon University) in Spring 2023
+            <BioYear>2017~2023</BioYear>
+            Will complete my Bachelor&apos;s Degree on Statistics and Machine Learning at CMU(Carnegie Mellon University) in Spring 2023
           </BioSection>
         </Section>
 
@@ -119,21 +126,21 @@ const Page = () => {
               </Link>
           </BioSection>
           <BioSection>
-            <BioYear>17-480</BioYear>
-              <Link href="https://www.coursicle.com/cmu/courses/ISR/17480/" target="_blank"> 
-              API Design and Implementation
-              </Link>
-          </BioSection>
-          <BioSection>
-            <BioYear>17-336</BioYear>
-              <Link href="https://www.coursicle.com/cmu/courses/ISR/17336/" target="_blank"> 
-              Applied Distributed Systems
+            <BioYear>17-445</BioYear>
+              <Link href="https://www.coursicle.com/cmu/courses/ISR/17445/" target="_blank"> 
+              Machine Learning in Production
               </Link>
           </BioSection>
           <BioSection>
             <BioYear>17-303</BioYear>
               <Link href="https://www.coursicle.com/cmu/courses/ISR/17303/" target="_blank"> 
               Cryptocurrencies, Blockchains, and Applications
+              </Link>
+          </BioSection>
+          <BioSection>
+            <BioYear>17-336</BioYear>
+              <Link href="https://www.coursicle.com/cmu/courses/ISR/17336/" target="_blank"> 
+              Applied Distributed Systems
               </Link>
           </BioSection>
           <BioSection>

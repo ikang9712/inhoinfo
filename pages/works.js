@@ -12,7 +12,6 @@ import Section from '../components/section';
 import {WorkGridItem} from '../components/grid-item'
 import thumbmuselive from '../public/images/works/muse.jpg'
 import thumbwebapp from '../public/images/works/webapp.png'
-import thumbcmu from '../public/images/works/cmu.png'
 import thumblemon from '../public/images/works/lemon.png'
 
 import Layout from '../components/layouts/article';
@@ -36,7 +35,7 @@ const Works = () => {
     const toast = useToast()
     const download = () => {
         try {
-            window.location.href = "https://inhoinfotest.s3.amazonaws.com/testfile.docx"
+            window.open("https://inhoinfotest.s3.amazonaws.com/inhoinfo.pdf", "_blank")
             toast({
                 title: 'Download completed!',
                 description: "",
@@ -64,7 +63,7 @@ const Works = () => {
                     bg={useColorModeValue('whiteAlpha.800', 'whiteAlpha.200')}
                     onClick={download}
                     >
-                    Download Full Resume
+                    See the full resume
                     </Button>
                 {/* </NextLink> */}
             </Box>
@@ -74,17 +73,12 @@ const Works = () => {
             <SimpleGrid columns={[1,1,2]} gap={6}>
                 <Section>
                     <WorkGridItem id="muselive" title="museLIVE" thumbnail={thumbmuselive}>
-                        Online live music performance app
+                        Web App developer at museLIVE
                     </WorkGridItem>
                 </Section>
                 <Section>
-                    <WorkGridItem id="cmu" title="cmu" thumbnail={thumbcmu}>
-                        cmu TA
-                    </WorkGridItem>
-                </Section>
-                <Section>
-                    <WorkGridItem id="lemon" title="lemon" thumbnail={thumblemon}>
-                        lemon healthcare
+                    <WorkGridItem id="lemon" title="Lemon Healthcare" thumbnail={thumblemon}>
+                        Lemon Healthcare
                     </WorkGridItem>
                 </Section>
             </SimpleGrid>
