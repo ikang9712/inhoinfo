@@ -28,7 +28,6 @@
   "devDependencies": {
     "eslint": "^8.21.0",
     "eslint-config-next": "^12.2.3",
-    "prettier": "^2.7.1",
-    "video.js": "^7.20.2"
+    "prettier": "^2.7.1"
   }
 }

@@ -4,29 +4,9 @@ import { Title, WorkImage, Meta } from '../../components/work'
 import Paragraph from '../../components/paragraph'
 import Layout from '../../components/layouts/article'
 import Section from '../../components/section'
-import video from '../../public/videos/muse_video.mp4';
-import WorkVideo from '../../components/work-video'
 
 
 const Work = () => {
-    const playerRef = React.useRef(null);
-    const videoJsOptions = {
-        controls: true,
-        sources: [{
-        src: video,
-        type: 'video/mp4'
-        }]
-    }
-    const handlePlayerReady = (player) => {
-        playerRef.current = player;
-
-        player.on ('waiting', () => {
-        videojs.log('player is ready')
-        })
-        player.on('dispose', () => {
-        videojs.log('player will dispose')
-        })
-    }
     return(
         <Layout title="museLIVE">
             <Container>
@@ -109,7 +89,6 @@ const Work = () => {
                             <WorkImage src="/images/works/muse_img2.png" alt="muse_img2" />
                         </Section>
                 </SimpleGrid>
-                <WorkVideo options={videoJsOptions} onReady={handlePlayerReady}/>
             </Container>
         </Layout>
     )
