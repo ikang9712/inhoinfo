@@ -1,10 +1,9 @@
 import { Container, Badge, Link, List, ListItem, ListIcon, Heading, Center, SimpleGrid } from '@chakra-ui/react'
-import { ExternalLinkIcon, CheckCircleIcon } from '@chakra-ui/icons'
+import { CheckCircleIcon } from '@chakra-ui/icons'
 import { Title, WorkImage, Meta } from '../../components/work'
 import Paragraph from '../../components/paragraph'
 import Layout from '../../components/layouts/article'
 import Section from '../../components/section'
-import ReactPlayer from 'react-player'
 
 
 const Work = () => {

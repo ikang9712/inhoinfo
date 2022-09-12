@@ -1,4 +1,4 @@
-import { Container, Badge, Link, List, ListItem, ListIcon, Heading, Center, SimpleGrid } from '@chakra-ui/react'
+import { Container, Badge, Link, List, ListItem, ListIcon, Heading, Center } from '@chakra-ui/react'
 import { CheckCircleIcon } from '@chakra-ui/icons'
 import { Title, WorkImage, Meta } from '../../components/work'
 import Paragraph from '../../components/paragraph'
@@ -23,7 +23,7 @@ const Work = () => {
                     <Link href='https://www.clarifai.com/' pl={1}>
                         Clarifai
                     </Link>
-                    's computer vision API call for the color analysis.
+                    &apos;s computer vision API call for the color analysis.
                     
                     <Heading as="h4" fontSize={16} my={6}>
                         <Center> Summary </Center>
