@@ -1,5 +1,9 @@
 {
-  "name": "craftz",
+  "name": "inho",
+  "alias": [
+    "inho.info",
+    "www.inho.info"
+  ],
   "version": "1.0.0",
   "description": "Inho's website",
   "scripts": {
