@@ -20,7 +20,7 @@ import {
   useToast
 } from '@chakra-ui/react'
 import {
-  IoMailOpenOutline,
+  IoDocumentTextOutline,
 } from 'react-icons/io5'
 import emailjs from '@emailjs/browser';
 import { useColorModeValue } from '@chakra-ui/react';
@@ -29,8 +29,10 @@ const Contact = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const initialRef = useRef(null)
     const [email, setEmail] = useState('')
+    const [company, setCompany] = useState('')
     const [content, setContent] = useState('')
     const handleEmailChange = (e) => setEmail(e.target.value)
+    const handleCompanyChange = (e) => setCompany(e.target.value)
     const handleContentChange = (e) => setContent(e.target.value)
     const isError = email === ''
     const serviceID = "service_df5xhs9"
@@ -70,20 +72,25 @@ const Contact = () => {
             description: "",
             status: 'loading',
             duration: 9000,
+            id: "load"
           })
         const emailContent = document.createElement("form")
         emailContent.setAttribute("charset", "UTF-8")
         const fromEmail = document.createElement("input");
         fromEmail.setAttribute('name', 'from_email')
         fromEmail.setAttribute('value', email)
+        const companyContent = document.createElement("input");
+        companyContent.setAttribute('name', 'company')
+        companyContent.setAttribute('value', company)
         const message = document.createElement("input");
         message.setAttribute('name', 'message')
         message.setAttribute('value', content)
         emailContent.appendChild(fromEmail)
         emailContent.appendChild(message)
+        emailContent.appendChild(companyContent)
         await emailjs.sendForm(serviceID, templateID, emailContent, publicKey)
         .then((result)=> {
-            toast.closeAll()
+            toast.close("load")
             toast({
                 title: 'Email has been sent successfully!',
                 description: "Inho will reach out to you shortly :)",
@@ -92,7 +99,7 @@ const Contact = () => {
                 isClosable: true,
             })
         }, (error) => {
-            toast.closeAll()
+          toast.close("load")
             toast({
                 title: 'Error!',
                 description: "Please try again after refreshing the browser.",
@@ -114,10 +121,10 @@ const Contact = () => {
     return (
         <Box align="center" my={4}>
             <Button 
-            leftIcon={<Icon as={IoMailOpenOutline}/>} 
+            leftIcon={<Icon as={IoDocumentTextOutline}/>} 
             bg={useColorModeValue('whiteAlpha.800', 'whiteAlpha.200')}
             onClick={onOpen}>
-              Contact Me!
+              Contact me!
             </Button>
             <Modal 
             isOpen={isOpen} 
@@ -136,7 +143,7 @@ const Contact = () => {
                   onChange={handleEmailChange}
                   ref={initialRef}
                   variant={"flushed"}
-                  placeholder='Your Email' />
+                  placeholder='Enter your email here' />
                   {!isError ? (
                     <FormHelperText>
                       Enter the sender's email.
@@ -145,7 +152,15 @@ const Contact = () => {
                     <FormErrorMessage>Email is required.</FormErrorMessage>
                   )}
                 </FormControl>
-
+                <FormControl>
+                  <FormLabel>Company (optional)</FormLabel>
+                  <Input 
+                  type='company'
+                  value={company}
+                  onChange={handleCompanyChange}
+                  variant={"flushed"}
+                  placeholder='Enter company name here' />
+                </FormControl>
                 <FormControl mt={4}>
                   <FormLabel>Content</FormLabel>
                   <Textarea 
