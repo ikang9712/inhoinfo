@@ -89,7 +89,7 @@ const Contact = () => {
         emailContent.appendChild(message)
         emailContent.appendChild(companyContent)
         await emailjs.sendForm(serviceID, templateID, emailContent, publicKey)
-        .then((result)=> {
+        .then(()=> {
             toast.close("load")
             toast({
                 title: 'Email has been sent successfully!',
@@ -98,7 +98,7 @@ const Contact = () => {
                 duration: 9000,
                 isClosable: true,
             })
-        }, (error) => {
+        }, () => {
           toast.close("load")
             toast({
                 title: 'Error!',
@@ -146,7 +146,7 @@ const Contact = () => {
                   placeholder='Enter your email here' />
                   {!isError ? (
                     <FormHelperText>
-                      Enter the sender's email.
+                      Enter the sender email.
                     </FormHelperText>
                   ) : (
                     <FormErrorMessage>Email is required.</FormErrorMessage>
