@@ -48,7 +48,7 @@ const Works = () => {
     }
     return (
         <Layout>
-        <Container>
+        <Container style={{backdropFilter:'blur(10px'}} pt={3}>
             <Box align="center" my={4}>
                     <Button 
                     leftIcon={<Icon as={IoFileTrayFull}/>} 

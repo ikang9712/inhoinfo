@@ -1,4 +1,4 @@
-import { Container, Badge, Link, List, ListItem, ListIcon, Heading, Center, SimpleGrid } from '@chakra-ui/react'
+import { Container, Badge, Link, List, ListItem, ListIcon, Heading, Center, SimpleGrid, Box } from '@chakra-ui/react'
 import { CheckCircleIcon } from '@chakra-ui/icons'
 import { Title, WorkImage, Meta } from '../../components/work'
 import Paragraph from '../../components/paragraph'
@@ -9,10 +9,11 @@ import Section from '../../components/section'
 const Work = () => {
     return(
         <Layout title="museLIVE">
-            <Container>
+            <Container >
                 <Title>
                     museLIVE <Badge>2022</Badge>
                 </Title>
+                <Box style={{backdropFilter:'blur(10px'}} pt={1}>
                 <Heading as="h4" fontSize={16} my={6}>
                         <Center> Intro </Center>
                     </Heading>
@@ -82,6 +83,7 @@ const Work = () => {
                             <WorkImage src="/images/works/muse_img2.png" alt="muse_img2" />
                         </Section>
                 </SimpleGrid>
+                </Box>
             </Container>
         </Layout>
     )

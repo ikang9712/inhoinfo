@@ -1,4 +1,4 @@
-import { Container, Badge, Link, List, ListItem, ListIcon, Heading, Center } from '@chakra-ui/react'
+import { Container, Badge, Link, List, ListItem, ListIcon, Heading, Center, Box } from '@chakra-ui/react'
 import { CheckCircleIcon } from '@chakra-ui/icons'
 import { Title, WorkImage, Meta } from '../../components/work'
 import Paragraph from '../../components/paragraph'
@@ -13,6 +13,7 @@ const Work = () => {
                 <Title>
                     Data Visualizer <Badge>2021</Badge>
                 </Title>
+                <Box style={{backdropFilter:'blur(10px'}} pt={1}>
                 <Heading as="h4" fontSize={16} my={6}>
                         <Center> Intro </Center>
                 </Heading>
@@ -66,6 +67,7 @@ const Work = () => {
                     <WorkImage src="/images/works/data_img1.png" alt="data_img1" />
                     <WorkImage src="/images/works/data_img2.png" alt="data_img2" />
                 </Section>
+                </Box>
             </Container>
         </Layout>
     )

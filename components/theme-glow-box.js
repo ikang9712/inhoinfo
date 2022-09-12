@@ -9,6 +9,7 @@ const ThemeGlowBox = ({children, fromColor, toColor}) => {
                     backgroundColor: fromColor,
                     display: "flex",
                     placeItems: "center",
+                    textAlign: "center",
                     placeContent: "center",
                     borderRadius: 8,
                     padding:10,
