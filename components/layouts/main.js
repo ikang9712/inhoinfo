@@ -10,8 +10,8 @@ const Main = ({children, router}) => {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta name="description" content="Inho's homepage" />
                 <meta name="author" content="Inho Kang" />
-                <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-                <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+                <link rel="apple-touch-icon" href="/images/inho.png" />
+                <link rel="shortcut icon" href="/images/inho.png" type="image/x-icon" />
                 <meta property="og:site_name" content="Inho Kang" />
                 <meta name="og:title" content="Inho Kang" />
                 <meta property="og:type" content="website" />

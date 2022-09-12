@@ -21,7 +21,7 @@ import { IoLogoGithub } from 'react-icons/io5'
 const LinkItem = ({href, path, target, children, ...props}) => {
     const active = path === href
     const inactiveColor = useColorModeValue('gray200', 'whiteAlpha.900')
-    const bgColor = useColorModeValue('#ED8936','#9F7AEA')
+    const bgColor = useColorModeValue('#366aa0','#eb66ad')
     return (
         <NextLink href={href} passHref scroll={false}>
             <Link

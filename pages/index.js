@@ -30,7 +30,7 @@ const Page = () => {
     <Layout>
       <Container pt={3} style={{backdropFilter:'blur(10px'}}>
         {/* Header */}
-        <ThemeGlowBox fromColor={useColorModeValue('#FEB264','#3a3a3a')} toColor={useColorModeValue('#E77A7B','#5d5d5d')}>
+        <ThemeGlowBox fromColor={useColorModeValue('#8EA8BD','#366aa0')} toColor={useColorModeValue('#b6d0e5','#5e92c8')}>
           Actively Seeking for full time roles starting Summer 2023 😍
         </ThemeGlowBox>
         <Box display={{md:'flex'}}>
@@ -72,7 +72,7 @@ const Page = () => {
           <Paragraph>
           💪 My most recent work involved creating a React/Typescript web application with real-time voice chat features incorporated into a live loseless audio streaming service. You can check out more details here:
             <NextLink href="/works/muselive">
-              <Link> museLIVE</Link>
+              <Link > museLIVE</Link>
             </NextLink>
             .
           </Paragraph>
@@ -118,37 +118,49 @@ const Page = () => {
           </Heading>
           <BioSection>
             <BioYear>17-437</BioYear>
-              <Link href="https://www.coursicle.com/cmu/courses/ISR/17437/" target="_blank"> 
+              <Link 
+              
+              href="https://www.coursicle.com/cmu/courses/ISR/17437/" target="_blank"> 
               Web Application on Development 
               </Link>
           </BioSection>
           <BioSection>
             <BioYear>17-445</BioYear>
-              <Link href="https://www.coursicle.com/cmu/courses/ISR/17445/" target="_blank"> 
+              <Link 
+              
+              href="https://www.coursicle.com/cmu/courses/ISR/17445/" target="_blank"> 
               Machine Learning in Production
               </Link>
           </BioSection>
           <BioSection>
             <BioYear>17-303</BioYear>
-              <Link href="https://www.coursicle.com/cmu/courses/ISR/17303/" target="_blank"> 
+              <Link 
+              
+              href="https://www.coursicle.com/cmu/courses/ISR/17303/" target="_blank"> 
               Cryptocurrencies, Blockchains, and Applications
               </Link>
           </BioSection>
           <BioSection>
             <BioYear>17-336</BioYear>
-              <Link href="https://www.coursicle.com/cmu/courses/ISR/17336/" target="_blank"> 
+              <Link 
+              
+              href="https://www.coursicle.com/cmu/courses/ISR/17336/" target="_blank"> 
               Applied Distributed Systems
               </Link>
           </BioSection>
           <BioSection>
             <BioYear>15-351</BioYear>
-              <Link href="https://www.coursicle.com/cmu/courses/CS/15351/" target="_blank"> 
+              <Link 
+              
+              href="https://www.coursicle.com/cmu/courses/CS/15351/" target="_blank"> 
               Algorithms and Advanced Data Structures
               </Link>
           </BioSection>
           <BioSection>
             <BioYear>36-402</BioYear>
-              <Link href="https://www.coursicle.com/cmu/courses/STA/36402/" target="_blank"> 
+              <Link 
+              
+              href="https://www.coursicle.com/cmu/courses/STA/36402/" target="_blank"> 
               Advanced Methods for Data Analysis
               </Link>
           </BioSection>
@@ -163,7 +175,7 @@ const Page = () => {
             <ListItem>
               <Link href="https://github.com/ikang9712/" target="_blank">
                 <Button 
-                variant="ghost" textColor={useColorModeValue('#4B56A3', '#DEBFD8')} leftIcon={<Icon as={IoLogoGithub}/>}>
+                variant="ghost" text leftIcon={<Icon as={IoLogoGithub}/>}>
                   @ikang9712
                 </Button>
               </Link>
@@ -172,7 +184,7 @@ const Page = () => {
               <Link href="https://www.linkedin.com/in/inho-kang-6813261a8/" target="_blank">
                 <Button 
                 
-                variant="ghost" textColor={useColorModeValue('#4B56A3', '#DEBFD8')} leftIcon={<Icon as={IoLogoLinkedin}/>}>
+                variant="ghost" text leftIcon={<Icon as={IoLogoLinkedin}/>}>
                   @inho-kang
                 </Button>
               </Link>
@@ -180,7 +192,7 @@ const Page = () => {
             <ListItem>
               <Link href="https://www.discordapp.com/users/inho#5759" target="_blank">
                 <Button 
-                variant="ghost" textColor={useColorModeValue('#4B56A3', '#DEBFD8')} leftIcon={<Icon as={IoLogoDiscord}/>}>
+                variant="ghost" text leftIcon={<Icon as={IoLogoDiscord}/>}>
                   @inho
                 </Button>
               </Link>

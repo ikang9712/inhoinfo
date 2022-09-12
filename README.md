@@ -34,3 +34,7 @@ This project is inspired by Takuya Matsuyama.
 
 - His website: [craftz.dog](https://craftz.dog)
 - His tutorial: [Matsuyama's tutorial](https://www.youtube.com/watch?v=bSMZgXzC9AA)
+
+The 3D model on the main page is from Andrew Cothill.
+- His license: [CC Attribution-NonCommercial-ShareAlike](https://creativecommons.org/licenses/by-nc-sa/4.0/#).
+- His profile page on Sketchfab: [Andrew Cothill](https://sketchfab.com/andrewcothill)
