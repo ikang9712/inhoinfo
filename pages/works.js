@@ -12,7 +12,7 @@ import Section from '../components/section';
 import {WorkGridItem} from '../components/grid-item'
 import thumbmuselive from '../public/images/works/muse.jpg'
 import thumbwebapp from '../public/images/works/webapp.png'
-import thumblemon from '../public/images/works/lemon.png'
+import thumbdata from '../public/images/works/data.png'
 
 import Layout from '../components/layouts/article';
 
@@ -21,14 +21,7 @@ import {
     IoFileTrayFull,
   } from 'react-icons/io5'
   import { useColorModeValue } from '@chakra-ui/react';
-  import NextLink from 'next/link'
 
-// const StyledLink = styled(Link)`
-//     text-decoration: none;
-//     &:focus, &:hover, &:visited, &:link, &:active {
-//         text-decoration: none;
-//     }
-// `
 
 
 const Works = () => {
@@ -37,10 +30,10 @@ const Works = () => {
         try {
             window.open("https://inhoinfotest.s3.amazonaws.com/inhoinfo.pdf", "_blank")
             toast({
-                title: 'Download completed!',
+                title: 'Resume got downloaded.',
                 description: "",
                 status: 'success',
-                duration: 9000,
+                duration: 3000,
                 isClosable: true,
             })
         } catch (error) {
@@ -57,7 +50,6 @@ const Works = () => {
         <Layout>
         <Container>
             <Box align="center" my={4}>
-                {/* <NextLink href='https://inhoinfotest.s3.amazonaws.com/testfile.docx' target='_blank'> */}
                     <Button 
                     leftIcon={<Icon as={IoFileTrayFull}/>} 
                     bg={useColorModeValue('whiteAlpha.800', 'whiteAlpha.200')}
@@ -73,12 +65,7 @@ const Works = () => {
             <SimpleGrid columns={[1,1,2]} gap={6}>
                 <Section>
                     <WorkGridItem id="muselive" title="museLIVE" thumbnail={thumbmuselive}>
-                        Web App developer at museLIVE
-                    </WorkGridItem>
-                </Section>
-                <Section>
-                    <WorkGridItem id="lemon" title="Lemon Healthcare" thumbnail={thumblemon}>
-                        Lemon Healthcare
+                        Web app with real-time voice chat and virtual music concert
                     </WorkGridItem>
                 </Section>
             </SimpleGrid>
@@ -91,8 +78,13 @@ const Works = () => {
             </Section>
             <SimpleGrid columns={[1,1,2]} gap={6}>
                 <Section>
-                    <WorkGridItem id="webapp" title="Posts Mates" thumbnail={thumbwebapp}>
-                        Note-taking web app using Quill.js
+                    <WorkGridItem id="webapp" title="PostsMates" thumbnail={thumbwebapp}>
+                        Social web app with rich text editor
+                    </WorkGridItem>
+                </Section>
+                <Section>
+                    <WorkGridItem id="data" title="Data Visualizer" thumbnail={thumbdata}>
+                        Image color analysis framework using computer vision
                     </WorkGridItem>
                 </Section>
             </SimpleGrid>

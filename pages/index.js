@@ -64,16 +64,13 @@ const Page = () => {
             About
           </Heading>
           <Paragraph>
-            🙋‍♂️ Hello, I am a fullstack web developer interested in machine learning and crypto. 
-            I will be finishing my Bachelor's degree on Statistics and Machine Learning in 2023 Spring. 
+          🙋‍♂️ Hello, I am a fullstack web developer interested in machine learning and crypto. I will be graduating with a Bachelor's degree in Statistics and Machine Learning this upcoming 2023 Spring.
           </Paragraph>
           <Paragraph>
-            📚 During my senior year, I am assisting Professor Jeff Eppinger in guiding 100+ students to program end-to-end web application servers (HTML/CSS/JS, XML, Security, Cloud Deployment, etc). 
-
+          📚 Currently&#8212;during my senior year&#8212;I am assisting Professor Jeff Eppinger guide 100+ students to program end-to-end web applications utilizing the Django framework. The course encompasses a variety of topics from HTML/CSS/JS, XML, JQuery, database, security, all the way to cloud deployment, web services, and internationalization.
           </Paragraph>
           <Paragraph>
-            💪 My most recent work was creating a React/Typescript web application with real-time voice chat and live loseless audio performance.
-            You can check more details here: 
+          💪 My most recent work involved creating a React/Typescript web application with real-time voice chat features incorporated into a live loseless audio streaming service. You can check out more details here:
             <NextLink href="/works/muselive">
               <Link> museLIVE</Link>
             </NextLink>
@@ -101,16 +98,16 @@ const Page = () => {
             Born in Daegu, South Korea
           </BioSection>
           <BioSection>
-            <BioYear>2014~2017</BioYear>
+            <BioYear>2017</BioYear>
             Graduated from Culver Academies, Indiana
           </BioSection>
           <BioSection>
-            <BioYear>2018~2020</BioYear>
+            <BioYear>2020</BioYear>
             Discharged from Korean military, 5th Artillery Brigade
           </BioSection>
           <BioSection>
-            <BioYear>2017~2023</BioYear>
-            Will complete my Bachelor&apos;s Degree on Statistics and Machine Learning at CMU(Carnegie Mellon University) in Spring 2023
+            <BioYear>2023</BioYear>
+            Will graduate this upcoming 2023 spring (Statistics and Machine Learning, Carnegie Mellon University)
           </BioSection>
         </Section>
 

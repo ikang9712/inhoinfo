@@ -4,6 +4,7 @@ import { Title, WorkImage, Meta } from '../../components/work'
 import Paragraph from '../../components/paragraph'
 import Layout from '../../components/layouts/article'
 import Section from '../../components/section'
+import ReactPlayer from 'react-player'
 
 
 const Work = () => {
@@ -33,16 +34,12 @@ const Work = () => {
                     ).
                 </Paragraph>
                 <Paragraph>
-                    My role was to create a web application with online live performance and real-time voice chat features using React and Typescript.
+                    I created a web application with online live performance and real-time voice chat features using React and Typescript.
                     (Below images are from Figma.)
                     <Heading as="h4" fontSize={16} my={6}>
                         <Center> Summary </Center>
                     </Heading>
                     <List spacing={1} my={2}>
-                        <ListItem>
-                            <ListIcon as={CheckCircleIcon} color='green.500' />
-                            set up the local environment using GVM and GO.
-                        </ListItem>
                         <ListItem>
                             <ListIcon as={CheckCircleIcon} color='green.500' />
                             built passwordless email signin/signup with JWT.
@@ -61,12 +58,9 @@ const Work = () => {
                         </ListItem>
                         <ListItem>
                             <ListIcon as={CheckCircleIcon} color='green.500' />
-                            customized webpack configuration 
+                            customized webpack configuration for bundling efficiency.
                         </ListItem>
                     </List>
-                    
-                    
-
                 </Paragraph>
                 <Heading as="h4" fontSize={16} my={6}>
                         <Center> Meta </Center>
@@ -74,11 +68,11 @@ const Work = () => {
                 <List ml={4} my={4}>
                     <ListItem>
                         <Meta>Platform</Meta>
-                        <span>iOS, (on plan) Windows/macOS/Linux</span>
+                        <span>iOS, Windows, macOS, Linux</span>
                     </ListItem>
                     <ListItem>
                         <Meta>Stack</Meta>
-                        <span>NodeJS, Typescript, React, GO, GVM</span>
+                        <span>NodeJS, Typescript, React</span>
                     </ListItem>
                 </List>
                 <SimpleGrid columns={[1,1,2]} gap={6}>

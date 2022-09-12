@@ -72,6 +72,7 @@ const Contact = () => {
             description: "",
             status: 'loading',
             duration: 9000,
+            id: "load"
           })
         const emailContent = document.createElement("form")
         emailContent.setAttribute("charset", "UTF-8")
@@ -89,7 +90,7 @@ const Contact = () => {
         emailContent.appendChild(companyContent)
         await emailjs.sendForm(serviceID, templateID, emailContent, publicKey)
         .then((result)=> {
-            toast.closeAll()
+            toast.close("load")
             toast({
                 title: 'Email has been sent successfully!',
                 description: "Inho will reach out to you shortly :)",
@@ -98,7 +99,7 @@ const Contact = () => {
                 isClosable: true,
             })
         }, (error) => {
-            toast.closeAll()
+          toast.close("load")
             toast({
                 title: 'Error!',
                 description: "Please try again after refreshing the browser.",
