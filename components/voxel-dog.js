@@ -72,7 +72,7 @@ const VoxelDog = () => {
             controls.target = target 
             setControls(controls)
 
-            loadGLTFModel(scene, '/exit.glb', {
+            loadGLTFModel(scene, '/rhythm.glb', {
                 receiveShadow: false,
                 castShadow: false
             }).then(()=> {
