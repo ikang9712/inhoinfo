@@ -9,11 +9,13 @@ function easeOutCirc(x) {
 }
 
 const VoxelDog = () => {
+    THREE.ColorManagement.legacyMode = false;
     const refContainer = useRef()
     const [loading, setLoading] = useState(true)
     const [renderer, setRenderer] = useState()
     const [_camera, setCamera] = useState()
     const [target] = useState(new THREE.Vector3(-0.5, 1.2, 0))
+    //initial camera position
     const [initialCameraPosition] = useState(
         new THREE.Vector3(
             20 * Math.sin(0.2 * Math.PI),
@@ -50,9 +52,8 @@ const VoxelDog = () => {
             container.appendChild(renderer.domElement)
             setRenderer(renderer)
 
-            //640 -> 240
-            //8 -> 6
-            const scale = scH * 0.005 + 4.8
+            // scale here
+            const scale = scH * 0.005 + 0.5
             const camera = new THREE.OrthographicCamera(
                 -scale,
                 scale,
@@ -65,16 +66,22 @@ const VoxelDog = () => {
             camera.lookAt(target)
             setCamera(camera)
 
-            const ambientLight = new THREE.AmbientLight(0xcccccc, 1)
-            scene.add(ambientLight)
+            const pointlight = new THREE.PointLight("#ffffff", 10)
+            pointlight.position.set(0,0,0)
+            scene.add(pointlight)
+            const ambientlight = new THREE.AmbientLight('#ffffff',0.3)
+            ambientlight.position.set(30,30,30)
+            scene.add(ambientlight)
             const controls = new OrbitControls(camera, renderer.domElement)
             controls.autoRotate = true
             controls.target = target 
             setControls(controls)
-
-            loadGLTFModel(scene, '/rhythm.glb', {
-                receiveShadow: false,
-                castShadow: false
+            
+            //load file asynchronously, loadGLTFModel outputs Promise with value.
+            
+            loadGLTFModel(scene, '/bouche.glb', {
+                receiveShadow: true,
+                castShadow: true
             }).then(()=> {
                 animate()
                 setLoading(false)
@@ -82,6 +89,9 @@ const VoxelDog = () => {
 
             let req = null
             let frame = 0
+
+            //rotating animation
+            // const composer = new EffectComposer(renderer)
             const animate = () => {
                 req = requestAnimationFrame(animate)
                 frame = frame <= 100 ? frame + 1 : frame
@@ -96,6 +106,9 @@ const VoxelDog = () => {
                     controls.update()
                 }
                 renderer.render(scene, camera)
+                // const renderPass = new RenderPass( scene, camera );
+                // composer.addPass( renderPass );
+                // composer.render()
             }
             return () => {
                 cancelAnimationFrame(req)
@@ -119,8 +132,8 @@ const VoxelDog = () => {
         m='auto'
         mt={['-20px','-60px','-120px']}
         mb={['-40px', '-140px', '-200px']}
-        w={[280,480,640]}
-        h={[280,480,640]}
+        w={604}
+        h={604}
         position='relative'
         >
             {loading && (

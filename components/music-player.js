@@ -1,27 +1,51 @@
 import React from 'react';
-import {AnimatePresence, motion} from 'framer-motion'
 import { IconButton, Icon } from '@chakra-ui/react';
 import { IoMusicalNotes } from "react-icons/io5";
+import YouTube from 'react-youtube'
+const Player = () => {
+    const player = React.useRef(null)
+    const [paused, setPaused] = React.useState(true)
+    const opts = {
+        height: '390',
+        width: '640',
+        playerVars: {
+            autoplay: 1,
+            controls: 0,
+            enablejsapi: 1,
+        }
+    }
+    const savePlayer = (e) => {
+        player.current = e;
+        console.log(player)
+    }
+    const play = () => {
+        if (paused){
+            player.current.target.playVideo()
+            setPaused(false)
+        } else {
+            player.current.target.pauseVideo()
+            setPaused(true)
+        }
+        console.log(player.current.target.getVolume())
+    }
 
-const MusicPlayer = () => {
     return (
-        <AnimatePresence exitBeforeEnter initial={false}>
-        <motion.div 
-        style={{ display: 'inline-block'}}
-        initial={{y:-20, opacity:0}}
-        animate={{y:0, opacity:1}}
-        exit={{y:20, opacity:0}}
-        transition={{duration:0.3}}
-        >
+        <div>
             <IconButton aria-label="Toggle theme"
             icon={<Icon as={IoMusicalNotes}/>}
             mr={2}
-            onClick={musicControl()}
+            onClick={play}
             >
             </IconButton>
-        </motion.div>
-    </AnimatePresence>
+            <div style={{display: "none"}}>
+                <YouTube 
+                videoId="S4UEJePR0UE"
+                opts={opts}
+                onReady={(e)=>savePlayer(e)}
+                />
+            </div>
+        </div>
     )
 }
 
-export default MusicPlayer
+export default Player
