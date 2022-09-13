@@ -22,7 +22,7 @@ import Player from './music-player';
 const LinkItem = ({href, path, target, children, ...props}) => {
     const active = path === href
     const inactiveColor = useColorModeValue('gray200', 'whiteAlpha.900')
-    const bgColor = useColorModeValue('#366aa0','#eb66ad')
+    const bgColor = useColorModeValue('blue.300','whiteAlpha.800')
     return (
         <NextLink href={href} passHref scroll={false}>
             <Link

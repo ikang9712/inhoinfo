@@ -15,6 +15,7 @@ const VoxelDog = () => {
     const [renderer, setRenderer] = useState()
     const [_camera, setCamera] = useState()
     const [target] = useState(new THREE.Vector3(-0.5, 1.2, 0))
+
     //initial camera position
     const [initialCameraPosition] = useState(
         new THREE.Vector3(
@@ -50,9 +51,12 @@ const VoxelDog = () => {
             renderer.setSize(scW,scH)
             renderer.outputEncoding = THREE.sRGBEncoding
             container.appendChild(renderer.domElement)
+            // inho
+            renderer.shadowMap.enabled = true;
+            renderer.shadowMap.type = THREE.PCFSoftShadowMap;
             setRenderer(renderer)
 
-            // scale here
+            // camera setting (zoom in out)
             const scale = scH * 0.005 + 0.5
             const camera = new THREE.OrthographicCamera(
                 -scale,
@@ -65,20 +69,23 @@ const VoxelDog = () => {
             camera.position.copy(initialCameraPosition)
             camera.lookAt(target)
             setCamera(camera)
-
-            const pointlight = new THREE.PointLight("#ffffff", 10)
-            pointlight.position.set(0,0,0)
-            scene.add(pointlight)
-            const ambientlight = new THREE.AmbientLight('#ffffff',0.3)
-            ambientlight.position.set(30,30,30)
+            
+            // light setting
+            const pl = new THREE.PointLight("#ffffff", 20)
+            pl.position.set(0,0,0)
+            pl.castShadow = true;
+            pl.power = 50
+            scene.add(pl)
+            const ambientlight = new THREE.AmbientLight('#ffffff',0.1)
             scene.add(ambientlight)
+
+            // control setting
             const controls = new OrbitControls(camera, renderer.domElement)
             controls.autoRotate = true
             controls.target = target 
             setControls(controls)
             
             //load file asynchronously, loadGLTFModel outputs Promise with value.
-            
             loadGLTFModel(scene, '/bouche.glb', {
                 receiveShadow: true,
                 castShadow: true

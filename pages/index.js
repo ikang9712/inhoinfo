@@ -30,7 +30,7 @@ const Page = () => {
     <Layout>
       <Container pt={3} style={{backdropFilter:'blur(10px'}}>
         {/* Header */}
-        <ThemeGlowBox fromColor={useColorModeValue('#8EA8BD','#366aa0')} toColor={useColorModeValue('#b6d0e5','#5e92c8')}>
+        <ThemeGlowBox fromColor={useColorModeValue('#63B3ED','#3a3a3a')} toColor={useColorModeValue('#BEE3F8','#5d5d5d')}>
           Actively Seeking for full time roles starting Summer 2023 😍
         </ThemeGlowBox>
         <Box display={{md:'flex'}}>
