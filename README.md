@@ -14,11 +14,12 @@
 ```
 $PROJECT_ROOT
 │   # Page files
-├── pages
+├── pages (Inho Kang)
 │
 │   # React component files
 ├── components
 │   ├── contact.js (Inho Kang)
+│   ├── music-player.js (Inho Kang)
 │   └── theme-glow-box.js (Inho Kang)
 │
 │   # Non-react modules
