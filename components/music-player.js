@@ -19,6 +19,7 @@ const Player = () => {
     }
     const savePlayer = (e) => {
         player.current = e;
+        console.log(player.current.target.setVolume(30))
         setLoaded(true)
     }
     const play = () => {
@@ -64,7 +65,7 @@ const Player = () => {
                 />
             <div style={{display: "none"}}>
                 <YouTube
-                videoId='VMyPYiKbEKU'
+                videoId='HvugACvVqGk'
                 opts={opts}
                 onReady={(e)=>savePlayer(e)}
                 />
