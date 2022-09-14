@@ -4,6 +4,7 @@ import { Box, Container } from '@chakra-ui/react'
 // import VoxelDog from '../voxel-dog'
 import NoSsr from '../no-ssr'
 import VoxelDog from '../voxel-dog'
+import { GridItemStyle } from '../grid-item'
 const Main = ({children, router}) => {
     return (
         <Box as="main" pb={8}>
@@ -21,11 +22,11 @@ const Main = ({children, router}) => {
 
             <Navbar path={router.asPath} />
             <Container 
-            margin={0}
             maxW="container.md" pt={2}>
                 <NoSsr>
                     <VoxelDog />
                 </NoSsr>
+                <GridItemStyle/>
             </Container>
             <Container maxW="container.md" pt={2}>
                 {children}

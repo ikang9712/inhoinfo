@@ -31,8 +31,11 @@ const VoxelDog = () => {
         const { current: container } = refContainer
         if (container && renderer) {
             
-            const scW = container.clientWidth
-            const scH = container.clientHeight 
+            // const scW = container.clientWidth
+            // const scH = container.clientHeight 
+            // window.innerWidth > 760 ? 760: (window.innerWidth < 200 ? 200 : window.innerWidth)
+            const scW = window.innerWidth > 760 ? 760: (window.innerWidth < 200 ? 200 : window.innerWidth)
+            const scH = window.innerWidth > 760 ? 760: (window.innerWidth < 200 ? 200 : window.innerWidth)
             renderer.setSize(scW,scH)
         }
     }, [renderer])
@@ -138,8 +141,8 @@ const VoxelDog = () => {
         className='voxel-dog'
         mt={['-20px','-60px','-120px']}
         mb={['-40px', '-140px', '-200px']}
-        w={window.innerWidth > window.innerHeight ? window.innerHeight: window.innerWidth}
-        h={window.innerWidth > window.innerHeight ? window.innerHeight: window.innerWidth}
+        w={window.innerWidth > 760 ? 760: window.innerWidth}
+        h={window.innerWidth > 760 ? 760: window.innerWidth}
         position={"relative"}
         borderRadius={'lg'}
         overflow={'hideen'}
