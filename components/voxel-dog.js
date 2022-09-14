@@ -1,6 +1,15 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { Box, Spinner } from '@chakra-ui/react'
-import * as THREE from 'three'
+import {
+    ColorManagement, 
+    Vector3, 
+    Scene, 
+    WebGLRenderer, 
+    OrthographicCamera, 
+    AmbientLight,
+    PointLight,
+    sRGBEncoding,
+PCFSoftShadowMap} from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import { loadGLTFModel } from '../libs/model'
 
@@ -9,22 +18,22 @@ function easeOutCirc(x) {
 }
 
 const VoxelDog = () => {
-    THREE.ColorManagement.legacyMode = false;
+    ColorManagement.legacyMode = false;
     const refContainer = useRef()
     const [loading, setLoading] = useState(true)
     const [renderer, setRenderer] = useState()
     const [_camera, setCamera] = useState()
-    const [target] = useState(new THREE.Vector3(-0.5, 1.2, 0))
+    const [target] = useState(new Vector3(-0.5, 1.2, 0))
 
     //initial camera position
     const [initialCameraPosition] = useState(
-        new THREE.Vector3(
+        new Vector3(
             20 * Math.sin(0.2 * Math.PI),
             10,
             20 * Math.cos(0.2 * Math.PI),
         )
     )
-    const [scene] = useState(new THREE.Scene())
+    const [scene] = useState(new Scene())
     const [_controls, setControls] = useState()
 
     const handleWindowResize = useCallback(()=> {
@@ -46,22 +55,22 @@ const VoxelDog = () => {
         if (container && !renderer) {
             const scW = container.clientWidth
             const scH = container.clientHeight
-            const renderer = new THREE.WebGLRenderer({
+            const renderer = new WebGLRenderer({
                 antialias: true,
                 alpha: true
             })
             renderer.setPixelRatio(window.devicePixelRatio)
             renderer.setSize(scW,scH)
-            renderer.outputEncoding = THREE.sRGBEncoding
+            renderer.outputEncoding = sRGBEncoding
             container.appendChild(renderer.domElement)
             // inho
             renderer.shadowMap.enabled = true;
-            renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+            renderer.shadowMap.type = PCFSoftShadowMap;
             setRenderer(renderer)
 
             // camera setting (zoom in out)
             const scale = scH * 0.004
-            const camera = new THREE.OrthographicCamera(
+            const camera = new OrthographicCamera(
                 -scale,
                 scale,
                 scale,
@@ -74,12 +83,12 @@ const VoxelDog = () => {
             setCamera(camera)
             
             // light setting
-            const pl = new THREE.PointLight("#ffffff", 20)
+            const pl = new PointLight("#ffffff", 20)
             pl.position.set(0,0,0)
             pl.castShadow = true;
             pl.power = 50
             scene.add(pl)
-            const ambientlight = new THREE.AmbientLight('#ffffff',0.1)
+            const ambientlight = new AmbientLight('#ffffff',0.1)
             scene.add(ambientlight)
 
             // control setting
