@@ -23,7 +23,6 @@ const Player = () => {
     }
     const savePlayer = (e) => {
         player.current = e;
-        console.log(player.current.target)
         setLoaded(true)
     }
     const play = () => {
