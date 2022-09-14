@@ -18,15 +18,16 @@ const Main = ({children, router}) => {
                 <meta property="og:type" content="website" />
                 <title>Inho Kang  - Homepage</title>
             </Head>
-            
+
             <Navbar path={router.asPath} />
-            <Container maxW="container.md" pt={0.2}>
+            <Container 
+            margin={0}
+            maxW="container.md" pt={2}>
                 <NoSsr>
                     <VoxelDog />
                 </NoSsr>
             </Container>
-            
-            <Container maxW="container.md" pt={3}>
+            <Container maxW="container.md" pt={2}>
                 {children}
             </Container>
         </Box>

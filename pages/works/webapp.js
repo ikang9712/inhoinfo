@@ -12,7 +12,7 @@ const Work = () => {
                 <Title>
                     PostsMates <Badge>2022</Badge>
                 </Title>
-                <Box style={{backdropFilter:'blur(10px'}} pt={1}>
+                <Box pt={1}>
                 <Heading as="h4" fontSize={16} my={6}>
                         <Center> Intro </Center>
                     </Heading>

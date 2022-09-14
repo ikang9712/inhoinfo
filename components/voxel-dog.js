@@ -30,9 +30,11 @@ const VoxelDog = () => {
     const handleWindowResize = useCallback(()=> {
         const { current: container } = refContainer
         if (container && renderer) {
+            
             const scW = container.clientWidth
-            const scH = container.clientHeight
+            const scH = container.clientHeight 
             renderer.setSize(scW,scH)
+            
         }
     }, [renderer])
 
@@ -42,7 +44,6 @@ const VoxelDog = () => {
         if (container && !renderer) {
             const scW = container.clientWidth
             const scH = container.clientHeight
-
             const renderer = new THREE.WebGLRenderer({
                 antialias: true,
                 alpha: true
@@ -104,7 +105,7 @@ const VoxelDog = () => {
                 frame = frame <= 100 ? frame + 1 : frame
                 if (frame <= 100){
                     const p = initialCameraPosition
-                    const rotSpeed = -easeOutCirc(frame / 120) * Math.PI * 20
+                    const rotSpeed = -easeOutCirc(frame / 120) * Math.PI * 2
                     camera.position.y = 10
                     camera.position.x = p.x * Math.cos(rotSpeed) + p.z * Math.sin(rotSpeed)
                     camera.position.z = p.z * Math.cos(rotSpeed) - p.x * Math.sin(rotSpeed)
@@ -136,12 +137,11 @@ const VoxelDog = () => {
         <Box 
         ref={refContainer}
         className='voxel-dog'
-        m='auto'
         mt={['-20px','-60px','-120px']}
         mb={['-40px', '-140px', '-200px']}
-        w={604}
-        h={604}
-        position='relative'
+        w={window.innerWidth > 768 ? 768 : window.innerWidth * 1.2}
+        h={window.innerWidth > 768 ? 768 : window.innerWidth * 1.2}
+        position={"relative"}
         >
             {loading && (
                 <Spinner 

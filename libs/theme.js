@@ -24,19 +24,18 @@ const components = {
             }
         }
     },
-    Alert: {
-        variants: {
-          toast: {
-              baseStyle: props => ({
-                container: {
-                    bg: mode('#EBF8FF', '#202023')(props)
+    // Alert: {
+    //     variants: {
+    //       toast: {
+    //           baseStyle: () => ({
+    //             body: {
+    //                 bg: "#525252"
                     
-                }
-              })
-          }
-        }
-      },
-      
+    //             }
+    //           })
+    //       }
+    //     }
+    //   },
     Link: {
         baseStyle: props => ({
             color: mode('#3d7aed', '#ff63c3')(props),

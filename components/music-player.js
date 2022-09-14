@@ -1,12 +1,9 @@
 import React from 'react';
-import { IconButton, 
-    Icon, 
-    useToast,
-    Tooltip } from '@chakra-ui/react';
+import { IconButton, Icon, useToast} from '@chakra-ui/react';
 import { IoMusicalNotes } from "react-icons/io5";
 import YouTube from 'react-youtube'
 const Player = () => {
-    const toast = useToast({variant: "toast"})
+    const toast = useToast()
     const player = React.useRef(null)
     const [paused, setPaused] = React.useState(true)
     const [loaded, setLoaded] = React.useState(false)
@@ -15,7 +12,6 @@ const Player = () => {
         height: '390',
         width: '640',
         playerVars: {
-            autoplay: 1,
             controls: 0,
             enablejsapi: 1,
             loop: 1
@@ -27,9 +23,15 @@ const Player = () => {
     }
     const play = () => {
         if (!loaded){
+            toast({
+                title: 'loading...',
+                description: "if you are in iOS/Android, this function might not work.",
+                duration: 9000,
+                isClosable: true,
+                position: "bottom",
+            })
             return
         }
-        
         if (paused){
             player.current.target.playVideo()
             setPaused(false)
@@ -38,7 +40,7 @@ const Player = () => {
                 description: "",
                 duration: 2000,
                 isClosable: true,
-                position: "top",
+                position: "bottom",
             })
         } else {
             player.current.target.pauseVideo()
@@ -48,20 +50,18 @@ const Player = () => {
                 description: "",
                 duration: 2000,
                 isClosable: true,
-                position: "top"
+                position: "bottom",
             })
         }
     }
 
     return (
         <div>
-            <Tooltip label='$orry - Peachy!'>
                 <IconButton aria-label="music-player"
                         icon={<Icon as={IoMusicalNotes}/>}
                         mr={2}
                         onClick={play}
                 />
-            </Tooltip>
             <div style={{display: "none"}}>
                 <YouTube
                 videoId='VMyPYiKbEKU'
