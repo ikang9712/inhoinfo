@@ -84,7 +84,7 @@ const VoxelDog = () => {
             controls.autoRotate = true
             controls.target = target 
             setControls(controls)
-            
+
             //load file asynchronously, loadGLTFModel outputs Promise with value.
             loadGLTFModel(scene, '/bouche.glb', {
                 receiveShadow: true,
