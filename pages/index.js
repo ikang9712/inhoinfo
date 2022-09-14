@@ -28,7 +28,7 @@ const Page = () => {
 
   return (
     <Layout>
-      <Container pt={3} style={{backdropFilter:'blur(10px'}}>
+      <Container pt={3}>
         {/* Header */}
         <ThemeGlowBox fromColor={useColorModeValue('#63B3ED','#3a3a3a')} toColor={useColorModeValue('#BEE3F8','#5d5d5d')}>
           Actively Seeking for full time roles starting Summer 2023 😍
