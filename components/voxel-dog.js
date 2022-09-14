@@ -34,7 +34,6 @@ const VoxelDog = () => {
             const scW = container.clientWidth
             const scH = container.clientHeight 
             renderer.setSize(scW,scH)
-            
         }
     }, [renderer])
 
@@ -139,9 +138,11 @@ const VoxelDog = () => {
         className='voxel-dog'
         mt={['-20px','-60px','-120px']}
         mb={['-40px', '-140px', '-200px']}
-        w={window.innerWidth > 768 ? 768 : window.innerWidth * 1.2}
-        h={window.innerWidth > 768 ? 768 : window.innerWidth * 1.2}
+        w={window.innerWidth > window.innerHeight ? window.innerHeight: window.innerWidth}
+        h={window.innerWidth > window.innerHeight ? window.innerHeight: window.innerWidth}
         position={"relative"}
+        borderRadius={'lg'}
+        overflow={'hideen'}
         >
             {loading && (
                 <Spinner 
