@@ -10,10 +10,12 @@ export function loadGLTFModel(
     return new Promise((resolve, reject)=> {
         const loader = new GLTFLoader()
         loader.load(
+            // resource URL
             glbPath,
+            // called when resource is loaded
             gltf => {
                 const obj = gltf.scene
-                obj.name = 'dog'
+                obj.name = '3d-model'
                 obj.position.y = 0
                 obj.position.x = 0
                 obj.receiveShadow = receiveShadow
@@ -28,7 +30,9 @@ export function loadGLTFModel(
 
                 resolve(obj)
             },
+            // called while loading is progressing
             undefined,
+            // called when loading has errors
             function (error) {
                 reject(error)
             }

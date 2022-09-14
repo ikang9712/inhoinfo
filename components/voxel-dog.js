@@ -9,11 +9,14 @@ function easeOutCirc(x) {
 }
 
 const VoxelDog = () => {
+    THREE.ColorManagement.legacyMode = false;
     const refContainer = useRef()
     const [loading, setLoading] = useState(true)
     const [renderer, setRenderer] = useState()
     const [_camera, setCamera] = useState()
     const [target] = useState(new THREE.Vector3(-0.5, 1.2, 0))
+
+    //initial camera position
     const [initialCameraPosition] = useState(
         new THREE.Vector3(
             20 * Math.sin(0.2 * Math.PI),
@@ -48,11 +51,13 @@ const VoxelDog = () => {
             renderer.setSize(scW,scH)
             renderer.outputEncoding = THREE.sRGBEncoding
             container.appendChild(renderer.domElement)
+            // inho
+            renderer.shadowMap.enabled = true;
+            renderer.shadowMap.type = THREE.PCFSoftShadowMap;
             setRenderer(renderer)
 
-            //640 -> 240
-            //8 -> 6
-            const scale = scH * 0.005 + 4.8
+            // camera setting (zoom in out)
+            const scale = scH * 0.005 + 0.5
             const camera = new THREE.OrthographicCamera(
                 -scale,
                 scale,
@@ -64,17 +69,26 @@ const VoxelDog = () => {
             camera.position.copy(initialCameraPosition)
             camera.lookAt(target)
             setCamera(camera)
+            
+            // light setting
+            const pl = new THREE.PointLight("#ffffff", 20)
+            pl.position.set(0,0,0)
+            pl.castShadow = true;
+            pl.power = 50
+            scene.add(pl)
+            const ambientlight = new THREE.AmbientLight('#ffffff',0.1)
+            scene.add(ambientlight)
 
-            const ambientLight = new THREE.AmbientLight(0xcccccc, 1)
-            scene.add(ambientLight)
+            // control setting
             const controls = new OrbitControls(camera, renderer.domElement)
             controls.autoRotate = true
             controls.target = target 
             setControls(controls)
 
-            loadGLTFModel(scene, '/exit.glb', {
-                receiveShadow: false,
-                castShadow: false
+            //load file asynchronously, loadGLTFModel outputs Promise with value.
+            loadGLTFModel(scene, '/bouche.glb', {
+                receiveShadow: true,
+                castShadow: true
             }).then(()=> {
                 animate()
                 setLoading(false)
@@ -82,6 +96,9 @@ const VoxelDog = () => {
 
             let req = null
             let frame = 0
+
+            //rotating animation
+            // const composer = new EffectComposer(renderer)
             const animate = () => {
                 req = requestAnimationFrame(animate)
                 frame = frame <= 100 ? frame + 1 : frame
@@ -96,6 +113,9 @@ const VoxelDog = () => {
                     controls.update()
                 }
                 renderer.render(scene, camera)
+                // const renderPass = new RenderPass( scene, camera );
+                // composer.addPass( renderPass );
+                // composer.render()
             }
             return () => {
                 cancelAnimationFrame(req)
@@ -119,8 +139,8 @@ const VoxelDog = () => {
         m='auto'
         mt={['-20px','-60px','-120px']}
         mb={['-40px', '-140px', '-200px']}
-        w={[280,480,640]}
-        h={[280,480,640]}
+        w={604}
+        h={604}
         position='relative'
         >
             {loading && (

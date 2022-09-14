@@ -5,7 +5,7 @@ import { mode } from '@chakra-ui/theme-tools'
 const styles = {
     global: props => ({
         body: {
-            bg: mode('#8EA8BD', '#366aa0')(props)
+            bg: mode('#EBF8FF', '#202023')(props)
         }
     })
 }
@@ -24,6 +24,19 @@ const components = {
             }
         }
     },
+    Alert: {
+        variants: {
+          toast: {
+              baseStyle: props => ({
+                container: {
+                    bg: mode('#EBF8FF', '#202023')(props)
+                    
+                }
+              })
+          }
+        }
+      },
+      
     Link: {
         baseStyle: props => ({
             color: mode('#3d7aed', '#ff63c3')(props),

@@ -17,11 +17,12 @@ import {
 import {HamburgerIcon} from '@chakra-ui/icons';
 import ThemeToggleButton from './theme-toggle-button';
 import { IoLogoGithub } from 'react-icons/io5'
+import Player from './music-player';
 
 const LinkItem = ({href, path, target, children, ...props}) => {
     const active = path === href
     const inactiveColor = useColorModeValue('gray200', 'whiteAlpha.900')
-    const bgColor = useColorModeValue('#366aa0','#eb66ad')
+    const bgColor = useColorModeValue('blue.300','whiteAlpha.800')
     return (
         <NextLink href={href} passHref scroll={false}>
             <Link
@@ -85,7 +86,10 @@ const Navbar = props => {
                             Source
                         </LinkItem>
                     </Stack>
-                    <Box flex={1} align="right">
+                    <Box flex={1} align="right" justifyContent={"center"}>
+                        <Box display={{base: 'inline-block'}}>
+                            <Player/>
+                        </Box>
                         <ThemeToggleButton />
                         <Box ml={2} display={{base: 'inline-block', md:'none'}}>
                             <Menu>
