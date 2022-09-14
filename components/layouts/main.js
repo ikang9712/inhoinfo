@@ -20,7 +20,7 @@ const Main = ({children, router}) => {
             </Head>
             
             <Navbar path={router.asPath} />
-            <Box w="100%" pt={14}>
+            <Box maxW="container.md" pt={14}>
                 <NoSsr>
                     <VoxelDog />
                     {/* <ThreeModel /> */}
