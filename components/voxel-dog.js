@@ -57,7 +57,7 @@ const VoxelDog = () => {
             setRenderer(renderer)
 
             // camera setting (zoom in out)
-            const scale = scH * 0.005 + 0.5
+            const scale = scH * 0.004
             const camera = new THREE.OrthographicCamera(
                 -scale,
                 scale,

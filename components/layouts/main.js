@@ -20,13 +20,13 @@ const Main = ({children, router}) => {
             </Head>
             
             <Navbar path={router.asPath} />
-            <Container maxW="container.md" pt={1}>
+            <Container maxW="container.md" pt={0.2}>
                 <NoSsr>
                     <VoxelDog />
                 </NoSsr>
             </Container>
             
-            <Container maxW="container.md" pt={5}>
+            <Container maxW="container.md" pt={3}>
                 {children}
             </Container>
         </Box>
