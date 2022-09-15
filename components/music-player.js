@@ -1,5 +1,5 @@
 import React from 'react';
-import { IconButton, Icon, useToast} from '@chakra-ui/react';
+import { IconButton, Icon, useToast, Tooltip} from '@chakra-ui/react';
 import { IoMusicalNotes } from "react-icons/io5";
 import YouTube from 'react-youtube'
 const Player = () => {
@@ -57,11 +57,13 @@ const Player = () => {
 
     return (
         <div>
+            <Tooltip label="the impossible game">
                 <IconButton aria-label="music-player"
                         icon={<Icon as={IoMusicalNotes}/>}
                         mr={2}
                         onClick={play}
                 />
+            </Tooltip>
             <div style={{display: "none"}}>
                 <YouTube
                 videoId='HvugACvVqGk'
