@@ -22,10 +22,6 @@ const Main = ({children, router}) => {
 
             <Navbar path={router.asPath} />
             <Container
-            margin={0}
-            border={0}
-            padding={0}
-            alignItems={"center"}
             maxW="container.md" pt={2}>
                 <NoSsr>
                     <VoxelDog />
