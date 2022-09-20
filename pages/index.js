@@ -77,7 +77,7 @@ const Page = () => {
             .
           </Paragraph>
           <Paragraph>
-            🤿 Recently, deep dive on data schema and Framer Motion.
+            🤿 Recently, deep dive on cryptography/blockchain and Framer Motion.
           </Paragraph>
           
           <Box align="center" my={4}>
