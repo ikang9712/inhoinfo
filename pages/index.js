@@ -76,6 +76,9 @@ const Page = () => {
             </NextLink>
             .
           </Paragraph>
+          <Paragraph>
+            🤿 Recently, deep dive on Framer Motion.
+          </Paragraph>
           
           <Box align="center" my={4}>
             <NextLink href="/works">
