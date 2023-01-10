@@ -64,7 +64,7 @@ const Page = () => {
             About
           </Heading>
           <Paragraph>
-          🙋‍♂️ Hello, I am a fullstack web developer interested in machine learning and crypto. I will be graduating with a Bachelor&apos;s degree in Statistics and Machine Learning this upcoming 2023 Spring.
+          🙋‍♂️ Hello, I am a fullstack developer interested in machine learning and crypto. I will be graduating with a Bachelor&apos;s degree in Statistics and Machine Learning this upcoming 2023 Spring.
           </Paragraph>
           <Paragraph>
           📚 Currently&#8212;during my senior year&#8212;I am assisting Professor Jeff Eppinger guide 100+ students to program end-to-end web applications utilizing the Django framework. The course encompasses a variety of topics from HTML/CSS/JS, XML, JQuery, database, security, all the way to cloud deployment, web services, and internationalization.
