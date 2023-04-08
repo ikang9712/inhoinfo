@@ -31,7 +31,7 @@ const Page = () => {
       <Container pt={3}>
         {/* Header */}
         <ThemeGlowBox fromColor={useColorModeValue('#63B3ED','#3a3a3a')} toColor={useColorModeValue('#BEE3F8','#5d5d5d')}>
-          Actively Seeking for full time roles starting Summer 2023 😍
+          2023 Website renewal coming soon ...
         </ThemeGlowBox>
         <Box display={{md:'flex'}}>
           <Box flexGrow={1}>
@@ -64,7 +64,7 @@ const Page = () => {
             About
           </Heading>
           <Paragraph>
-          🙋‍♂️ Hello, I am a fullstack developer interested in machine learning and crypto. I will be graduating with a Bachelor&apos;s degree in Statistics and Machine Learning this upcoming 2023 Spring.
+          🙋‍♂️ Hello, I am a fullstack developer interested in machine learning and product development. I will be graduating with a Bachelor&apos;s degree in Statistics and Machine Learning this upcoming 2023 Spring.
           </Paragraph>
           <Paragraph>
           📚 Currently&#8212;during my senior year&#8212;I am assisting Professor Jeff Eppinger guide 100+ students to program end-to-end web applications utilizing the Django framework. The course encompasses a variety of topics from HTML/CSS/JS, XML, JQuery, database, security, all the way to cloud deployment, web services, and internationalization.
@@ -77,7 +77,7 @@ const Page = () => {
             .
           </Paragraph>
           <Paragraph>
-            🤿 Recently, deep dive on React Native.
+            🤿 Recently, deep dive on Flutter, Dart to learn building a mobile app.
           </Paragraph>
           
           <Box align="center" my={4}>
@@ -110,7 +110,7 @@ const Page = () => {
           </BioSection>
           <BioSection>
             <BioYear>2023</BioYear>
-            Will graduate this upcoming 2023 spring (Statistics and Machine Learning, Carnegie Mellon University)
+            Graduated from Carengie Mellon University.
           </BioSection>
         </Section>
 
@@ -128,27 +128,11 @@ const Page = () => {
               </Link>
           </BioSection>
           <BioSection>
-            <BioYear>17-445</BioYear>
-              <Link 
-              
-              href="https://www.coursicle.com/cmu/courses/ISR/17445/" target="_blank"> 
-              Machine Learning in Production
-              </Link>
-          </BioSection>
-          <BioSection>
             <BioYear>17-303</BioYear>
               <Link 
               
               href="https://www.coursicle.com/cmu/courses/ISR/17303/" target="_blank"> 
               Cryptocurrencies, Blockchains, and Applications
-              </Link>
-          </BioSection>
-          <BioSection>
-            <BioYear>17-336</BioYear>
-              <Link 
-              
-              href="https://www.coursicle.com/cmu/courses/ISR/17336/" target="_blank"> 
-              Applied Distributed Systems
               </Link>
           </BioSection>
           <BioSection>
