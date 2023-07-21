@@ -45,6 +45,7 @@
     "cross-env": "^7.0.3",
     "eslint-plugin-storybook": "^0.6.12",
     "husky": "^8.0.3",
+    "mini-css-extract-plugin": "^2.7.6",
     "prettier": "^3.0.0",
     "storybook": "^7.0.27",
     "typescript-plugin-css-modules": "^5.0.1"

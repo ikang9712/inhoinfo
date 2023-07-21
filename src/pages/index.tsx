@@ -1,12 +1,12 @@
 import { NextPage } from 'next';
+import Link from 'next/link';
 
 const Home: NextPage = () => {
   return (
     <div>
-      <a href="#">Google</a>
-      <a href="#">Google</a>
-      <a href="#">Google</a>
-      <a href="#">Google</a>
+      <Link href={'/'}>home</Link>
+      <Link href={'/work'}>work</Link>
+      <Link href={'/demo'}>demo</Link>
     </div>
   );
 };
