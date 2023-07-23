@@ -1,27 +1,5 @@
 import { NextPage } from 'next';
-
-// const Img = styled(Image)`
-//   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-//   border-radius: 15px;
-// `;
-
-// const PosterImage = ({
-//   src,
-//   width,
-//   height,
-// }: {
-//   src: string;
-//   width: number;
-//   height: number;
-// }) => {
-//   return <Img src={src} alt="alt" width={width} height={height} />;
-// };
-
-// const ImageWrapper = styled.div`
-//   & > span {
-//     position: unset !important;
-//   }
-// `;
+import Image from 'next/image';
 
 const DemoBestHorror: NextPage = () => {
   return (
@@ -72,21 +50,42 @@ const DemoBestHorror: NextPage = () => {
               <h4>1. Hereditary (2018)</h4>
               <h5>Directed by Me</h5>
             </header>
-            <img src="/images/demo/poster.png" alt="alt" />
+            <div className="img-container">
+              <Image
+                src={'/images/demo/poster.png'}
+                alt="alt"
+                width={240}
+                height={240}
+              />
+            </div>
           </div>
           <div className="article">
             <header>
               <h4>2. Hereditary (2018)</h4>
               <h5>Directed by Me</h5>
             </header>
-            <img src="/images/demo/poster.png" alt="alt" />
+            <div className="img-container">
+              <Image
+                src={'/images/demo/poster.png'}
+                alt="alt"
+                width={240}
+                height={240}
+              />
+            </div>
           </div>
           <div className="article">
             <header>
               <h4>3. Hereditary (2018)</h4>
               <h5>Directed by Me</h5>
             </header>
-            <img src="/images/demo/poster.png" alt="alt" />
+            <div className="img-container">
+              <Image
+                src={'/images/demo/poster.png'}
+                alt="alt"
+                width={100}
+                height={100}
+              />
+            </div>
           </div>
         </section>
       </main>

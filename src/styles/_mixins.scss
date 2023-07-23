@@ -1,24 +1,33 @@
-$minIphone: 500px;
-$maxIphone: 690px;
-$minTablet: $minIphone + 1;
-$maxTablet: 1120px;
+@import '_variables';
 
-@mixin responsive($device) {
-  @if $device == 'iphone' {
-    @media screen and (min-width: $minIphone) and (max-width: $maxIphone) {
-      @content;
+@mixin breakpoint($breakpoint, $direction: min) {
+  //check if the supplied breakpoint exists in our breakpoits map
+  @if map-has-key($breakpoints, $breakpoint) {
+    $breakpoint-values: map-get($breakpoints, $breakpoint);
+    $breakpoint-min: map-get($breakpoint-values, min);
+    $breakpoint-max: map-get($breakpoint-values, max);
+
+    //check if we are writing styles for larger or smaller screens
+    @if $direction == min {
+      @media (min-width: $breakpoint-min) {
+        @content;
+      }
+    } @else {
+      @media (max-width: $breakpoint-max) {
+        @content;
+      }
     }
-  } @else if $device == 'tablet' {
-    @media screen and (min-width: $minTablet) and (max-width: $maxTablet) {
-      @content;
-    }
-  } @else if $device == 'iphone-l' {
-    @media screen and (min-width: $minIphone) and (max-width: $maxIphone) and (orientation: landscape) {
-      @content;
-    }
-  } @else if $device == 'ipad-l' {
-    @media screen and (min-width: $minTablet) and (max-width: $maxTablet) and (orientation: landscape) {
-      @content;
+
+    // use the custom value if the breakpoint is not part of the pre-defined list
+  } @else {
+    @if $direction == min {
+      @media (min-width: $breakpoint) {
+        @content;
+      }
+    } @else {
+      @media (max-width: $breakpoint) {
+        @content;
+      }
     }
   }
 }
