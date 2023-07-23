@@ -1,36 +1,36 @@
 import { NextPage } from 'next';
-import Image from 'next/image';
-import styled from 'styled-components';
 
-const Img = styled(Image)`
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-  border-radius: 15px;
-`;
+// const Img = styled(Image)`
+//   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+//   border-radius: 15px;
+// `;
 
-const PosterImage = ({
-  src,
-  width,
-  height,
-}: {
-  src: string;
-  width: number;
-  height: number;
-}) => {
-  return <Img src={src} alt="alt" width={width} height={height} />;
-};
+// const PosterImage = ({
+//   src,
+//   width,
+//   height,
+// }: {
+//   src: string;
+//   width: number;
+//   height: number;
+// }) => {
+//   return <Img src={src} alt="alt" width={width} height={height} />;
+// };
 
-const ImageWrapper = styled.div`
-  & > span {
-    position: unset !important;
-  }
-`;
+// const ImageWrapper = styled.div`
+//   & > span {
+//     position: unset !important;
+//   }
+// `;
 
 const DemoBestHorror: NextPage = () => {
   return (
     <div className="movieBody">
       <header className="movieHeader">
-        <h1>Best Horror Scenes</h1>
-        <div>
+        <div className="hgroup">
+          <h1>Best Horror Scenes</h1>
+        </div>
+        <div className="h3group">
           <h3>
             An ever growing collection featuring some of the best scenes in
             horror.
@@ -44,65 +44,49 @@ const DemoBestHorror: NextPage = () => {
             shock, disgust.
           </p>
           <nav>
-            <ul>
-              <li>Watch on YouTube</li>
-              <li>Suggest a Scene</li>
-              <li>Get Episode Notices</li>
-              <li>Contact</li>
-              <li>RSS</li>
-            </ul>
+            <a>Watch on YouTube</a>
+            <a>Suggest a Scene</a>
+            <a>Get Episode Notices</a>
+            <a>Contact</a>
+            <a>RSS</a>
           </nav>
         </div>
       </header>
+      <div className="movieSort">
+        <div className="box">
+          <span>Currently viewing&nbsp;</span>
+          <div className="buttonwrap">
+            <a>everything</a>
+          </div>
+          <span>&nbsp;sorted by&nbsp;</span>
+          <div>
+            <a>random</a>
+          </div>
+          <span>.</span>
+        </div>
+      </div>
       <main className="movieMain">
         <section>
-          <div className="movieMainNav">
-            <div>
-              Currently viewing
-              <a className="" onClick={() => console.log('clicked!')}>
-                everything
-              </a>
-              sorted by
-              <a className="" onClick={() => console.log('clicked!')}>
-                random
-              </a>
-              .
-            </div>
+          <div className="article">
+            <header>
+              <h4>1. Hereditary (2018)</h4>
+              <h5>Directed by Me</h5>
+            </header>
+            <img src="/images/demo/poster.png" alt="alt" />
           </div>
-          <div className="movieMainWrapper">
-            <div className="movieMainHeader">
-              <h4>38. Hereditary (2018)</h4>
+          <div className="article">
+            <header>
+              <h4>2. Hereditary (2018)</h4>
               <h5>Directed by Me</h5>
-              <ImageWrapper>
-                <PosterImage
-                  src={'/images/demo/poster.png'}
-                  width={600}
-                  height={360}
-                />
-              </ImageWrapper>
-            </div>
-            <div className="movieMainHeader">
-              <h4>38. Hereditary (2018)</h4>
+            </header>
+            <img src="/images/demo/poster.png" alt="alt" />
+          </div>
+          <div className="article">
+            <header>
+              <h4>3. Hereditary (2018)</h4>
               <h5>Directed by Me</h5>
-              <ImageWrapper>
-                <PosterImage
-                  src={'/images/demo/poster.png'}
-                  width={600}
-                  height={360}
-                />
-              </ImageWrapper>
-            </div>
-            <div className="movieMainHeader">
-              <h4>38. Hereditary (2018)</h4>
-              <h5>Directed by Me</h5>
-              <ImageWrapper>
-                <PosterImage
-                  src={'/images/demo/poster.png'}
-                  width={600}
-                  height={360}
-                />
-              </ImageWrapper>
-            </div>
+            </header>
+            <img src="/images/demo/poster.png" alt="alt" />
           </div>
         </section>
       </main>
