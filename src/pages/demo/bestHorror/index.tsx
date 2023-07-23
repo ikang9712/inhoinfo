@@ -6,7 +6,29 @@ const DemoBestHorror: NextPage = () => {
     <div className="movieBody">
       <header className="movieHeader">
         <div className="hgroup">
-          <h1>Best Horror Scenes</h1>
+          <h1>Best</h1>
+          <h1>
+            <span>H</span>
+            <span className="svg-container">
+              <Image
+                src={'/images/demo/eye.svg'}
+                alt="blinking eye"
+                width={50}
+                height={50}
+              />
+            </span>
+            <span>rr</span>
+            <span className="svg-container">
+              <Image
+                src={'/images/demo/eye.svg'}
+                alt="blinking eye"
+                width={50}
+                height={50}
+              />
+            </span>
+            <span>r</span>
+          </h1>
+          <h1>Scenes</h1>
         </div>
         <div className="h3group">
           <h3>

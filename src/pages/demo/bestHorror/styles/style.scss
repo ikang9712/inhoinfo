@@ -46,13 +46,52 @@
     @include breakpoint(sm) {
       padding: 10vh 0 0 72px;
     }
-    h1 {
+    h1,
+    span {
+      vertical-align: middle;
       font-size: 13vw;
       width: 100%;
       text-transform: uppercase;
       letter-spacing: 3px;
       @include breakpoint(sm) {
         font-size: 5.5rem;
+      }
+    }
+    .svg-container {
+      vertical-align: middle;
+      img {
+        width: 13vw;
+        height: 13vw;
+        @include breakpoint(sm) {
+          width: 66px;
+          height: 66px;
+        }
+        @include keyframes(blink) {
+          90% {
+            transform: none;
+            animation-timing-function: ease-in;
+          }
+          93% {
+            transform: translateY(15px) scaleY(0);
+          }
+          100% {
+            animation-timing-function: ease-out;
+          }
+        }
+        @include animate(blink, 2.4s, linear, infinite);
+        @include keyframes(squeeze) {
+          90% {
+            transform: none;
+            animation-timing-function: ease-in;
+          }
+          93% {
+            transform: translateY(3px) scaleY(0.8);
+          }
+          100% {
+            animation-timing-function: ease-out;
+          }
+        }
+        @include animate(squeeze, 2.4s, linear, infinite);
       }
     }
   }
