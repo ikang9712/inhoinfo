@@ -72,13 +72,8 @@ const DemoBestHorror: NextPage = () => {
               <h4>1. Hereditary (2018)</h4>
               <h5>Directed by Me</h5>
             </header>
-            <div className="img-container">
-              <Image
-                src={'/images/demo/poster.png'}
-                alt="alt"
-                width={240}
-                height={240}
-              />
+            <div className="video-container">
+              <iframe src="https://player.vimeo.com/video/409898019"></iframe>
             </div>
           </div>
           <div className="article">
@@ -86,13 +81,8 @@ const DemoBestHorror: NextPage = () => {
               <h4>2. Hereditary (2018)</h4>
               <h5>Directed by Me</h5>
             </header>
-            <div className="img-container">
-              <Image
-                src={'/images/demo/poster.png'}
-                alt="alt"
-                width={240}
-                height={240}
-              />
+            <div className="video-container">
+              <iframe src="https://player.vimeo.com/video/409898019"></iframe>
             </div>
           </div>
           <div className="article">
@@ -100,13 +90,8 @@ const DemoBestHorror: NextPage = () => {
               <h4>3. Hereditary (2018)</h4>
               <h5>Directed by Me</h5>
             </header>
-            <div className="img-container">
-              <Image
-                src={'/images/demo/poster.png'}
-                alt="alt"
-                width={100}
-                height={100}
-              />
+            <div className="video-container">
+              <iframe src="https://player.vimeo.com/video/409898019"></iframe>
             </div>
           </div>
         </section>
