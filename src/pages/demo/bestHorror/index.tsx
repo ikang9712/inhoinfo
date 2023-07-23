@@ -69,8 +69,8 @@ const DemoBestHorror: NextPage = () => {
         <section>
           <div className="article">
             <header>
-              <h4>1. Hereditary (2018)</h4>
-              <h5>Directed by Me</h5>
+              <h4>Misery (1990)</h4>
+              <h5>Directed by Rob Reiner</h5>
             </header>
             <div className="video-container">
               <iframe src="https://player.vimeo.com/video/409898019"></iframe>
@@ -78,20 +78,20 @@ const DemoBestHorror: NextPage = () => {
           </div>
           <div className="article">
             <header>
-              <h4>2. Hereditary (2018)</h4>
-              <h5>Directed by Me</h5>
+              <h4>Sinister (2012)</h4>
+              <h5>Directed by Scott Derrickson</h5>
             </header>
             <div className="video-container">
-              <iframe src="https://player.vimeo.com/video/409898019"></iframe>
+              <iframe src="https://player.vimeo.com/video/411775137"></iframe>
             </div>
           </div>
           <div className="article">
             <header>
-              <h4>3. Hereditary (2018)</h4>
-              <h5>Directed by Me</h5>
+              <h4>The House of the Devil (2009)</h4>
+              <h5>Directed by Ti West</h5>
             </header>
             <div className="video-container">
-              <iframe src="https://player.vimeo.com/video/409898019"></iframe>
+              <iframe src="https://player.vimeo.com/video/607436430"></iframe>
             </div>
           </div>
         </section>
