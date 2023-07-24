@@ -3,15 +3,15 @@ import Image from 'next/image';
 
 const DemoBestHorror: NextPage = () => {
   return (
-    <div className="movieBody">
-      <header className="movieHeader">
+    <div className="movie-body">
+      <header className="movie-header">
         <div className="hgroup">
           <h1>Best</h1>
           <h1>
             <span>H</span>
             <span className="svg-container">
               <Image
-                src={'/images/demo/eye.svg'}
+                src={'/images/demo/besthorror/eye.svg'}
                 alt="blinking eye"
                 width={50}
                 height={50}
@@ -20,7 +20,7 @@ const DemoBestHorror: NextPage = () => {
             <span>rr</span>
             <span className="svg-container">
               <Image
-                src={'/images/demo/eye.svg'}
+                src={'/images/demo/besthorror/eye.svg'}
                 alt="blinking eye"
                 width={50}
                 height={50}
@@ -52,7 +52,7 @@ const DemoBestHorror: NextPage = () => {
           </nav>
         </div>
       </header>
-      <div className="movieSort">
+      <div className="movie-sort">
         <div className="box">
           <span>Currently viewing&nbsp;</span>
           <div className="buttonwrap">
@@ -65,7 +65,7 @@ const DemoBestHorror: NextPage = () => {
           <span>.</span>
         </div>
       </div>
-      <main className="movieMain">
+      <main className="movie-main">
         <section>
           <div className="article">
             <header>

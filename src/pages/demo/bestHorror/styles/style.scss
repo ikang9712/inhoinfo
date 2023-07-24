@@ -1,14 +1,13 @@
 @import '_variables';
-@import '@styles/_mixins';
 
-.movieBody {
+.movie-body {
   font-family: sans-serif;
   box-sizing: border-box;
   display: block;
   outline: none;
   background: $gradient-red;
-  .movieSort,
-  .movieMain {
+  .movie-sort,
+  .movie-main {
     @include breakpoint(lg) {
       margin-left: $headerWidthLg;
     }
@@ -18,7 +17,7 @@
   }
 }
 
-.movieHeader {
+.movie-header {
   @include breakpoint(md) {
     position: relative;
   }
@@ -145,7 +144,7 @@
   }
 }
 
-.movieSort {
+.movie-sort {
   background-color: rgba($red, 0.8);
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
   color: #fff;
@@ -182,7 +181,7 @@
   }
 }
 
-.movieMain {
+.movie-main {
   min-height: 100vh;
   color: white;
   section {
@@ -197,6 +196,7 @@
           font-weight: 700;
         }
         h5 {
+          padding-top: 10px;
           font-size: 1.5em;
         }
         padding-bottom: 24px;

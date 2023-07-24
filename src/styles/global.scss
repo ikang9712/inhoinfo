@@ -1,5 +1,8 @@
 @import 'reset';
 @import '_variables';
 @import '_mixins';
+@import '_fonts';
 
-@import '../pages/demo/bestHorror/styles/style.scss';
+// demo page
+@import '../pages/demo/besthorror/styles/style.scss';
+@import '../pages/demo/paintbox/styles/style.scss';
