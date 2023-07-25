@@ -69,21 +69,81 @@ const DemoPaintBox: NextPage = () => {
             <Image
               src={'/images/demo/paintbox/paintbox1.webp'}
               alt="hero-image"
-              width={0}
-              height={0}
+              width={1600}
+              height={929}
               layout="responsive"
             />
           </div>
 
           <div className="hero-text">
-            <h4>save 20% on bundles</h4>
+            <h4>save 20 dollars on bundles</h4>
             <h3>
               The ultimate summer accessory, discover our newest Nail Lackquer
-              Trio:
+              Trio: &#8198;
               <em>Like Poolside &mdash;</em>
               inspired by color theory.
             </h3>
             <a href="#">shop now</a>
+          </div>
+        </div>
+        <div className="shop-section">
+          <div className="category">the shop</div>
+          <div className="title"> Our Newest Polish Colors</div>
+          <div className="product-slider">
+            <div className="product-tile">
+              <a>
+                <div className="product-tile-image">
+                  <Image
+                    src={'/images/demo/paintbox/paintbox2.webp'}
+                    alt="product1"
+                    width={640}
+                    height={800}
+                    layout="responsive"
+                  />
+                </div>
+                <div className="product-tile-name">
+                  Nail Lacquer Trio &ndash; Like Poolside
+                </div>
+                <div className="product-tile-price"> &euro; 52.00</div>
+              </a>
+              <a className="product-tile-button">add to cart</a>
+            </div>
+            <div className="product-tile">
+              <a>
+                <div className="product-tile-image">
+                  <Image
+                    src={'/images/demo/paintbox/paintbox4.webp'}
+                    alt="product2"
+                    width={640}
+                    height={800}
+                    layout="responsive"
+                  />
+                </div>
+                <div className="product-tile-name">
+                  Nail Lacquer Trio &ndash; Like Poolside
+                </div>
+                <div className="product-tile-price"> &euro; 52.00</div>
+              </a>
+              <a className="product-tile-button">add to cart</a>
+            </div>
+            <div className="product-tile">
+              <a>
+                <div className="product-tile-image">
+                  <Image
+                    src={'/images/demo/paintbox/paintbox3.webp'}
+                    alt="product3"
+                    width={640}
+                    height={800}
+                    layout="responsive"
+                  />
+                </div>
+                <div className="product-tile-name">
+                  Nail Lacquer Trio &ndash; Like Poolside
+                </div>
+                <div className="product-tile-price"> &euro;52.00</div>
+              </a>
+              <a className="product-tile-button">add to cart</a>
+            </div>
           </div>
         </div>
       </div>

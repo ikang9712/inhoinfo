@@ -33,3 +33,30 @@
   font-family: 'proxima-nova-thin';
   src: url('/fonts/proxima-nova/proximanova-thin.otf');
 }
+
+// neutron
+@font-face {
+  font-family: 'neutron-extra-light';
+  src: url('/fonts/neutron/Neuton-Extralight.ttf');
+  font-style: normal;
+}
+@font-face {
+  font-family: 'neutron-extra-light';
+  src: url('/fonts/neutron/Neuton-ExtralightItalic.ttf');
+  font-style: italic;
+}
+@font-face {
+  font-family: 'neutron-sc-extra-light';
+  src: url('/fonts/neutron/Neuton-SC-Extralight.ttf');
+  font-style: normal;
+}
+@font-face {
+  font-family: 'neutron';
+  src: url('/fonts/neutron/Neuton-Italic.ttf');
+  font-style: italic;
+}
+@font-face {
+  font-family: 'neutron-cursive';
+  src: url('/fonts/neutron/NeutonCursive-Regular.ttf');
+  font-style: normal;
+}

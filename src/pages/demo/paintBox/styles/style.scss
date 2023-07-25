@@ -1,11 +1,26 @@
 @import '_variables';
 
 .paint-body {
-  font-family: proxima-nova-regular, sans-serif;
   box-sizing: border-box;
   display: block;
   outline: none;
 
+  .home {
+    margin-top: 115px;
+    padding-left: 0px;
+    padding-right: 0px;
+
+    @include breakpoint(xl) {
+      padding-left: 50px;
+      padding-right: 50px;
+    }
+    @include breakpoint(xxl) {
+      padding-left: 140px;
+      padding-right: 140px;
+    }
+    // transition
+    // fade
+  }
   header {
     padding-left: 0px;
     padding-right: 0px;
@@ -18,6 +33,7 @@
       padding-left: 140px;
       padding-right: 140px;
     }
+    background: white;
     z-index: 10;
     position: fixed;
     top: 0;
@@ -93,63 +109,133 @@
       }
     }
   }
-  .home {
-    margin-top: 115px;
-    // transition
-    // fade
-    .hero-section {
-      padding-left: 0px;
-      padding-right: 0px;
+}
 
+.hero-section {
+  max-width: 1920px;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  margin-bottom: 40px;
+  img {
+    z-index: -1;
+  }
+  .hero-text {
+    color: white;
+    text-align: center;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    top: 10%;
+    @include breakpoint(md) {
+      top: 15%;
+    }
+    @include breakpoint(lg) {
+      top: 20%;
+    }
+    h4 {
+      font-family: proxima-nova-regular, sans-serif;
+      font-size: 10px;
+      letter-spacing: 2.2px;
+      line-height: 14px;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+    }
+    h3 {
+      font-family: neutron-extra-light, Times, serif;
+      font-weight: 100;
+      font-size: 30px;
+      margin-bottom: 50px;
+      width: 50%;
+      @include breakpoint(lg) {
+        font-size: 40px;
+      }
       @include breakpoint(xl) {
-        padding-left: 50px;
-        padding-right: 50px;
+        margin-bottom: 100px;
+        font-size: 50px;
       }
-      @include breakpoint(xxl) {
-        padding-left: 140px;
-        padding-right: 140px;
-      }
-      max-width: 1920px;
+      line-height: 48px;
+      // width: 500px;
 
-      img {
-        z-index: -1;
-        // position: absolute;
+      em {
+        font-style: italic;
       }
-      .hero-text {
-        color: white;
-        text-align: center;
-        top: 50%;
-        left: 50%;
-        position: absolute;
-        transform: translate3d(-50%, -50%, 0);
-        h4 {
-          font-family: proxima-nova-regular, sans-serif;
-          font-size: 10px;
-          letter-spacing: 2.2px;
-          line-height: 14px;
-          text-transform: uppercase;
-          margin-bottom: 30px;
-        }
-        h3 {
-          font-family: freight-light, 'Times New Roman';
-          font-size: 50px;
-          margin-bottom: 50px;
-          line-height: 48px;
+    }
+    a {
+      font-family: proxima-nova-regular, sans-serif;
+      max-width: 100%;
+      min-width: 240px;
+      padding: 20px 100px;
+      border: 1px solid $white;
+      font-size: 10px;
+      letter-spacing: 2.2px;
+      text-decoration: none;
+      text-transform: uppercase;
+      color: white;
+    }
+  }
+}
 
-          em {
-            font-style: italic;
-          }
-        }
-        a {
-          max-width: 100%;
-          min-width: 240px;
-          padding: 20px 100px;
-          border: 1px solid $white;
-          font-size: 10px;
-          letter-spacing: 2.2px;
-          text-decoration: none;
-          text-transform: uppercase;
+.shop-section {
+  padding: 40px 50px;
+  text-align: center;
+  font-family: proxima-nova-regular, sans-serif;
+  .category {
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing: 2.2px;
+    line-height: 15px;
+    margin-bottom: 17px;
+  }
+  .title {
+    font-family: neutron-sc-extra-light, sans-serif;
+    font-size: 34px;
+    line-height: 38px;
+    margin-bottom: 32px;
+  }
+  .product-slider {
+    display: flex;
+    justify-content: space-between;
+    .product-tile {
+      width: 33%;
+      display: flex;
+      flex-direction: column;
+
+      align-items: center;
+      .product-tile-image {
+        margin-bottom: 15px;
+      }
+      .product-tile-name {
+        font-size: 30px;
+        line-height: 38px;
+        font-family: neutron-sc-extra-light, sans-serif;
+        font-style: italic;
+        font-weight: 100;
+        margin-bottom: 15px;
+      }
+      .product-tile-price {
+        font-family: proxima-nova-regular, sans-serif;
+        font-size: 10px;
+        height: 23px;
+        position: relative;
+        margin-top: 5px;
+      }
+      .product-tile-button {
+        font-family: proxima-nova-regular, sans-serif;
+        padding: 20px 80px;
+        width: fit-content;
+        border: 1px solid $black;
+        font-size: 10px;
+        letter-spacing: 2.2px;
+        text-decoration: none;
+        text-transform: uppercase;
+        color: $black;
+        &:hover {
+          background-color: $black;
           color: white;
+          transition-duration: 0.4s;
         }
       }
     }
