@@ -1,11 +1,23 @@
 @import '_variables';
 
 .paint-body {
-  font-family: sans-serif;
+  font-family: proxima-nova-regular, sans-serif;
   box-sizing: border-box;
   display: block;
   outline: none;
+
   header {
+    padding-left: 0px;
+    padding-right: 0px;
+
+    @include breakpoint(xl) {
+      padding-left: 50px;
+      padding-right: 50px;
+    }
+    @include breakpoint(xxl) {
+      padding-left: 140px;
+      padding-right: 140px;
+    }
     z-index: 10;
     position: fixed;
     top: 0;
@@ -83,5 +95,63 @@
   }
   .home {
     margin-top: 115px;
+    // transition
+    // fade
+    .hero-section {
+      padding-left: 0px;
+      padding-right: 0px;
+
+      @include breakpoint(xl) {
+        padding-left: 50px;
+        padding-right: 50px;
+      }
+      @include breakpoint(xxl) {
+        padding-left: 140px;
+        padding-right: 140px;
+      }
+      max-width: 1920px;
+
+      img {
+        z-index: -1;
+        // position: absolute;
+      }
+      .hero-text {
+        color: white;
+        text-align: center;
+        top: 50%;
+        left: 50%;
+        position: absolute;
+        transform: translate3d(-50%, -50%, 0);
+        h4 {
+          font-family: proxima-nova-regular, sans-serif;
+          font-size: 10px;
+          letter-spacing: 2.2px;
+          line-height: 14px;
+          text-transform: uppercase;
+          margin-bottom: 30px;
+        }
+        h3 {
+          font-family: freight-light, 'Times New Roman';
+          font-size: 50px;
+          margin-bottom: 50px;
+          line-height: 48px;
+
+          em {
+            font-style: italic;
+          }
+        }
+        a {
+          max-width: 100%;
+          min-width: 240px;
+          padding: 20px 100px;
+          border: 1px solid $white;
+          font-size: 10px;
+          letter-spacing: 2.2px;
+          text-decoration: none;
+          text-transform: uppercase;
+          color: white;
+        }
+      }
+    }
   }
 }

@@ -1,11 +1,23 @@
 // freight pro
 @font-face {
-  font-family: 'freight-regular';
+  font-family: 'freight-light';
   src: url('/fonts/freight/FreightTextProLight-Regular.ttf');
+  font-style: normal;
 }
 @font-face {
-  font-family: 'freight-italic';
+  font-family: 'freight-light';
   src: url('/fonts/freight/FreightTextProLight-Italic.ttf');
+  font-style: italic;
+}
+@font-face {
+  font-family: 'freight-book';
+  src: url('/fonts/freight/FreightTextProBook-Regular.ttf');
+  font-style: normal;
+}
+@font-face {
+  font-family: 'freight-book';
+  src: url('/fonts/freight/FreightTextProBook-Italic.ttf');
+  font-style: italic;
 }
 
 // proxima nova
