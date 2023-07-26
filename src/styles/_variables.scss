@@ -11,9 +11,17 @@ $breakpoints: (
     min: 992px,
     max: 991.98px,
   ),
+  lg-xl: (
+    min: 1024px,
+    max: 1023.98px,
+  ),
   xl: (
     min: 1200px,
     max: 1199.98px,
+  ),
+  xl-xxl: (
+    min: 1281px,
+    max: 1280.98px,
   ),
   xxl: (
     min: 1400px,

@@ -146,6 +146,242 @@ const DemoPaintBox: NextPage = () => {
             </div>
           </div>
         </div>
+        <div className="shop-section-2">
+          <div className="image-wrapper">
+            <Image
+              src={'/images/demo/paintbox/paintbox6.webp'}
+              alt="shop-section-2-1-image"
+              layout="responsive"
+              width={1280}
+              height={1280}
+            />
+          </div>
+          <div className="text-wrapper">
+            <div className="text-content">
+              <div className="category"> our studio</div>
+              <div className="title">
+                Explore our <em>Spring-Summer 23 Lookbook </em>plus our new Best
+                Sellers collection of the most iconic Paintbox designs of all
+                time.
+              </div>
+              <a href="#"> book a manicure</a>
+            </div>
+          </div>
+        </div>
+        <div className="shop-section-2">
+          <div className="image-wrapper">
+            <Image
+              src={'/images/demo/paintbox/paintbox5.webp'}
+              alt="shop-section-2-2-image"
+              layout="responsive"
+              width={1280}
+              height={1280}
+            />
+          </div>
+          <div className="text-wrapper">
+            <div className="text-content">
+              <div className="category" style={{ marginTop: 80 }}>
+                {' '}
+                our shop
+              </div>
+              <div className="title">
+                Accessorize your summer fits with our new color theory trios.
+              </div>
+              <a href="#"> shop now</a>
+            </div>
+          </div>
+        </div>
+        <div className="shop-section-2">
+          <div className="image-wrapper">
+            <Image
+              src={'/images/demo/paintbox/paintbox7.webp'}
+              alt="shop-section-2-2-image"
+              layout="responsive"
+              width={1280}
+              height={1280}
+            />
+          </div>
+          <div className="text-wrapper">
+            <div className="text-content">
+              <div className="category"> gift cards</div>
+              <div className="title">
+                Give the gift of the Paintbox experience for a manicure that
+                tells a story.
+              </div>
+              <a href="#"> buy a gift card</a>
+            </div>
+          </div>
+        </div>
+        <div className="shop-section">
+          <div className="category">inspiration</div>
+          <div className="title" style={{ marginBottom: 50 }}>
+            {' '}
+            How to use it:<em>Like Royals + Like Peony</em>
+          </div>
+          <div className="inspiration-slider">
+            <div className="inspiration-tile">
+              <a>
+                <div className="inspiration-tile-image">
+                  <Image
+                    src={'/images/demo/paintbox/paintbox8.avif'}
+                    alt="inspiration-item-1"
+                    width={0}
+                    height={0}
+                    layout="responsive"
+                  />
+                </div>
+
+                <div className="inspiration-tile-number"> 01</div>
+              </a>
+            </div>
+            <div className="inspiration-tile">
+              <a>
+                <div className="inspiration-tile-image">
+                  <Image
+                    src={'/images/demo/paintbox/paintbox9.avif'}
+                    alt="inspiration-item-1"
+                    width={0}
+                    height={0}
+                    layout="responsive"
+                  />
+                </div>
+
+                <div className="inspiration-tile-number"> 02</div>
+              </a>
+            </div>
+            <div className="inspiration-tile">
+              <a>
+                <div className="inspiration-tile-image">
+                  <Image
+                    src={'/images/demo/paintbox/paintbox10.avif'}
+                    alt="inspiration-item-1"
+                    width={0}
+                    height={0}
+                    layout="responsive"
+                  />
+                </div>
+
+                <div className="inspiration-tile-number"> 03</div>
+              </a>
+            </div>
+            <div className="inspiration-tile" style={{ borderRight: 0 }}>
+              <a>
+                <div className="inspiration-tile-image">
+                  <Image
+                    src={'/images/demo/paintbox/paintbox11.avif'}
+                    alt="inspiration-item-1"
+                    width={0}
+                    height={0}
+                    layout="responsive"
+                  />
+                </div>
+
+                <div className="inspiration-tile-number"> 05</div>
+              </a>
+            </div>
+          </div>
+          <a href="#" className="inspiration-button">
+            shop power couple
+          </a>
+        </div>
+        <div className="instagram-section">
+          <div className="instagram-grid">
+            <a>
+              <div className="instagram-grid-item">
+                <Image
+                  src={'/images/demo/paintbox/paintbox12.webp'}
+                  alt="instagram-item-1"
+                  width={0}
+                  height={0}
+                  layout="responsive"
+                />
+              </div>
+            </a>
+            <a>
+              <div className="instagram-grid-item">
+                <Image
+                  src={'/images/demo/paintbox/paintbox13.webp'}
+                  alt="instagram-item-1"
+                  width={0}
+                  height={0}
+                  layout="responsive"
+                />
+              </div>
+            </a>
+            <a>
+              <div className="instagram-grid-item">
+                <Image
+                  src={'/images/demo/paintbox/paintbox14.webp'}
+                  alt="instagram-item-1"
+                  width={0}
+                  height={0}
+                  layout="responsive"
+                />
+              </div>
+            </a>
+            <a>
+              <div className="instagram-grid-item">
+                <Image
+                  src={'/images/demo/paintbox/paintbox15.webp'}
+                  alt="instagram-item-1"
+                  width={0}
+                  height={0}
+                  layout="responsive"
+                />
+              </div>
+            </a>
+            <a>
+              <div className="instagram-grid-item">
+                <Image
+                  src={'/images/demo/paintbox/paintbox16.webp'}
+                  alt="instagram-item-1"
+                  width={0}
+                  height={0}
+                  layout="responsive"
+                />
+              </div>
+            </a>
+            <a>
+              <div className="instagram-grid-item">
+                <Image
+                  src={'/images/demo/paintbox/paintbox17.webp'}
+                  alt="instagram-item-1"
+                  width={0}
+                  height={0}
+                  layout="responsive"
+                />
+              </div>
+            </a>
+            <a>
+              <div className="instagram-grid-item">
+                <Image
+                  src={'/images/demo/paintbox/paintbox18.webp'}
+                  alt="instagram-item-1"
+                  width={0}
+                  height={0}
+                  layout="responsive"
+                />
+              </div>
+            </a>
+            <a>
+              <div className="instagram-grid-item">
+                <Image
+                  src={'/images/demo/paintbox/paintbox19.webp'}
+                  alt="instagram-item-1"
+                  width={0}
+                  height={0}
+                  layout="responsive"
+                />
+              </div>
+            </a>
+          </div>
+          <div className="instagram-grid-title">
+            Follow us at{' '}
+            <a href="https://www.instagram.com/paintboxnails/">
+              @paintboxnails
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );
