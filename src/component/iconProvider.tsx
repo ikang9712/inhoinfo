@@ -1,10 +1,14 @@
 import { IconContext } from 'react-icons';
 import { BsArrowRight } from 'react-icons/bs';
-
+import { RxCross1, RxHamburgerMenu } from 'react-icons/rx';
 const getIconFromName = (iconName: string) => {
   switch (iconName) {
     case 'arrow-right':
       return <BsArrowRight />;
+    case 'hamburger':
+      return <RxHamburgerMenu />;
+    case 'cross':
+      return <RxCross1 />;
   }
 };
 
