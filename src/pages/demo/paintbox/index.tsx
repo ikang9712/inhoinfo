@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 
+// add comment to fix bug issue for vercel
 const DemoPaintBox: NextPage = () => {
   const [burger, setBurger] = useState<boolean>(false);
 
