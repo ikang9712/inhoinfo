@@ -7,7 +7,6 @@ const Demo: NextPage = () => {
       <h1> this page is demo page.</h1>
       <Link href={'/demo/besthorror'}>bestHorror</Link>
       <Link href={'/demo/paintbox'}>paintBox</Link>
-      <Link href={'/demo/10x19'}>10x19</Link>
     </div>
   );
 };

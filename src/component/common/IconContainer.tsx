@@ -12,7 +12,7 @@ const getIconFromName = (iconName: string) => {
   }
 };
 
-export const IconContextProvider = ({
+export const IconContainer = ({
   className,
   iconName,
 }: {
