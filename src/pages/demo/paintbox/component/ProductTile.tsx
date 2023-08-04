@@ -1,5 +1,5 @@
+import { ProductTileProps } from '@src/types/paintboxTypes';
 import Image from 'next/image';
-import { ProductTileProps } from '../type';
 
 const ProductTile = ({ imageSource, name, price }: ProductTileProps) => {
   return (

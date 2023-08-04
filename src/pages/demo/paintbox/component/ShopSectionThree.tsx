@@ -1,7 +1,7 @@
 import { IconContainer } from '@src/component/common/IconContainer';
+import { ShopSectionThreeProps } from '@src/types/paintboxTypes';
 import Image from 'next/image';
 import { Fragment } from 'react';
-import { ShopSectionThreeProps } from '../type';
 
 const ShopSectionThree = ({
   imageSource,

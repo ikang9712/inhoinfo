@@ -1,8 +1,8 @@
 import { IconContainer } from '@src/component/common/IconContainer';
+import { HeaderProps } from '@src/types/paintboxTypes';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Fragment } from 'react';
-import { HeaderProps } from '../type';
 
 const PaintBoxHeader = ({ isActivated, handleActivation }: HeaderProps) => {
   return (

@@ -1,5 +1,5 @@
+import { ShopSectionTwoProps } from '@src/types/paintboxTypes';
 import Image from 'next/image';
-import { ShopSectionTwoProps } from '../type';
 
 const ShopSectionTwo = ({
   imageSource,
