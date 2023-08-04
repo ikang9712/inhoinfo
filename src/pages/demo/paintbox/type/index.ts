@@ -1,6 +1,6 @@
 export interface HeaderProps {
   isActivated: boolean;
-  handleActivation: (isActivated: boolean) => void;
+  handleActivation: (_isActivated: boolean) => void;
 }
 
 export interface ProductTileProps {
