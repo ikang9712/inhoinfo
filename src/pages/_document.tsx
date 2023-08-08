@@ -7,7 +7,7 @@ export default class Document extends NextDocument {
         <Head>
           <meta charSet="utf-8" />
         </Head>
-        <body>
+        <body id="root">
           <Main />
           <NextScript />
         </body>

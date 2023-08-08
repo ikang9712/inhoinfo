@@ -1,3 +1,22 @@
+// druk wide web
+@font-face {
+  font-family: 'druk-regular';
+  src: url('/fonts/druk-wide-web/Druk-Wide-Web-Medium-Regular.ttf');
+  font-style: normal;
+}
+@font-face {
+  font-family: 'druk';
+  src: url('/fonts/druk-wide-web/Druk-Wide-Web-Bold-Regular.ttf');
+  font-style: normal;
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'druk-super';
+  src: url('/fonts/druk-wide-web/Druk-Wide-Web-Super-Regular.ttf');
+  font-style: normal;
+  // font-weight: bolder;
+}
+
 // freight pro
 @font-face {
   font-family: 'freight-light';
