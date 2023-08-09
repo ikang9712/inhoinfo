@@ -1,12 +1,16 @@
-import LoadingProvider from '@src/provider/loading.provider';
+import Main from '@src/component/layout/main';
+import HeaderProvider from '@src/provider/header.provider';
+
 import '@styles/global.scss';
 import type { AppProps } from 'next/app';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <LoadingProvider>
-        <Component {...pageProps} />
+      <HeaderProvider>
+        <Main>
+          <Component {...pageProps} />
+        </Main>
         {/* <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -14,7 +18,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           </Routes>
           <Component {...pageProps} />
         </BrowserRouter> */}
-      </LoadingProvider>
+      </HeaderProvider>
     </>
   );
 }

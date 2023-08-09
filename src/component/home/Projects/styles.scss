@@ -1,0 +1,96 @@
+.project {
+  transform-style: preserve-3d;
+  font-weight: bolder;
+  padding: 5vw 5vw calc(7.5vw + 67px) 0;
+  list-style-type: none;
+  text-align: right;
+  @for $i from 1 through 4 {
+    ul .project-li:nth-child(#{$i}n) .project-container {
+      animation-delay: #{$i * 0.2s};
+    }
+  }
+  @for $i from 1 through 4 {
+    ul .project-li:nth-child(#{$i}n) .project-container .triggerOutro {
+      animation-delay: #{$i * 0.2s};
+    }
+  }
+  ul {
+    font-size: 6rem;
+    transform-style: preserve-3d;
+    // @for $i from 1 through 4 {
+    //   .project-li:nth-child(#{$i}) .project-container .triggerOutro {
+    //     animation-delay: 4s - ($i / 4);
+    //   }
+    // }
+    .project-li {
+      transform-style: preserve-3d;
+      .project-container {
+        transform-style: preserve-3d;
+        width: 100%;
+        color: black;
+        opacity: 0;
+        display: flex;
+        justify-content: flex-end;
+        animation: intro 2s forwards;
+        .triggerOutro {
+          animation: outro 1s forwards;
+        }
+        a {
+          // transform: perspective(100rem) rotateY(-45deg) rotateZ(-5deg);
+          transform: rotateZ(-5deg);
+          transform-origin: right center;
+          // transform: rotateY(-45deg) translateZ(0) scale(1);
+          transition: transform 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+          transition-duration: 2s;
+          width: min-content;
+          display: flex;
+          flex-direction: column;
+          text-transform: uppercase;
+          &:hover {
+            transform-origin: right center;
+            transform: perspective(100rem) rotateY(30deg) rotateZ(0);
+            // transform: perspective(200rem) rotateY(-30deg) rotateZ(-5deg);
+            // transform: rotateY(-0deg) translateZ(0) scale(1);
+            color: transparent;
+            -webkit-text-stroke: 2px;
+            -webkit-text-stroke-color: #151515;
+          }
+          &:hover::before {
+            color: black;
+            -webkit-text-stroke: 0px;
+            -webkit-text-stroke-color: #151515;
+          }
+        }
+        a::before {
+          content: attr(data-date);
+          font-size: 0.8rem;
+          font-weight: 300;
+          display: flex;
+        }
+      }
+    }
+  }
+}
+
+@keyframes intro {
+  0% {
+    visibility: visible;
+    opacity: 0;
+    transform: translate3d(0, -50vh, 0) rotate3d(0, -1, 0, -100deg);
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+    transform: rotateZ(0);
+  }
+}
+
+@keyframes outro {
+  0% {
+    transform: rotateZ(-5deg);
+  }
+  100% {
+    opacity: 0;
+    transform: rotateZ(-5deg) rotateY(-90deg);
+  }
+}
