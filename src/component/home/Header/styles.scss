@@ -14,6 +14,7 @@
   color: white;
   bottom: 0;
   z-index: 10;
+
   .logo {
     font-family: druk-regular;
     text-transform: uppercase;
@@ -25,23 +26,12 @@
     padding: 0;
     margin-left: 50px;
     font-weight: 800;
-
-    &:hover {
-      transition-duration: 0.3s;
-      color: #4801ff;
-      -webkit-text-stroke: 0.5px;
-      -webkit-text-stroke-color: white;
-    }
+    animation: logoIntro 1s forwards;
   }
   .logo.work {
     color: black;
     transform: translate3d(0, calc(-90vh + 150px), 0);
-    &:hover {
-      transition-duration: 0.3s;
-      color: white;
-      -webkit-text-stroke: 0.5px;
-      -webkit-text-stroke-color: black;
-    }
+    animation: logoIntro 1s forwards;
   }
   .logo.toBottom {
     transform: translate3d(0, calc(-90vh + 150px), 0);
@@ -49,6 +39,16 @@
     transition: 1s;
     animation: headerToBottom 1s forwards;
     animation-delay: 1s;
+  }
+  .logo.toTop {
+    color: black;
+    transition: 1s;
+    animation: headerToTop 1s forwards;
+    animation-delay: 1s;
+  }
+
+  .logo,
+  .logo.toBottom {
     &:hover {
       transition-duration: 0.3s;
       color: #4801ff;
@@ -56,16 +56,25 @@
       -webkit-text-stroke-color: white;
     }
   }
+  .logo.work,
   .logo.toTop {
-    color: black;
+    &:hover {
+      transition-duration: 0.3s;
+      color: transparent;
+      -webkit-text-stroke: 0.5px;
+      -webkit-text-stroke-color: black;
+    }
+  }
+  .logo.toTop.aboutClicked {
+    color: white;
     transition: 1s;
     animation: headerToTop 1s forwards;
     animation-delay: 1s;
     &:hover {
       transition-duration: 0.3s;
-      color: white;
+      color: #4801ff;
       -webkit-text-stroke: 0.5px;
-      -webkit-text-stroke-color: black;
+      -webkit-text-stroke-color: white;
     }
   }
 
@@ -76,6 +85,8 @@
     width: 100vw;
     justify-content: space-between;
     color: white;
+    animation: slideUp 1.5s forwards;
+    animation-timing-function: cubic-bezier(0.175, 1.5, 0.32, 1);
     .left {
       display: flex;
       ul {
@@ -92,7 +103,111 @@
       ul {
         li {
           margin-bottom: 5px;
+          span {
+            font-size: 0.8rem;
+            margin-right: 10px;
+          }
         }
+      }
+    }
+  }
+  .about.toTop {
+    li {
+      &:hover {
+        --bg-size: 400%;
+        --color-one: hsla(257, 100%, 84%, 1);
+        --color-two: hsla(257, 100%, 8%, 1);
+        background: linear-gradient(
+            90deg,
+            var(--color-one),
+            var(--color-two),
+            var(--color-one)
+          )
+          0 0 / var(--bg-size) 100%;
+        color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+        animation: move-bg 6s infinite linear;
+      }
+    }
+  }
+  .about.work {
+    color: black;
+    transform: translate3d(0, calc(-90vh + 50px), 0);
+    li {
+      &:hover {
+        --bg-size: 400%;
+        --color-one: hsla(257, 100%, 84%, 1);
+        --color-two: hsla(257, 100%, 8%, 1);
+        background: linear-gradient(
+            90deg,
+            var(--color-one),
+            var(--color-two),
+            var(--color-one)
+          )
+          0 0 / var(--bg-size) 100%;
+        color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+        animation: move-bg 6s infinite linear;
+      }
+    }
+  }
+  .about,
+  .about.toBottom {
+    li {
+      &:hover {
+        --bg-size: 400%;
+        --color-one: #3300b3;
+        --color-two: white;
+        background: linear-gradient(
+            90deg,
+            var(--color-one),
+            var(--color-two),
+            var(--color-one)
+          )
+          0 0 / var(--bg-size) 100%;
+        color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+        animation: move-bg 6s infinite linear;
+      }
+    }
+  }
+  .about.toBottom {
+    color: white;
+    transition-duration: 1s;
+    transform: translate3d(0, calc(-90vh + 50px), 0);
+    animation: aboutToBottom 1s forwards;
+    animation-delay: 1s;
+  }
+  .about.toTop {
+    color: black;
+    transition-duration: 1s;
+    animation: aboutToTop 1s forwards;
+    animation-delay: 1s;
+  }
+  .about.toTop.aboutClicked {
+    color: white;
+    transition-duration: 1s;
+    animation: aboutToTop 1s forwards;
+    animation-delay: 1s;
+    li {
+      &:hover {
+        --bg-size: 400%;
+        --color-one: #3300b3;
+        --color-two: white;
+        background: linear-gradient(
+            90deg,
+            var(--color-one),
+            var(--color-two),
+            var(--color-one)
+          )
+          0 0 / var(--bg-size) 100%;
+        color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+        animation: move-bg 6s infinite linear;
       }
     }
   }
@@ -100,6 +215,30 @@
 
 .info.work {
   color: black;
+}
+
+@keyframes logoIntro {
+  0% {
+    letter-spacing: 3rem;
+  }
+  100% {
+    letter-spacing: 0px;
+  }
+}
+
+@keyframes move-bg {
+  to {
+    background-position: var(--bg-size) 0;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(120%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
 }
 
 @keyframes headerToTop {
@@ -114,6 +253,24 @@
 @keyframes headerToBottom {
   0% {
     transform: translate3d(0, calc(-90vh + 150px), 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes aboutToTop {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, calc(-90vh + 50px), 0);
+  }
+}
+
+@keyframes aboutToBottom {
+  0% {
+    transform: translate3d(0, calc(-90vh + 50px), 0);
   }
   100% {
     transform: translate3d(0, 0, 0);

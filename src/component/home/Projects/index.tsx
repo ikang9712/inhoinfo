@@ -18,8 +18,6 @@ const Projects = () => {
     } else if (!clicked.second) {
       router.push('/work/muselive');
     } else if (!clicked.third) {
-      router.push('/work/cmuwebapp');
-    } else if (!clicked.fourth) {
       router.push('/work/casestudy');
     } else {
       router.push('/');
@@ -79,11 +77,12 @@ const Projects = () => {
             </a>
           </div>
         </li>
+
         <li className="project-li">
           <div className="project-container">
             <a
-              className={clicked.third ? 'triggerOutro' : ''}
-              data-date="2022-2023"
+              className={clicked.fourth ? 'triggerOutro' : ''}
+              data-date="2023"
               onClick={() => {
                 setClicked({
                   first: true,
@@ -96,7 +95,7 @@ const Projects = () => {
                 handleRouting();
               }}
             >
-              <span>cmu webapp</span>
+              <span>case study</span>
             </a>
           </div>
         </li>
@@ -117,7 +116,7 @@ const Projects = () => {
                 handleRouting();
               }}
             >
-              <span>case study</span>
+              <span>hello world</span>
             </a>
           </div>
         </li>

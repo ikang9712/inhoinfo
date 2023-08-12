@@ -1,15 +1,18 @@
+// global variables, mixins, fonts
 @import '_reset';
 @import '_variables';
 @import '_mixins';
 @import '_fonts';
 
-// demo page
-@import '../pages/demo/besthorror/styles/style.scss';
-@import '../pages/demo/paintbox/styles/style.scss';
+// global styles
 @import '../pages/styles/style.scss';
 
-// home page
+// demo styles
+@import '../pages/demo/besthorror/styles/style.scss';
+@import '../pages/demo/paintbox/styles/style.scss';
+
+// component
 @import '../component/home/Header/styles.scss';
+@import '../component/home/About/styles.scss';
 @import '../component/home/Projects/styles.scss';
-@import '../pages/work/muselive/styles.scss';
-@import '../pages//work/inhoinfo//styles.scss';
+@import '../component/home/Works/styles.scss';

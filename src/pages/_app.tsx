@@ -6,7 +6,7 @@ import type { AppProps } from 'next/app';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <>
+    
       <HeaderProvider>
         <Main>
           <Component {...pageProps} />
@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           <Component {...pageProps} />
         </BrowserRouter> */}
       </HeaderProvider>
-    </>
+    
   );
 }
 

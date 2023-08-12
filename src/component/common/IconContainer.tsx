@@ -1,5 +1,6 @@
 import { IconContext } from 'react-icons';
 import { BsArrowRight } from 'react-icons/bs';
+import { FaCaretLeft, FaCaretRight } from 'react-icons/fa6';
 import { RxCross1, RxHamburgerMenu } from 'react-icons/rx';
 const getIconFromName = (iconName: string) => {
   switch (iconName) {
@@ -9,6 +10,10 @@ const getIconFromName = (iconName: string) => {
       return <RxHamburgerMenu />;
     case 'cross':
       return <RxCross1 />;
+    case 'caret-left':
+      return <FaCaretLeft/>;
+    case 'caret-right':
+      return <FaCaretRight/>
   }
 };
 

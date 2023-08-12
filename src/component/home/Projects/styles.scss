@@ -41,13 +41,14 @@
           transform-origin: right center;
           // transform: rotateY(-45deg) translateZ(0) scale(1);
           transition: transform 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-          transition-duration: 2s;
+          transition-duration: 1s;
           width: min-content;
           display: flex;
           flex-direction: column;
           text-transform: uppercase;
           &:hover {
             transform-origin: right center;
+            transition-duration: 1s;
             transform: perspective(100rem) rotateY(30deg) rotateZ(0);
             // transform: perspective(200rem) rotateY(-30deg) rotateZ(-5deg);
             // transform: rotateY(-0deg) translateZ(0) scale(1);
