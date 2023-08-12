@@ -24,7 +24,7 @@ const WorkImageSlider = ({
       >
         {srcList.map((src, index) => {
           return (
-            <SwiperSlide key={`slider_${key}_${index}`}>
+            <SwiperSlide key={`${key}_${index}`}>
               <Image
                 priority={true}
                 src={src}

@@ -43,6 +43,7 @@
   .logo.toTop {
     color: black;
     transition: 1s;
+    transform: translate3d(0, calc(-90vh + 150px), 0);
     animation: headerToTop 1s forwards;
     animation-delay: 1s;
   }
