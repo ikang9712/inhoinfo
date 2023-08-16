@@ -8,13 +8,107 @@
   background: white !important;
 }
 
+.mobile-nav {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  top: 30px;
+  right: 30px;
+  overflow: hidden;
+  z-index: 100;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  opacity: 1;
+  @include breakpoint(md) {
+    opacity: 0;
+    display: none !important;
+  }
+  .nav-burger {
+    width: 40px;
+    height: 3px;
+    background: black;
+    border-radius: 5px;
+    transition: all 0.5s ease-in-out;
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: 40px;
+      height: 3px;
+      background: black;
+      border-radius: 5px;
+      transition: all 0.5s ease-in-out;
+    }
+    &::after {
+      transform: translateY(-12px);
+    }
+    &::before {
+      transform: translateY(12px);
+    }
+  }
+}
+
+.mobile-nav.open {
+  .nav-burger {
+    transform: translateX(-50px);
+    background: transparent;
+    &::after {
+      transform: rotate(-45deg) translate(35px, 35px);
+    }
+    &::before {
+      transform: rotate(45deg) translate(35px, -35px);
+    }
+  }
+}
+.mobile-nav-bg {
+  position: fixed;
+  top: 0;
+  background: $bg-color;
+  opacity: 0.8;
+}
+.mobile-nav-bg.open {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: $bg-color;
+  opacity: 0.8;
+  animation: aboutSlideUp 1.5s forwards;
+  @include breakpoint(md) {
+    width: 0;
+    height: 0;
+  }
+}
+.mobile-nav-bg.initial.prev {
+  width: 0;
+  height: 0;
+}
+.mobile-nav-bg.initial {
+  width: 100vw;
+  height: 100vh;
+  background: $bg-color;
+  opacity: 0.8;
+  animation: aboutSlideDown 1s forwards;
+}
+.mobile-nav-bg.disappear {
+  width: 100vw;
+  height: 100vh;
+  background: $bg-color;
+  opacity: 0.8;
+  animation: bgDisappear 1s forwards;
+}
+
 .home-header {
   position: fixed;
   color: white;
   bottom: 0;
-  z-index: 10;
+  z-index: 1000;
 
   .logo {
+    position: fixed;
     font-family: druk-regular;
     text-transform: uppercase;
     width: fit-content;
@@ -30,8 +124,14 @@
     }
   }
   .logo.toBottom {
-    transition: transform 1s ease-in-out 1s;
-    transform: translate3d(0, -50px, 0);
+    transition: transform 1s ease-in-out;
+    transform: translate3d(0, calc(-90vh + 200px), 0);
+    @include breakpoint(sm) {
+      transform: translate3d(0, calc(-90vh + 50px), 0);
+    }
+    @include breakpoint(md) {
+      transform: translate3d(0, -100px, 0);
+    }
     span {
       transition: all 1s;
       color: white;
@@ -46,8 +146,12 @@
     }
   }
   .logo.toTop {
-    transition: transform 1s ease-in-out 1s;
-    transform: translate3d(0, calc(-90vh + 100px), 0);
+    transition: transform 1s ease-in-out;
+    transform: translate3d(0, calc(-90vh + 200px), 0);
+    @include breakpoint(sm) {
+      transform: translate3d(0, calc(-90vh + 50px), 0);
+    }
+
     span {
       transition: all 1s;
       color: black;
@@ -71,33 +175,83 @@
       }
     }
   }
-  // .logo.toTop.aboutClicked {
-  //   color: white;
-  //   transition: 1s;
-  //   animation: headerToTop 1s forwards;
-  //   animation-delay: 1s;
-  //   &:hover {
-  //     transition-duration: 0.3s;
-  //     color: #4801ff;
-  //     -webkit-text-stroke: 0.5px;
-  //     -webkit-text-stroke-color: white;
-  //   }
-  // }
+  .logo.toTop.hide {
+    span {
+      transition: all 1s;
+      color: transparent;
+      -webkit-text-stroke: 0.1px;
+      -webkit-text-stroke-color: black;
+    }
+    .about-span {
+      transition: all 1s;
+      color: transparent;
+      -webkit-text-stroke: 0.1px;
+      -webkit-text-stroke-color: black;
+    }
+    &:hover {
+      span {
+        transition: all 1s;
+        color: black;
+        -webkit-text-stroke: 0px;
+      }
+      .about-span {
+        transition: all 1s;
+        color: black;
+        -webkit-text-stroke: 0px;
+      }
+    }
+  }
 
   .info {
     font-family: sans-serif;
     padding: 0 50px;
     padding-bottom: 50px;
-    display: flex;
     width: 100vw;
     justify-content: space-between;
     color: white;
     animation: slideUp 1.5s forwards;
     animation-timing-function: cubic-bezier(0.175, 1.5, 0.32, 1);
+    display: flex;
+    flex-direction: column;
+    @include breakpoint(sm) {
+      flex-direction: row;
+    }
+
+    .left-content,
+    .right-content {
+      transition: transform 1s ease-in-out;
+      transform: translateY(40vh);
+    }
+    .left-content.clicked,
+    .right-content.clicked {
+      transition: transform 1s ease-in-out;
+      transform: translateY(-40vh);
+    }
+    @include breakpoint(md) {
+      .left-content,
+      .right-content {
+        transition: transform 1s ease-in-out;
+        transform: translateY(0);
+      }
+      .left-content.clicked,
+      .right-content.clicked {
+        transition: transform 1s ease-in-out;
+        transform: translateY(0);
+      }
+    }
     .left {
       display: flex;
+      flex-direction: column;
+      margin-bottom: 10px;
+
+      @include breakpoint(sm) {
+        flex-direction: row;
+        margin-bottom: 0px;
+      }
       ul {
         margin-right: 3vw;
+        margin-bottom: 10px;
+
         li {
           margin-bottom: 5px;
           a {
@@ -127,6 +281,15 @@
     }
   }
   .about {
+    font-weight: bold;
+    display: flex;
+    transition: transform 1s ease-in-out;
+    &::before {
+      content: '/';
+      font-weight: 300;
+      font-size: 10px;
+    }
+
     li {
       &:hover {
         --color-one: hsla(257, 100%, 84%, 1);
@@ -148,17 +311,38 @@
   }
 
   .about.toTop {
-    transition: transform 1s ease-in-out 1s;
-    transform: translate3d(0, calc(-90vh + 50px), 0);
+    transform: translate3d(0, calc(-130vh + 50px), 0);
+    visibility: hidden;
+    @include breakpoint(md) {
+      visibility: visible;
+      transform: translate3d(0, calc(-90vh + 80px), 0);
+    }
+  }
+  .about.toTop.clicked,
+  .about.toBottom.clicked {
+    transform: translate3d(0, -40vh, 0);
+    visibility: visible;
+    @include breakpoint(md) {
+      visibility: hidden;
+
+      transform: translate3d(0, 0, 0);
+    }
   }
   .about.toBottom {
-    transition: transform 1s ease-in-out 1s;
-    transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 40vh, 0);
+    visibility: hidden;
+    @include breakpoint(md) {
+      visibility: visible;
+      transform: translate3d(0, 0, 0);
+    }
   }
 }
 
 .info.work {
   color: black;
+}
+.info.work.white {
+  color: white;
 }
 
 .github-source {
@@ -197,5 +381,14 @@
   }
   100% {
     transform: translateY(0%);
+  }
+}
+
+@keyframes bgDisappear {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100vh);
   }
 }

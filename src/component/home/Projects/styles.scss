@@ -1,7 +1,11 @@
 .project {
   transform-style: preserve-3d;
   font-weight: bolder;
-  padding: 5vw 5vw calc(7.5vw + 67px) 0;
+  padding: 10vh 5vw;
+  padding-top: 15vh;
+  @include breakpoint(md) {
+    padding: 10vh 5vw;
+  }
   list-style-type: none;
   text-align: right;
   @for $i from 1 through 4 {
@@ -36,20 +40,20 @@
           animation: outro 1s forwards;
         }
         a {
-          // transform: perspective(100rem) rotateY(-45deg) rotateZ(-5deg);
-          transform: rotateZ(-5deg);
-          transform-origin: right center;
+          transform: rotateY(-35deg);
+          // transform: perspective(30em) rotateY(-45deg);
+          transform-origin: right;
           // transform: rotateY(-45deg) translateZ(0) scale(1);
           transition: transform 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-          transition-duration: 1s;
+
           width: min-content;
           display: flex;
           flex-direction: column;
           text-transform: uppercase;
           &:hover {
-            transform-origin: right center;
-            transition-duration: 1s;
-            transform: perspective(100rem) rotateY(30deg) rotateZ(0);
+            transform-origin: right;
+            transition-duration: 1.5s;
+            transform: rotateY(-15deg);
             // transform: perspective(200rem) rotateY(-30deg) rotateZ(-5deg);
             // transform: rotateY(-0deg) translateZ(0) scale(1);
             color: transparent;
@@ -88,10 +92,10 @@
 
 @keyframes outro {
   0% {
-    transform: rotateZ(-5deg);
+    transform: rotateY(-35deg);
   }
   100% {
     opacity: 0;
-    transform: rotateZ(-5deg) rotateY(-90deg);
+    transform: rotateY(-35deg) rotateY(-90deg);
   }
 }

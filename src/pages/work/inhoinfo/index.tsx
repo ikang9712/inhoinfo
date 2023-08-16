@@ -22,7 +22,7 @@ const WorkInhoInfo = () => {
           <WorkTitle
             titleName={['inho.', 'info']}
             titleId="inhoinfo-title"
-            titleImgSrc="/images/home/work/inhoinfo/test1.png"
+            titleImgSrc="/images/home/work/inhoinfo/inhoinfo.title.png"
           />
 
           <div className="work-content">

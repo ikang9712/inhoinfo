@@ -1,5 +1,4 @@
 import { IconContainer } from '@src/component/common/IconContainer';
-import { useRouter } from 'next/router';
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 
 const AboutSection = ({
@@ -9,7 +8,6 @@ const AboutSection = ({
   clicked: boolean;
   setClicked: Dispatch<SetStateAction<boolean>>;
 }) => {
-  const router = useRouter();
   const [initialLoad, setInitialLoad] = useState(true);
   useEffect(() => {
     if (clicked) {
@@ -20,17 +18,22 @@ const AboutSection = ({
     <div>
       <div
         className={
-          router.pathname == '/'
-            ? clicked
-              ? 'about-container visible'
-              : initialLoad
-              ? 'about-container initial-load'
-              : 'about-container'
+          initialLoad
+            ? 'about-container invisible'
             : clicked
-            ? 'about-container work visible'
-            : initialLoad
-            ? 'about-container work initial-load'
-            : 'about-container work'
+            ? 'about-container open'
+            : 'about-container'
+          // router.pathname == '/'
+          //   ? clicked
+          //     ? 'about-container visible'
+          //     : initialLoad
+          //     ? 'about-container initial-load'
+          //     : 'about-container'
+          //   : clicked
+          //   ? 'about-container work visible'
+          //   : initialLoad
+          //   ? 'about-container work initial-load'
+          //   : 'about-container work'
         }
       >
         <div
@@ -47,10 +50,10 @@ const AboutSection = ({
               Crafting dynamic, responsive, and engaging web experiences with a
               focus on animated, responsive, and interactive content.
             </h1>
+            <p>Thank you for visiting!</p>
             <p>
-              Hello world! I am a full stack developer with deep passion and
-              interest for products that lie at the intersection of technology
-              and human interaction.
+              I am a full stack developer focused on designing interactive web
+              enviornment. Feel free to contact me for any queries. :&#41;
             </p>
           </div>
           <div className="about-content-section">

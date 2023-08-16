@@ -8,6 +8,7 @@ const Header = () => {
   const [init, setInit] = useState(true);
   const [aboutClicked, setAboutClicked] = useState(false);
   const [hideHeader, setHideHeader] = useState(false);
+  const [burgerClicked, setBurgerClicked] = useState(false);
   const router = useRouter();
   let pathname = useRef<string>(router.pathname);
   const { activated } = useContext(HeaderContext);
@@ -34,7 +35,6 @@ const Header = () => {
       });
     };
   }, []);
-
   useEffect(() => {
     pathname.current = router.pathname;
   }, [router]);
@@ -51,16 +51,45 @@ const Header = () => {
             }
           ></div>
           <header className="home-header">
+            <div
+              className={burgerClicked ? 'mobile-nav open' : 'mobile-nav'}
+              style={aboutClicked ? { display: 'none' } : { display: 'flex' }}
+              onClick={() => {
+                setBurgerClicked(!burgerClicked);
+              }}
+            >
+              <div className="nav-burger"></div>
+            </div>
+            <div
+              className={
+                burgerClicked
+                  ? aboutClicked
+                    ? 'mobile-nav-bg disappear'
+                    : 'mobile-nav-bg open'
+                  : init
+                  ? 'mobile-nav-bg initial prev'
+                  : 'mobile-nav-bg initial'
+              }
+              // style={
+              //   burgerClicked
+              //     ? { visibility: 'visible' }
+              //     : { visibility: 'hidden' }
+              // }
+            ></div>
             <a
               className={
                 router.pathname == '/'
                   ? aboutClicked
                     ? 'logo toTop'
                     : 'logo toBottom'
+                  : hideHeader && !burgerClicked
+                  ? 'logo toTop hide'
                   : 'logo toTop'
               }
               onClick={() => {
                 router.push('/');
+                setAboutClicked(false);
+                setBurgerClicked(false);
               }}
             >
               <span
@@ -81,9 +110,21 @@ const Header = () => {
               </span>
             </a>
             <div
-              className={router.pathname == '/' ? 'info' : 'info work'}
+              className={
+                router.pathname == '/'
+                  ? 'info'
+                  : burgerClicked
+                  ? 'info work white'
+                  : 'info work'
+              }
               style={
-                hideHeader
+                hideHeader && !burgerClicked
+                  ? {
+                      opacity: 0,
+                      pointerEvents: 'none',
+                      transition: 'all 1s',
+                    }
+                  : aboutClicked
                   ? {
                       opacity: 0,
                       pointerEvents: 'none',
@@ -97,10 +138,17 @@ const Header = () => {
               }
             >
               <div className="left">
-                <ul>
+                <ul
+                  className={
+                    burgerClicked ? 'left-content clicked' : 'left-content'
+                  }
+                >
                   <li>Web Developer</li>
                   <li className="github-source">
-                    <a href="https://github.com/ikang9712/inhoinfo">
+                    <a
+                      target="_blank"
+                      href="https://github.com/ikang9712/inhoinfo"
+                    >
                       <span>
                         <IconContainer
                           className="github-icon"
@@ -111,7 +159,11 @@ const Header = () => {
                     </a>
                   </li>
                 </ul>
-                <ul>
+                <ul
+                  className={
+                    burgerClicked ? 'left-content clicked' : 'left-content'
+                  }
+                >
                   <li>South Korea</li>
                   <li className="email">ikang9712@gmail.com</li>
                 </ul>
@@ -119,8 +171,14 @@ const Header = () => {
                   className={
                     router.pathname == '/'
                       ? aboutClicked
-                        ? 'about toTop'
+                        ? burgerClicked
+                          ? 'about toTop clicked'
+                          : 'about toTop'
+                        : burgerClicked
+                        ? 'about toBottom clicked'
                         : 'about toBottom'
+                      : burgerClicked
+                      ? 'about toTop clicked'
                       : 'about toTop'
                   }
                   onClick={() => {
@@ -135,14 +193,26 @@ const Header = () => {
                 </ul>
               </div>
               <div className="right">
-                <ul>
+                <ul
+                  className={
+                    burgerClicked ? 'right-content clicked' : 'right-content'
+                  }
+                >
                   <li>
                     <span>01</span>
-                    <a href="https://www.instagram.com/innnnhok/">instagram</a>
+                    <a
+                      target="_blank"
+                      href="https://www.instagram.com/innnnhok/"
+                    >
+                      instagram
+                    </a>
                   </li>
                   <li>
                     <span>02</span>
-                    <a href="https://www.linkedin.com/in/inho-kang-6813261a8/">
+                    <a
+                      target="_blank"
+                      href="https://www.linkedin.com/in/inho-kang-6813261a8/"
+                    >
                       linkedin
                     </a>
                   </li>
