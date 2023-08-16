@@ -1,10 +1,18 @@
+import HomeBackButton from '@src/component/common/HomeBackBtn';
+import HeaderContext from '@src/context/header.context';
 import { NextPage } from 'next';
 import Image from 'next/image';
+import { useContext, useEffect } from 'react';
 
 // add comment to fix bug issue for vercel
 const DemoBestHorror: NextPage = () => {
+  const { setActivated } = useContext(HeaderContext);
+  useEffect(() => {
+    setActivated(true);
+  }, []);
   return (
     <div className="movie-body">
+      <HomeBackButton />
       <header className="movie-header">
         <div className="hgroup">
           <h1>Best</h1>

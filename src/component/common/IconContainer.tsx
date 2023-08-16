@@ -1,6 +1,9 @@
 import { IconContext } from 'react-icons';
+import { AiOutlineGithub } from 'react-icons/ai';
 import { BsArrowRight } from 'react-icons/bs';
 import { FaCaretLeft, FaCaretRight } from 'react-icons/fa6';
+import { GoArrowLeft } from 'react-icons/go';
+import { HiOutlineX } from 'react-icons/hi';
 import { RxCross1, RxHamburgerMenu } from 'react-icons/rx';
 const getIconFromName = (iconName: string) => {
   switch (iconName) {
@@ -11,9 +14,15 @@ const getIconFromName = (iconName: string) => {
     case 'cross':
       return <RxCross1 />;
     case 'caret-left':
-      return <FaCaretLeft/>;
+      return <FaCaretLeft />;
     case 'caret-right':
-      return <FaCaretRight/>
+      return <FaCaretRight />;
+    case 'hi-outline-x':
+      return <HiOutlineX />;
+    case 'hi-arrow-left':
+      return <GoArrowLeft />;
+    case 'github':
+      return <AiOutlineGithub />;
   }
 };
 

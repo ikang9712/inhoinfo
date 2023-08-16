@@ -1,7 +1,14 @@
+import { IconContainer } from '@src/component/common/IconContainer';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 
-const AboutSection = ({ clicked }: { clicked: boolean }) => {
+const AboutSection = ({
+  clicked,
+  setClicked,
+}: {
+  clicked: boolean;
+  setClicked: Dispatch<SetStateAction<boolean>>;
+}) => {
   const router = useRouter();
   const [initialLoad, setInitialLoad] = useState(true);
   useEffect(() => {
@@ -26,6 +33,14 @@ const AboutSection = ({ clicked }: { clicked: boolean }) => {
             : 'about-container work'
         }
       >
+        <div
+          className="about-go-back"
+          onClick={() => {
+            setClicked(false);
+          }}
+        >
+          <IconContainer className="" iconName="hi-outline-x" />
+        </div>
         <div className="about-content">
           <div className="about-content-title">
             <h1>
@@ -48,7 +63,7 @@ const AboutSection = ({ clicked }: { clicked: boolean }) => {
             </div>
             <div className="section-content">
               <h1>Framework & Tools</h1>
-              <p>React, Flutter</p>
+              <p>React, Flutter, Three.js</p>
               <p>Figma</p>
             </div>
           </div>

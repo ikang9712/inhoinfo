@@ -6,10 +6,10 @@ import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 const WorkImageSlider = ({
-  key,
+  keyName,
   srcList,
 }: {
-  key: string;
+  keyName: string;
   srcList: string[];
 }) => {
   return (
@@ -24,7 +24,7 @@ const WorkImageSlider = ({
       >
         {srcList.map((src, index) => {
           return (
-            <SwiperSlide key={`${key}_${index}`}>
+            <SwiperSlide key={`${keyName}_${index}`}>
               <Image
                 priority={true}
                 src={src}

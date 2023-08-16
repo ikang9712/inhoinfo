@@ -11,3 +11,50 @@
 .home {
   font-family: druk;
 }
+
+.page-not-found-container {
+  width: 100%;
+  margin-top: 10vw;
+  padding: 10vw 20vw;
+  padding-bottom: 30vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: druk;
+  transform-style: preserve-3d;
+  position: relative;
+  z-index: 20;
+  p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  a {
+    text-decoration: none;
+    transform-style: preserve-3d;
+    text-align: center;
+  }
+  h1 {
+    transform-style: preserve-3d;
+    font-size: 5rem;
+    color: transparent;
+    -webkit-text-stroke: 2px;
+    -webkit-text-stroke-color: #151515;
+    transition: all 1s;
+    transform-origin: center;
+    &::after {
+      content: ' Page Not Found';
+    }
+    &:hover {
+      color: black;
+      transform: perspective(100rem) rotateY(45deg) rotateZ(0);
+    }
+    &:hover::before {
+      content: 'Escape from ';
+    }
+    &:hover::after {
+      font-size: 3rem;
+      content: ' to Home';
+    }
+  }
+}

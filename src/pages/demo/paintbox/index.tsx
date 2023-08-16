@@ -1,5 +1,7 @@
+import HomeBackButton from '@src/component/common/HomeBackBtn';
+import HeaderContext from '@src/context/header.context';
 import { NextPage } from 'next';
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Footer from './component/Footer';
 import PaintBoxHeader from './component/Header';
 import HeroSection from './component/HeroSection';
@@ -13,9 +15,13 @@ import SubscribeSection from './component/SubscribeSection';
 // add comment to fix bug issue for vercel
 const DemoPaintBox: NextPage = () => {
   const [burger, setBurger] = useState<boolean>(false);
-
+  const { setActivated } = useContext(HeaderContext);
+  useEffect(() => {
+    setActivated(true);
+  }, []);
   return (
     <div className="paint-body">
+      <HomeBackButton />
       <PaintBoxHeader isActivated={burger} handleActivation={setBurger} />
       <div className="home">
         <HeroSection />

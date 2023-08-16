@@ -1,17 +1,15 @@
 import HeaderContext from '@src/context/header.context';
 import { useRouter } from 'next/router';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 const Projects = () => {
   const [clicked, setClicked] = useState({
     first: false,
     second: false,
     third: false,
-    fourth: false,
   });
   const router = useRouter();
   const { setActivated } = useContext(HeaderContext);
-
   const handleRouting = () => {
     if (!clicked.first) {
       router.push('/work/inhoinfo');
@@ -22,14 +20,16 @@ const Projects = () => {
     } else {
       router.push('/');
     }
+  };
+  useEffect(() => {
+    setActivated(false);
     setClicked({
       first: false,
       second: false,
       third: false,
-      fourth: false,
     });
-    setActivated(true);
-  };
+  }, []);
+
   return (
     <div className="project">
       <ul>
@@ -43,7 +43,6 @@ const Projects = () => {
                   first: false,
                   second: true,
                   third: true,
-                  fourth: true,
                 });
               }}
               onAnimationEnd={() => {
@@ -65,7 +64,6 @@ const Projects = () => {
                   first: true,
                   second: false,
                   third: true,
-                  fourth: true,
                 });
               }}
               onAnimationEnd={() => {
@@ -81,14 +79,13 @@ const Projects = () => {
         <li className="project-li">
           <div className="project-container">
             <a
-              className={clicked.fourth ? 'triggerOutro' : ''}
+              className={clicked.third ? 'triggerOutro' : ''}
               data-date="2023"
               onClick={() => {
                 setClicked({
                   first: true,
                   second: true,
                   third: false,
-                  fourth: true,
                 });
               }}
               onAnimationEnd={() => {
@@ -96,27 +93,6 @@ const Projects = () => {
               }}
             >
               <span>case study</span>
-            </a>
-          </div>
-        </li>
-        <li className="project-li">
-          <div className="project-container">
-            <a
-              className={clicked.fourth ? 'triggerOutro' : ''}
-              data-date="2023"
-              onClick={() => {
-                setClicked({
-                  first: true,
-                  second: true,
-                  third: true,
-                  fourth: false,
-                });
-              }}
-              onAnimationEnd={() => {
-                handleRouting();
-              }}
-            >
-              <span>hello world</span>
             </a>
           </div>
         </li>
