@@ -1,11 +1,11 @@
 .background {
-  background: $bg-color !important;
+  background: $bg-primary-color !important;
   width: 100vw;
   height: 100vh;
   position: fixed;
 }
 .background.work {
-  background: white !important;
+  background: $bg-secondary-color !important;
 }
 
 .mobile-nav {
@@ -13,10 +13,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 60px;
-  height: 60px;
-  top: 30px;
+  width: 30px;
+  height: 30px;
+  top: 22px;
   right: 30px;
+  @include breakpoint(sm) {
+    top: 50px;
+    right: 50px;
+  }
   overflow: hidden;
   z-index: 100;
   cursor: pointer;
@@ -27,26 +31,26 @@
     display: none !important;
   }
   .nav-burger {
-    width: 40px;
-    height: 3px;
+    width: 25px;
+    height: 2px;
     background: black;
-    border-radius: 5px;
+    border-radius: 1px;
     transition: all 0.5s ease-in-out;
     &::before,
     &::after {
       content: '';
       position: absolute;
-      width: 40px;
-      height: 3px;
+      width: 25px;
+      height: 2px;
       background: black;
-      border-radius: 5px;
+      border-radius: 1px;
       transition: all 0.5s ease-in-out;
     }
     &::after {
-      transform: translateY(-12px);
+      transform: translateY(-7px);
     }
     &::before {
-      transform: translateY(12px);
+      transform: translateY(7px);
     }
   }
 }
@@ -66,15 +70,16 @@
 .mobile-nav-bg {
   position: fixed;
   top: 0;
-  background: $bg-color;
+  background: $bg-primary-color;
   opacity: 0.8;
+  z-index: 4;
 }
 .mobile-nav-bg.open {
   position: fixed;
   top: 0;
   width: 100vw;
   height: 100vh;
-  background: $bg-color;
+  background: $bg-primary-color;
   opacity: 0.8;
   animation: aboutSlideUp 1.5s forwards;
   @include breakpoint(md) {
@@ -89,260 +94,271 @@
 .mobile-nav-bg.initial {
   width: 100vw;
   height: 100vh;
-  background: $bg-color;
+  background: $bg-primary-color;
   opacity: 0.8;
   animation: aboutSlideDown 1s forwards;
 }
 .mobile-nav-bg.disappear {
   width: 100vw;
   height: 100vh;
-  background: $bg-color;
+  background: $bg-primary-color;
   opacity: 0.8;
   animation: bgDisappear 1s forwards;
 }
 
-.home-header {
+.logo {
   position: fixed;
-  color: white;
-  bottom: 0;
   z-index: 1000;
+  font-family: druk-regular;
+  text-transform: uppercase;
+  width: fit-content;
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  margin-left: 8vw;
 
-  .logo {
-    position: fixed;
-    font-family: druk-regular;
-    text-transform: uppercase;
-    width: fit-content;
-    font-size: 2rem;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    padding: 0;
+  @include breakpoint(sm) {
     margin-left: 50px;
-    font-weight: 800;
-    .init {
-      animation: logoIntro 1s forwards;
-    }
+    font-size: 2rem;
   }
-  .logo.toBottom {
-    transition: transform 1s ease-in-out;
-    transform: translate3d(0, calc(-90vh + 200px), 0);
-    @include breakpoint(sm) {
-      transform: translate3d(0, calc(-90vh + 50px), 0);
-    }
-    @include breakpoint(md) {
-      transform: translate3d(0, -100px, 0);
-    }
+  font-weight: 800;
+  .init {
+    animation: logoIntro 1s forwards;
+  }
+}
+.logo.toBottom {
+  transition: transform 1s ease-in-out;
+  transform: translate3d(0, calc(20px), 0);
+  @include breakpoint(sm) {
+    transform: translate3d(0, calc(50px), 0);
+  }
+  @include breakpoint(md) {
+    transform: translate3d(0, calc(80vh - 50px), 0);
+  }
+  span {
+    transition: all 1s;
+    color: white;
+  }
+  &:hover {
     span {
       transition: all 1s;
-      color: white;
-    }
-    &:hover {
-      span {
-        transition: all 1s;
-        color: transparent;
-        -webkit-text-stroke: 0.5px;
-        -webkit-text-stroke-color: white;
-      }
+      color: transparent;
+      -webkit-text-stroke: 0.5px;
+      -webkit-text-stroke-color: white;
     }
   }
-  .logo.toTop {
-    transition: transform 1s ease-in-out;
-    transform: translate3d(0, calc(-90vh + 200px), 0);
-    @include breakpoint(sm) {
-      transform: translate3d(0, calc(-90vh + 50px), 0);
-    }
+}
+.logo.toTop {
+  transition: transform 1s ease-in-out;
+  transform: translate3d(0, calc(20px), 0);
+  @include breakpoint(sm) {
+    transform: translate3d(0, calc(50px), 0);
+  }
 
+  span {
+    transition: all 1s;
+    color: black;
+  }
+  .about-span {
+    transition: all 1s;
+    color: white;
+  }
+  &:hover {
+    span {
+      transition: all 1s;
+      color: transparent;
+      -webkit-text-stroke: 0.5px;
+      -webkit-text-stroke-color: black;
+    }
+    .about-span {
+      transition: all 1s;
+      color: transparent;
+      -webkit-text-stroke: 0.5px;
+      -webkit-text-stroke-color: white;
+    }
+  }
+}
+.logo.toTop.hide {
+  span {
+    transition: all 1s;
+    color: transparent;
+    -webkit-text-stroke: 0.1px;
+    -webkit-text-stroke-color: black;
+  }
+  .about-span {
+    transition: all 1s;
+    color: transparent;
+    -webkit-text-stroke: 0.1px;
+    -webkit-text-stroke-color: black;
+  }
+  &:hover {
     span {
       transition: all 1s;
       color: black;
+      -webkit-text-stroke: 0px;
     }
     .about-span {
       transition: all 1s;
-      color: white;
-    }
-    &:hover {
-      span {
-        transition: all 1s;
-        color: transparent;
-        -webkit-text-stroke: 0.5px;
-        -webkit-text-stroke-color: black;
-      }
-      .about-span {
-        transition: all 1s;
-        color: transparent;
-        -webkit-text-stroke: 0.5px;
-        -webkit-text-stroke-color: white;
-      }
+      color: black;
+      -webkit-text-stroke: 0px;
     }
   }
-  .logo.toTop.hide {
-    span {
-      transition: all 1s;
-      color: transparent;
-      -webkit-text-stroke: 0.1px;
-      -webkit-text-stroke-color: black;
-    }
-    .about-span {
-      transition: all 1s;
-      color: transparent;
-      -webkit-text-stroke: 0.1px;
-      -webkit-text-stroke-color: black;
-    }
-    &:hover {
-      span {
-        transition: all 1s;
-        color: black;
-        -webkit-text-stroke: 0px;
-      }
-      .about-span {
-        transition: all 1s;
-        color: black;
-        -webkit-text-stroke: 0px;
-      }
-    }
+}
+.info.clicked {
+  transition: transform 1s;
+  transform: translateY(-40vh);
+}
+.info {
+  position: fixed;
+  z-index: 1000;
+  width: 100vw;
+  bottom: 0;
+  padding: 0 50px;
+  padding-bottom: 50px;
+  transition: transform 1s;
+  transform: translateY(40vh);
+  @include breakpoint(md) {
+    transform: translateY(0);
   }
-
-  .info {
+  .info-wrapper {
+    // position: fixed;
     font-family: sans-serif;
-    padding: 0 50px;
-    padding-bottom: 50px;
-    width: 100vw;
-    justify-content: space-between;
-    color: white;
+    // bottom: 0;
+    // padding: 0 50px;
+    // padding-bottom: 50px;
+    width: 100%;
     animation: slideUp 1.5s forwards;
     animation-timing-function: cubic-bezier(0.175, 1.5, 0.32, 1);
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    color: white;
+    transition: color 1s;
+    transition: opacity 1s;
     @include breakpoint(sm) {
       flex-direction: row;
     }
+  }
 
-    .left-content,
-    .right-content {
-      transition: transform 1s ease-in-out;
-      transform: translateY(40vh);
+  // .left-content,
+  // .right-content {
+  //   transition: transform 1s ease-in-out;
+  //   transform: translateY(40vh);
+  // }
+  // .left-content.clicked,
+  // .right-content.clicked {
+  //   transition: transform 1s ease-in-out;
+  //   transform: translateY(-40vh);
+  // }
+  // @include breakpoint(md) {
+  //   .left-content,
+  //   .right-content {
+  //     transition: transform 1s ease-in-out;
+  //     transform: translateY(0);
+  //   }
+  //   .left-content.clicked,
+  //   .right-content.clicked {
+  //     transition: transform 1s ease-in-out;
+  //     transform: translateY(0);
+  //   }
+  // }
+  .left {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    @include breakpoint(sm) {
+      flex-direction: row;
+      margin-bottom: 0px;
     }
-    .left-content.clicked,
-    .right-content.clicked {
-      transition: transform 1s ease-in-out;
-      transform: translateY(-40vh);
-    }
-    @include breakpoint(md) {
-      .left-content,
-      .right-content {
-        transition: transform 1s ease-in-out;
-        transform: translateY(0);
-      }
-      .left-content.clicked,
-      .right-content.clicked {
-        transition: transform 1s ease-in-out;
-        transform: translateY(0);
-      }
-    }
-    .left {
-      display: flex;
-      flex-direction: column;
+    ul {
+      margin-right: 3vw;
       margin-bottom: 10px;
 
-      @include breakpoint(sm) {
-        flex-direction: row;
-        margin-bottom: 0px;
-      }
-      ul {
-        margin-right: 3vw;
-        margin-bottom: 10px;
-
-        li {
-          margin-bottom: 5px;
-          a {
-            text-decoration: none;
-            color: inherit;
-          }
-        }
-        .email {
-          font-weight: 800;
+      li {
+        margin-bottom: 5px;
+        a {
+          text-decoration: none;
+          color: inherit;
         }
       }
+      .email {
+        font-weight: 800;
+      }
     }
-    .right {
-      ul {
-        li {
-          margin-bottom: 5px;
-          span {
-            font-size: 0.8rem;
-            margin-right: 10px;
-          }
-          a {
-            text-decoration: none;
-            color: inherit;
-          }
+  }
+  .right {
+    ul {
+      li {
+        margin-bottom: 5px;
+        span {
+          font-size: 0.8rem;
+          margin-right: 10px;
+        }
+        a {
+          text-decoration: none;
+          color: inherit;
         }
       }
-    }
-  }
-  .about {
-    font-weight: bold;
-    display: flex;
-    transition: transform 1s ease-in-out;
-    &::before {
-      content: '/';
-      font-weight: 300;
-      font-size: 10px;
-    }
-
-    li {
-      &:hover {
-        --color-one: hsla(257, 100%, 84%, 1);
-        --color-two: hsla(257, 100%, 8%, 1);
-        --bg-size: 400%;
-        background: linear-gradient(
-            90deg,
-            var(--color-one),
-            var(--color-two),
-            var(--color-one)
-          )
-          0 0 / var(--bg-size) 100%;
-        color: transparent;
-        -webkit-background-clip: text;
-        background-clip: text;
-        animation: move-bg 6s infinite linear;
-      }
-    }
-  }
-
-  .about.toTop {
-    transform: translate3d(0, calc(-130vh + 50px), 0);
-    visibility: hidden;
-    @include breakpoint(md) {
-      visibility: visible;
-      transform: translate3d(0, calc(-90vh + 80px), 0);
-    }
-  }
-  .about.toTop.clicked,
-  .about.toBottom.clicked {
-    transform: translate3d(0, -40vh, 0);
-    visibility: visible;
-    @include breakpoint(md) {
-      visibility: hidden;
-
-      transform: translate3d(0, 0, 0);
-    }
-  }
-  .about.toBottom {
-    transform: translate3d(0, 40vh, 0);
-    visibility: hidden;
-    @include breakpoint(md) {
-      visibility: visible;
-      transform: translate3d(0, 0, 0);
     }
   }
 }
 
-.info.work {
-  color: black;
+.about.clicked {
+  opacity: 1;
 }
-.info.work.white {
-  color: white;
+
+.about {
+  font-weight: bold;
+  display: flex;
+  transition: transform 1s ease-in-out;
+  &::before {
+    content: '/';
+    font-weight: 300;
+    font-size: 10px;
+  }
+  opacity: 0;
+  @include breakpoint(md) {
+    opacity: 1;
+  }
+  li {
+    &:hover {
+      --color-one: hsla(257, 100%, 84%, 1);
+      --color-two: hsla(257, 100%, 8%, 1);
+      --bg-size: 400%;
+      background: linear-gradient(
+          90deg,
+          var(--color-one),
+          var(--color-two),
+          var(--color-one)
+        )
+        0 0 / var(--bg-size) 100%;
+      color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+      animation: move-bg 6s infinite linear;
+    }
+  }
+}
+
+.about.toTop {
+  transform: translateY(calc(-40vh + -120vh));
+  @include breakpoint(md) {
+    transform: translateY(calc(-90vh + 80px));
+  }
+}
+.about.toBottom {
+  transform: translateY(0);
+  // transform: translateY(40vh);
+  // @include breakpoint(md) {
+  //   transform: translateY(0);
+  // }
+}
+
+.about.toTop.clicked,
+.about.toBottom.clicked {
+  transform: translateY(0);
 }
 
 .github-source {
@@ -377,10 +393,10 @@
 
 @keyframes slideUp {
   0% {
-    transform: translateY(120%);
+    transform: translateY(10vh);
   }
   100% {
-    transform: translateY(0%);
+    transform: translateY(0);
   }
 }
 

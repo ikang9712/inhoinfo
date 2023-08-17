@@ -1,12 +1,12 @@
 .about-container.invisible {
-  display: none;
+  opacity: 0;
 }
 .about-container {
   position: fixed;
   z-index: 20;
   width: 100vw;
   height: 100vh;
-  background: rgba($bg-color, 0.8);
+  background: rgba($bg-primary-color, 0.8);
   transform: translateY(0);
   animation: aboutSlideDown 1.3s forwards;
 }
@@ -15,20 +15,55 @@
   z-index: 20;
   width: 100vw;
   height: 100vh;
-  background: rgba($bg-color, 0.8);
+  background: rgba($bg-primary-color, 0.8);
   transform: translateY(100vh);
   animation: aboutSlideUp 1.3s forwards;
 }
 
 .about-content {
   font-family: sans-serif;
-  padding: 50px 50px;
+  padding: 10vw 10vw;
   margin-top: 150px;
   color: white;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  @include breakpoint(md) {
+  .about-content-title {
+    flex: 2;
+    margin-right: 5vw;
+    margin-bottom: 5vh;
+    h1 {
+      transition: font-size 1s;
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin-bottom: 2vw;
+    }
+    p {
+      transition: font-size 1s;
+      font-size: 1rem;
+      font-weight: 400;
+    }
+  }
+  .about-content-section {
+    flex: 1;
+    margin-right: 5vw;
+    h1 {
+      transition: font-size 1s;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 2vw;
+    }
+    p {
+      transition: font-size 1s;
+      font-size: 1rem;
+      font-weight: 400;
+      margin-bottom: 1vw;
+    }
+    .section-content {
+      margin-bottom: 5vw;
+    }
+  }
+  @include breakpoint(sm) {
     flex-direction: row;
     .about-content-title {
       margin-right: 5vw;
@@ -40,123 +75,30 @@
       }
     }
   }
-  .about-content-title {
-    flex: 2;
-    margin-right: 5vw;
-    margin-bottom: 5vw;
-    h1 {
-      font-size: 2rem;
-      font-weight: 800;
-      margin-bottom: 2vw;
-    }
-    p {
-      font-size: 1.5rem;
-      font-weight: 400;
-    }
-  }
-  .about-content-section {
-    flex: 1;
-    margin-right: 5vw;
-    h1 {
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin-bottom: 2vw;
-    }
-    p {
-      font-size: 1rem;
-      font-weight: 400;
-      margin-bottom: 1vw;
-    }
-    .section-content {
-      margin-bottom: 5vw;
+  @include breakpoint(md) {
+    flex-direction: row;
+    .about-content-title {
+      margin-right: 5vw;
+      h1 {
+        font-size: 2rem;
+      }
+      p {
+        font-size: 1.5rem;
+      }
     }
   }
 }
-
-// .about-container.initial-load {
-//   visibility: hidden;
-// }
-// .about-container.work.initial-load {
-//   visibility: hidden;
-// }
-// .about-container.work,
-// .about-container.work.visible {
-//   visibility: visible;
-//   background: rgba(black, 0.7);
-// }
-
-// .about-container,
-// .about-container.visible {
-//   visibility: visible;
-//   position: fixed;
-//   z-index: 9;
-//   width: 100vw;
-//   height: 100vh;
-//   background: rgba($bg-color, 0.7);
-// }
-
-// .about-container {
-//   visibility: visible;
-//   transform: translateY(0);
-//   animation: aboutSlideDown 1s forwards;
-//   animation-delay: 1s;
-// }
-
-// .about-container.visible {
-//   transform: translateY(100vh);
-//   animation: aboutSlideUp 1s forwards;
-//   animation-delay: 1s;
-//   visibility: visible;
-// }
-// .about-content {
-//   font-family: sans-serif;
-//   padding: 50px 50px;
-//   margin-top: 150px;
-//   color: white;
-//   display: flex;
-//   justify-content: space-between;
-//   @include breakpoint(md) {
-//     .about-content-title {
-//       margin-right: 5vw;
-//     }
-//   }
-//   .about-content-title {
-//     flex: 2;
-//     margin-right: 2vw;
-//     h1 {
-//       font-size: 2rem;
-//       font-weight: 800;
-//       margin-bottom: 2vw;
-//     }
-//     p {
-//       font-size: 1.5rem;
-//       font-weight: 400;
-//     }
-//   }
-//   .about-content-section {
-//     flex: 1;
-//     h1 {
-//       font-size: 1.2rem;
-//       font-weight: 600;
-//       margin-bottom: 2vw;
-//     }
-//     p {
-//       font-size: 1rem;
-//       font-weight: 400;
-//       margin-bottom: 1vw;
-//     }
-//     .section-content {
-//       margin-bottom: 5vw;
-//     }
-//   }
-// }
 
 .about-go-back {
   position: absolute;
   z-index: 1;
   color: white;
-  top: 50px;
-  right: 100px;
+  top: 20px;
+  right: 20px;
+  @include breakpoint(sm) {
+    top: 50px;
+    right: 50px;
+  }
   border: solid 1px transparent;
   border-radius: 100vh;
   transition: all 0.2s ease-in-out;

@@ -7,27 +7,39 @@ import AboutSection from '../About';
 const Header = () => {
   const [init, setInit] = useState(true);
   const [aboutClicked, setAboutClicked] = useState(false);
-  const [hideHeader, setHideHeader] = useState(false);
+  const [hideHeader, setHideHeader] = useState({
+    hide: false,
+    atBottom: false,
+  });
   const [burgerClicked, setBurgerClicked] = useState(false);
+  const { activated, setActivateBodyLock } = useContext(HeaderContext);
   const router = useRouter();
   let pathname = useRef<string>(router.pathname);
-  const { activated } = useContext(HeaderContext);
+
   const handleScroll = () => {
     if (pathname.current != '/') {
       if (document.body.scrollHeight - window.scrollY < 1200) {
-        setHideHeader(false);
+        setHideHeader({ hide: false, atBottom: true });
       } else if (window.scrollY > 300) {
-        setHideHeader(true);
+        setHideHeader({ hide: true, atBottom: false });
       } else {
-        setHideHeader(false);
+        setHideHeader({ hide: false, atBottom: false });
       }
     } else {
-      setHideHeader(false);
+      setHideHeader({ hide: false, atBottom: false });
+    }
+  };
+  const handleResize = () => {
+    if (window.innerWidth > 767) {
+      setBurgerClicked(false);
     }
   };
   useEffect(() => {
     window.addEventListener('scroll', () => {
       handleScroll();
+    });
+    window.addEventListener('resize', () => {
+      handleResize();
     });
     return () => {
       window.removeEventListener('scroll', () => {
@@ -38,6 +50,14 @@ const Header = () => {
   useEffect(() => {
     pathname.current = router.pathname;
   }, [router]);
+
+  useEffect(() => {
+    if (aboutClicked || burgerClicked) {
+      setActivateBodyLock(true);
+    } else {
+      setActivateBodyLock(false);
+    }
+  }, [aboutClicked, burgerClicked]);
 
   return (
     <div>
@@ -50,91 +70,81 @@ const Header = () => {
               router.pathname == '/' ? 'background' : 'background work'
             }
           ></div>
-          <header className="home-header">
-            <div
-              className={burgerClicked ? 'mobile-nav open' : 'mobile-nav'}
-              style={aboutClicked ? { display: 'none' } : { display: 'flex' }}
-              onClick={() => {
-                setBurgerClicked(!burgerClicked);
+          <div
+            className={burgerClicked ? 'mobile-nav open' : 'mobile-nav'}
+            style={aboutClicked ? { display: 'none' } : { display: 'flex' }}
+            onClick={() => {
+              setBurgerClicked(!burgerClicked);
+              const elem = document.querySelector('#header-about');
+              elem?.classList.add('clicked');
+            }}
+          >
+            <div className="nav-burger"></div>
+          </div>
+          <div
+            className={
+              burgerClicked
+                ? aboutClicked
+                  ? 'mobile-nav-bg disappear'
+                  : 'mobile-nav-bg open'
+                : init
+                ? 'mobile-nav-bg initial prev'
+                : 'mobile-nav-bg initial'
+            }
+          ></div>
+          <a
+            className={
+              router.pathname == '/'
+                ? aboutClicked
+                  ? 'logo toTop'
+                  : 'logo toBottom'
+                : hideHeader.hide && !burgerClicked
+                ? 'logo toTop hide'
+                : 'logo toTop'
+            }
+            onClick={() => {
+              router.push('/');
+              setAboutClicked(false);
+              setBurgerClicked(false);
+            }}
+          >
+            <span
+              className={init ? 'init' : aboutClicked ? 'about-span' : ''}
+              onAnimationEnd={() => {
+                setInit(false);
               }}
             >
-              <div className="nav-burger"></div>
-            </div>
-            <div
-              className={
-                burgerClicked
-                  ? aboutClicked
-                    ? 'mobile-nav-bg disappear'
-                    : 'mobile-nav-bg open'
-                  : init
-                  ? 'mobile-nav-bg initial prev'
-                  : 'mobile-nav-bg initial'
-              }
-              // style={
-              //   burgerClicked
-              //     ? { visibility: 'visible' }
-              //     : { visibility: 'hidden' }
-              // }
-            ></div>
-            <a
-              className={
-                router.pathname == '/'
-                  ? aboutClicked
-                    ? 'logo toTop'
-                    : 'logo toBottom'
-                  : hideHeader && !burgerClicked
-                  ? 'logo toTop hide'
-                  : 'logo toTop'
-              }
-              onClick={() => {
-                router.push('/');
-                setAboutClicked(false);
-                setBurgerClicked(false);
+              Inho
+            </span>
+            <span
+              className={init ? 'init' : aboutClicked ? 'about-span' : ''}
+              onAnimationEnd={() => {
+                setInit(false);
               }}
             >
-              <span
-                className={init ? 'init' : aboutClicked ? 'about-span' : ''}
-                onAnimationEnd={() => {
-                  setInit(false);
-                }}
-              >
-                Inho
-              </span>
-              <span
-                className={init ? 'init' : aboutClicked ? 'about-span' : ''}
-                onAnimationEnd={() => {
-                  setInit(false);
-                }}
-              >
-                Kang.
-              </span>
-            </a>
+              Kang.
+            </span>
+          </a>
+          <div className={burgerClicked ? 'info clicked' : 'info'}>
             <div
-              className={
-                router.pathname == '/'
-                  ? 'info'
-                  : burgerClicked
-                  ? 'info work white'
-                  : 'info work'
-              }
+              className="info-wrapper"
               style={
-                hideHeader && !burgerClicked
-                  ? {
-                      opacity: 0,
-                      pointerEvents: 'none',
-                      transition: 'all 1s',
-                    }
+                router.pathname == '/'
+                  ? // in home view.
+                    aboutClicked
+                    ? { color: 'white', opacity: 0 }
+                    : { color: 'white', opacity: 1 }
+                  : // in other view. work page.
+                  burgerClicked
+                  ? aboutClicked
+                    ? { color: 'white', opacity: 0 }
+                    : { color: 'white', opacity: 1 }
+                  : // if burger is not clicked, maintain black.
+                  hideHeader.hide
+                  ? { color: 'black', opacity: 0 }
                   : aboutClicked
-                  ? {
-                      opacity: 0,
-                      pointerEvents: 'none',
-                      transition: 'all 1s',
-                    }
-                  : {
-                      opacity: 1,
-                      pointerEvents: 'auto',
-                      transition: 'all 1s',
-                    }
+                  ? { color: 'white', opacity: 1 }
+                  : { color: 'black', opacity: 1 }
               }
             >
               <div className="left">
@@ -168,17 +178,16 @@ const Header = () => {
                   <li className="email">ikang9712@gmail.com</li>
                 </ul>
                 <ul
+                  id="header-about"
                   className={
                     router.pathname == '/'
-                      ? aboutClicked
-                        ? burgerClicked
-                          ? 'about toTop clicked'
-                          : 'about toTop'
-                        : burgerClicked
-                        ? 'about toBottom clicked'
+                      ? // at home view.
+                        aboutClicked
+                        ? 'about toTop clicked'
                         : 'about toBottom'
-                      : burgerClicked
-                      ? 'about toTop clicked'
+                      : // at other view.
+                      hideHeader.atBottom
+                      ? 'about toBottom'
                       : 'about toTop'
                   }
                   onClick={() => {
@@ -188,6 +197,7 @@ const Header = () => {
                       setAboutClicked(false);
                     }
                   }}
+                  style={burgerClicked ? { transform: 'translateY(0)' } : {}}
                 >
                   <li> about </li>
                 </ul>
@@ -219,7 +229,7 @@ const Header = () => {
                 </ul>
               </div>
             </div>
-          </header>
+          </div>
           <AboutSection clicked={aboutClicked} setClicked={setAboutClicked} />
         </>
       )}

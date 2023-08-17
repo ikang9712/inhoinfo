@@ -2,7 +2,9 @@ import HomeBackButton from '@src/component/common/HomeBackBtn';
 import WorkFooter from '@src/component/home/Works/WorkFooter';
 import WorkImageSlider from '@src/component/home/Works/WorkImageSlider';
 import WorkTitle from '@src/component/home/Works/WorkTitle';
-import { useRouter } from 'next/router';
+import HeaderContext from '@src/context/header.context';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import { useContext, useEffect, useRef } from 'react';
 
 const WorkMuseLive = () => {
   const firstSwiperSrcList = [
@@ -13,11 +15,20 @@ const WorkMuseLive = () => {
     '/images/home/work/muselive/2.1.png',
     '/images/home/work/muselive/2.2.png',
   ];
-  const router = useRouter();
-
+  const { activateBodyLock } = useContext(HeaderContext);
+  const workRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (activateBodyLock) {
+      console.log('disable body scroll');
+      disableBodyScroll(workRef.current as HTMLElement);
+    } else {
+      console.log('enable body scroll');
+      enableBodyScroll(workRef.current as HTMLElement);
+    }
+  }, [activateBodyLock]);
   return (
     <div>
-      <div className="work-container">
+      <div ref={workRef} className="work-container">
         <div>
           <WorkTitle
             titleName={['muse', 'live']}
@@ -29,40 +40,46 @@ const WorkMuseLive = () => {
             <section className="work-section">
               <div className="left">
                 <div className="work-div">
-                  <h1>
-                    MuseLive is a web3 online music platform, located at San
-                    Mateo, California.
-                  </h1>
-                  <p>
-                    Their mission is to transform the live music experience
-                    through high quality sound and intimate conversations while
-                    providing meaningful income.
-                  </p>
-                  <p>
-                    In order to achieve the mission, MuseLive created a mobile
-                    app, in which musicians can perform and communicate with
-                    their fans
-                  </p>
-                </div>
-                <div className="work-div">
-                  <p>
-                    Its main products include a mobile app in which users can
-                    host & join online concerts and a desktop app that helps
-                    musicians to load presets from audio editors such as
-                    Audacity.
-                  </p>
-                  <p>
-                    My main task was implementing the streaming service that is
-                    restricted to mobile app on web browser. Such extension of
-                    platform allows us to contact more potential users with
-                    increased accessibility.
-                  </p>
+                  <div className="text-container">
+                    <div className="text-block">
+                      <h1>
+                        MuseLive is a web3 online music platform, located at San
+                        Mateo, California.
+                      </h1>
+                      <p>
+                        Their mission is to transform the live music experience
+                        through high quality sound and intimate conversations
+                        while providing meaningful income.
+                      </p>
+                      <p>
+                        In order to achieve the mission, MuseLive created a
+                        mobile app, in which musicians can perform and
+                        communicate with their fans
+                      </p>
+                    </div>
+                    <div className="text-block">
+                      <p>
+                        Its main products include a mobile app in which users
+                        can host & join online concerts and a desktop app that
+                        helps musicians to load presets from audio editors such
+                        as Audacity.
+                      </p>
+                      <p>
+                        My main task was implementing the streaming service that
+                        is restricted to mobile app on web browser. Such
+                        extension of platform allows us to contact more
+                        potential users with increased accessibility.
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div className="right">
+              <div className="right initial">
                 <div className="block">
                   <h2>
-                    <a href="https://www.muse.live">www.muse.live</a>
+                    <a target="_blank" href="https://www.muse.live">
+                      www.muse.live
+                    </a>
                   </h2>
                   <p>MuseLive</p>
                 </div>

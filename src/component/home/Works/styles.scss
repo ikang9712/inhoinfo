@@ -4,14 +4,19 @@
   width: 100vw;
   top: 0;
   background-color: transparent;
-  padding-top: 200px;
-
+  padding-top: 12em;
+  @include breakpoint(sm) {
+    padding-top: 10em;
+  }
   .title-img-wrapper {
     // margin-top: 200px;
     position: relative;
     overflow: hidden;
     width: 100vw;
-    height: 500px;
+    height: 400px;
+    @include breakpoint(sm) {
+      height: 500px;
+    }
     visibility: hidden;
     animation: imageReveal 0.1s forwards;
     animation-delay: 1.5s;
@@ -20,7 +25,7 @@
       width: 100%;
       height: 100%;
       position: absolute;
-      background: white;
+      background: $bg-secondary-color;
       animation: imageSlide 2s forwards;
       animation-delay: 1.8s;
     }
@@ -34,11 +39,11 @@
   }
   .work-title {
     position: absolute;
-    top: 100px;
+    top: 12vh;
     right: 0;
-    padding: 0rem 5rem;
+    padding: 3vh 5vw;
     font-family: druk;
-    font-size: 5rem;
+    font-size: 4rem;
     text-transform: uppercase;
     color: transparent;
     -webkit-text-stroke: 2px;
@@ -48,6 +53,10 @@
     visibility: hidden;
     animation: titleReveal 2s forwards;
     animation-delay: 1s;
+    @include breakpoint(sm) {
+      font-size: 5rem;
+      padding: 0vh 5vw;
+    }
   }
   .work-content {
     font-family: akzidenz;
@@ -56,47 +65,46 @@
     .work-section {
       display: flex;
       justify-content: space-between;
-      padding: 15vh 10vw;
+      padding: 15vh 0vw;
       padding-bottom: 5vw;
+      @include breakpoint(sm) {
+        padding: 15vh 10vw;
+        padding-bottom: 5vw;
+      }
       width: 100%;
       position: relative;
       min-width: 0;
-
+      flex-direction: column;
       .left {
         flex: 5;
-        width: calc(80vw / 6 * 5);
-        padding: 0 1rem;
+        width: 100%;
+        padding: 0 0;
         height: fit-content;
-        display: block;
+        @include breakpoint(sm) {
+          padding: 0 1rem;
+        }
+
         .text-container {
-          margin-top: 5vw;
           display: block;
+          padding: 0 5vw;
+          @include breakpoint(md) {
+            display: flex;
+          }
+          @include breakpoint(sm) {
+            padding: 0 0vw;
+          }
           .text-block {
             flex: 1;
+          }
+          h1 {
+            line-height: 1.5em;
           }
           h1,
           p {
             margin-right: 3vw;
           }
         }
-        @include breakpoint(xl) {
-          display: flex;
-          .work-div {
-            margin-right: 3vw;
-            width: 100%;
-            height: fit-content;
-            .text-container {
-              display: flex;
-              .text-block {
-                flex: 1;
-              }
-              h1,
-              p {
-                margin-right: 3vw;
-              }
-            }
-          }
-        }
+
         .image-with-text {
           width: 100%;
           height: fit-content;
@@ -110,7 +118,7 @@
           }
           .text-block {
             flex: 1;
-            font-size: 1.2rem;
+            font-size: 18px;
             padding: 1rem 1rem;
             @include breakpoint(xl) {
               padding: 0 1rem;
@@ -118,14 +126,14 @@
           }
         }
         h1 {
-          font-size: 2rem;
+          font-size: 20px;
           font-weight: bold;
           line-height: 3rem;
           margin-bottom: 1em;
         }
         p {
           font-family: akzidenz-roman;
-          font-size: 1.2rem;
+          font-size: 18px;
           margin-bottom: 1em;
           line-height: 2rem;
           a {
@@ -137,9 +145,15 @@
         }
       }
       .right {
+        display: none;
         flex: 1;
         font-family: akzidenz-roman;
-        margin-left: 1em;
+        margin-left: 0;
+        padding: 0 5vw;
+        @include breakpoint(sm) {
+          margin-left: 1em;
+          padding: 0 0vw;
+        }
         .block {
           margin-bottom: 1.5em;
         }
@@ -158,6 +172,34 @@
           }
         }
       }
+      .right.initial {
+        order: -1;
+        display: block;
+        margin-bottom: 5vh;
+      }
+    }
+
+    @include breakpoint(sm) {
+      .work-section {
+        flex-direction: row;
+        .right.initial {
+          order: 2;
+          display: block;
+        }
+        .left {
+          width: calc(80vw / 6 * 5);
+          h1 {
+            font-size: 2rem;
+          }
+          p,
+          .text-block {
+            font-size: 1.2rem;
+          }
+        }
+        .right {
+          display: block;
+        }
+      }
     }
   }
 }
@@ -166,10 +208,19 @@
   position: relative;
   width: 100%;
   height: 100%;
-
+  margin-bottom: 5vw;
   .swiper {
     width: 100%;
     height: 100%;
+    --swiper-navigation-color: #f2f2f2;
+    --swiper-navigation-size: 25px;
+    --swiper-pagination-bullet-size: 4px;
+    --swiper-pagination-color: #f2f2f2;
+    --swiper-pagination-bullet-inactive-color: #f2f2f2;
+    @include breakpoint(sm) {
+      --swiper-navigation-size: 45px;
+      --swiper-pagination-bullet-size: 8px;
+    }
   }
   .swiper-wrapper {
     .swiper-slide {
@@ -192,7 +243,6 @@
 .next-project {
   width: 100%;
   padding: 10vw 20vw;
-  padding-bottom: 30vw;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -200,9 +250,10 @@
   font-family: druk;
   transform-style: preserve-3d;
   position: relative;
-  z-index: 20;
+  z-index: 1500;
+  margin-bottom: 100px;
   p {
-    font-size: 1.5rem;
+    font-size: 1rem;
     margin-bottom: 20px;
   }
   a {
@@ -210,7 +261,7 @@
     transform-style: preserve-3d;
   }
   h1 {
-    font-size: 5rem;
+    font-size: 3rem;
     color: transparent;
     -webkit-text-stroke: 2px;
     -webkit-text-stroke-color: #151515;
@@ -220,6 +271,15 @@
     &:hover {
       color: black;
       transform: perspective(100rem) rotateY(0) rotateZ(0);
+    }
+  }
+  @include breakpoint(sm) {
+    padding-bottom: 30vw;
+    p {
+      font-size: 1.5rem;
+    }
+    h1 {
+      font-size: 5rem;
     }
   }
 }

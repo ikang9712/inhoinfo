@@ -2,7 +2,10 @@ import HomeBackButton from '@src/component/common/HomeBackBtn';
 import WorkFooter from '@src/component/home/Works/WorkFooter';
 import WorkImageSlider from '@src/component/home/Works/WorkImageSlider';
 import WorkTitle from '@src/component/home/Works/WorkTitle';
+import HeaderContext from '@src/context/header.context';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import { useRouter } from 'next/router';
+import { useContext, useEffect, useRef } from 'react';
 
 const WorkCaseStudy = () => {
   const firstSwiperSrcList = [
@@ -25,9 +28,20 @@ const WorkCaseStudy = () => {
     '/images/home/work/casestudy/besthorror5.png',
   ];
   const router = useRouter();
+  const { activateBodyLock } = useContext(HeaderContext);
+  const workRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (activateBodyLock) {
+      console.log('disable body scroll');
+      disableBodyScroll(workRef.current as HTMLElement);
+    } else {
+      console.log('enable body scroll');
+      enableBodyScroll(workRef.current as HTMLElement);
+    }
+  }, [activateBodyLock]);
   return (
     <div>
-      <div className="work-container">
+      <div ref={workRef} className="work-container">
         <div>
           <WorkTitle
             titleName={['case', 'study']}
@@ -39,22 +53,33 @@ const WorkCaseStudy = () => {
             <section className="work-section">
               <div className="left">
                 <div className="work-div">
-                  <h1>Case Studies: PaintBox, BestHorror.</h1>
-                  <p>
-                    This article contains previous case studies that I have
-                    conducted to practice UI design and implementation of real
-                    websites. So far, there has been two case studies for the
-                    websites: <a href="https://paint-box.com/">paintbox</a> and{' '}
-                    <a href="https://besthorrorscenes.com/">best horror</a>.
-                  </p>
-                </div>
-                <div className="work-div">
-                  <p>
-                    Each secion starts with an analysis of the website&apos;s
-                    overall design concepts. Then, I included major difficulties
-                    I confronted while implementing the landing page of each
-                    website.
-                  </p>
+                  <div className="text-container">
+                    <div className="text-block">
+                      <h1>Case Studies: PaintBox, BestHorror.</h1>
+                      <p>
+                        This article contains previous case studies that I have
+                        conducted to practice UI design and implementation of
+                        real websites. So far, there has been two case studies
+                        for the websites:{' '}
+                        <a target="_blank" href="https://paint-box.com/">
+                          paintbox
+                        </a>{' '}
+                        and{' '}
+                        <a target="_blank" href="https://besthorrorscenes.com/">
+                          best horror
+                        </a>
+                        .
+                      </p>
+                    </div>
+                    <div className="text-block">
+                      <p>
+                        Each secion starts with an analysis of the
+                        website&apos;s overall design concepts. Then, I included
+                        major difficulties I confronted while implementing the
+                        landing page of each website.
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div className="right">
@@ -87,10 +112,7 @@ const WorkCaseStudy = () => {
             <section className="work-section">
               <div className="left">
                 <div className="work-div">
-                  <div
-                    className="text-container"
-                    style={{ margin: 0, padding: 0 }}
-                  >
+                  <div className="text-container">
                     <div className="text-block">
                       <h1> Paintbox</h1>
                       <p>
@@ -185,10 +207,7 @@ const WorkCaseStudy = () => {
             <section className="work-section">
               <div className="left">
                 <div className="work-div">
-                  <div
-                    className="text-container"
-                    style={{ margin: 0, padding: 0 }}
-                  >
+                  <div className="text-container">
                     <div className="text-block">
                       <h1> BestHorrorScenes</h1>
                       <p>

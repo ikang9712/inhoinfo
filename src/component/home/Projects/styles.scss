@@ -1,11 +1,7 @@
 .project {
   transform-style: preserve-3d;
   font-weight: bolder;
-  padding: 10vh 5vw;
-  padding-top: 15vh;
-  @include breakpoint(md) {
-    padding: 10vh 5vw;
-  }
+  padding: 15vh 5vw;
   list-style-type: none;
   text-align: right;
   @for $i from 1 through 4 {
@@ -19,7 +15,11 @@
     }
   }
   ul {
-    font-size: 6rem;
+    transition: font-size 1s;
+    font-size: 4rem;
+    @include breakpoint(sm) {
+      font-size: 6rem;
+    }
     transform-style: preserve-3d;
     // @for $i from 1 through 4 {
     //   .project-li:nth-child(#{$i}) .project-container .triggerOutro {

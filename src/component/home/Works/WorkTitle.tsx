@@ -19,7 +19,7 @@ const WorkTitle = ({
     if (title && window.scrollY < 500) {
       title.style.transition = '2s';
       title.style.transitionDelay = '0.1s';
-      title.style.top = `${100 + window.scrollY / 5}px`;
+      title.style.top = `calc(12vh   + ${window.scrollY / 5}px)`;
     }
   };
   useEffect(() => {

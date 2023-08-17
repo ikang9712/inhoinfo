@@ -14,6 +14,7 @@ const AboutSection = ({
       setInitialLoad(false);
     }
   });
+
   return (
     <div>
       <div

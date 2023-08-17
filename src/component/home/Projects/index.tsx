@@ -1,6 +1,7 @@
 import HeaderContext from '@src/context/header.context';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import { useRouter } from 'next/router';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 
 const Projects = () => {
   const [clicked, setClicked] = useState({
@@ -30,8 +31,20 @@ const Projects = () => {
     });
   }, []);
 
+  const { activateBodyLock } = useContext(HeaderContext);
+  const bodyRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (activateBodyLock) {
+      console.log('disable body scroll');
+      disableBodyScroll(bodyRef.current as HTMLElement);
+    } else {
+      console.log('enable body scroll');
+      enableBodyScroll(bodyRef.current as HTMLElement);
+    }
+  }, [activateBodyLock]);
+
   return (
-    <div className="project">
+    <div ref={bodyRef} className="project">
       <ul>
         <li className="project-li">
           <div className="project-container">

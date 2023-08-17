@@ -2,7 +2,9 @@ import HomeBackButton from '@src/component/common/HomeBackBtn';
 import WorkFooter from '@src/component/home/Works/WorkFooter';
 import WorkImageSlider from '@src/component/home/Works/WorkImageSlider';
 import WorkTitle from '@src/component/home/Works/WorkTitle';
-import { useRouter } from 'next/router';
+import HeaderContext from '@src/context/header.context';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import { useContext, useEffect, useRef } from 'react';
 
 const WorkInhoInfo = () => {
   const firstSwiperSrcList = [
@@ -13,11 +15,20 @@ const WorkInhoInfo = () => {
     '/images/home/work/inhoinfo/inhoinfo.prev1.png',
     '/images/home/work/inhoinfo/inhoinfo.prev2.png',
   ];
-  const router = useRouter();
-
+  const { activateBodyLock } = useContext(HeaderContext);
+  const workRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (activateBodyLock) {
+      console.log('disable body scroll');
+      disableBodyScroll(workRef.current as HTMLElement);
+    } else {
+      console.log('enable body scroll');
+      enableBodyScroll(workRef.current as HTMLElement);
+    }
+  }, [activateBodyLock]);
   return (
     <div>
-      <div className="work-container">
+      <div ref={workRef} className="work-container">
         <div>
           <WorkTitle
             titleName={['inho.', 'info']}
@@ -29,36 +40,43 @@ const WorkInhoInfo = () => {
             <section className="work-section">
               <div className="left">
                 <div className="work-div">
-                  <h1>
-                    Inho.info is a personal website displaying my previous works
-                    and projects.
-                  </h1>
-                  <p>
-                    Current version of the website is built on Typescript and
-                    React. The design was inspired by Studio of Eric Van Holtz
-                    and his website,{' '}
-                    <a href="https://vanholtz.co">vanholtz.co</a>. His website
-                    is full of animation and interactive elements. For every
-                    change in page, various elements transform their styling to
-                    express liveness of the website.
-                  </p>
-                </div>
-                <div className="work-div">
-                  <p>
-                    I tried to implement the same refined web experiences for
-                    the users who visit the website. Keyframe animations and
-                    transitions were meticulously chosen for smooth user
-                    experience.
-                  </p>
-                  <p>
-                    This article includes the review of overall implementations
-                    and short analysis and reflections about what I learned and
-                    what can be improved for cleaner code and better performance
-                    in the future.
-                  </p>
+                  <div className="text-container">
+                    <div className="text-block">
+                      <h1>
+                        Inho.info is a personal website displaying my previous
+                        works and projects.
+                      </h1>
+                      <p>
+                        Current version of the website is built on Typescript
+                        and React. The design was inspired by Studio of Eric Van
+                        Holtz and his website,{' '}
+                        <a target="_blank" href="https://vanholtz.co">
+                          vanholtz.co
+                        </a>
+                        . His website is full of animation and interactive
+                        elements. For every change in page, various elements
+                        transform their styling to express liveness of the
+                        website.
+                      </p>
+                    </div>
+                    <div className="text-block">
+                      <p>
+                        I tried to implement the same refined web experiences
+                        for the users who visit the website. Keyframe animations
+                        and transitions were meticulously chosen for smooth user
+                        experience.
+                      </p>
+                      <p>
+                        This article includes the review of overall
+                        implementations and short analysis and reflections about
+                        what I learned and what can be improved for cleaner code
+                        and better performance in the future.
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div className="right">
+              <div className="right initial">
                 <div className="block">
                   <h2>
                     <a href="https://inho.info">www.inho.info</a>
@@ -135,7 +153,9 @@ const WorkInhoInfo = () => {
                         the website designed and implemented in JavaScript and
                         React. The layout and design was inspired by Takuya
                         Matsuyama and his website,{' '}
-                        <a href="https://www.craftz.dog">craftz.dog.</a>
+                        <a target="_blank" href="https://www.craftz.dog">
+                          craftz.dog.
+                        </a>
                       </p>
                     </div>
 
