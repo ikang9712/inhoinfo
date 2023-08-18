@@ -67,11 +67,6 @@ const Header = () => {
         <></>
       ) : (
         <>
-          {/* <div
-            className={
-              router.pathname == '/' ? 'background' : 'background work'
-            }
-          ></div> */}
           <div
             className={burgerClicked ? 'mobile-nav open' : 'mobile-nav'}
             style={aboutClicked ? { display: 'none' } : { display: 'flex' }}
@@ -97,11 +92,6 @@ const Header = () => {
                 : // burger unclicked, or screen size over md
                   'mobile-nav-bg close'
             }
-            // className={
-            //   init
-            //     ? 'mobile-nav-bg initial prev'
-            //     : 'mobile-nav-bg initial'
-            // }
           ></div>
           <a
             className={

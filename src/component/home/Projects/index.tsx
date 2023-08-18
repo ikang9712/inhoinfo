@@ -1,7 +1,7 @@
 import HeaderContext from '@src/context/header.context';
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import { useRouter } from 'next/router';
 import { useContext, useEffect, useRef, useState } from 'react';
+import { lock, unlock } from 'tua-body-scroll-lock';
 
 const Projects = () => {
   const [clicked, setClicked] = useState({
@@ -30,14 +30,14 @@ const Projects = () => {
       third: false,
     });
   }, []);
-
-  const { activateBodyLock } = useContext(HeaderContext);
   const bodyRef = useRef<HTMLDivElement>(null);
+  const { activateBodyLock } = useContext(HeaderContext);
+
   useEffect(() => {
     if (activateBodyLock) {
-      disableBodyScroll(bodyRef.current as HTMLElement);
+      lock(bodyRef.current as HTMLElement);
     } else {
-      enableBodyScroll(bodyRef.current as HTMLElement);
+      unlock(bodyRef.current as HTMLElement);
     }
   }, [activateBodyLock]);
 

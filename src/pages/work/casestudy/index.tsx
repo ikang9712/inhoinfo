@@ -79,7 +79,7 @@ const WorkCaseStudy = () => {
                   </div>
                 </div>
               </div>
-              <div className="right">
+              <div className="right initial">
                 <div className="block">
                   <h2>
                     <a
