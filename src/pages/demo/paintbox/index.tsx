@@ -18,7 +18,7 @@ const DemoPaintBox: NextPage = () => {
   const { setActivated } = useContext(HeaderContext);
   useEffect(() => {
     setActivated(true);
-  }, []);
+  }, [setActivated]);
   return (
     <div className="paint-body">
       <HomeBackButton />

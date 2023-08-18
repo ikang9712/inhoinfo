@@ -2,7 +2,7 @@ import { createContext } from 'react';
 
 const LoadingContext = createContext({
   loading: false,
-  setLoading: (loaded: boolean) => {},
+  setLoading: (_loaded: boolean) => {},
 });
 
 export default LoadingContext;

@@ -9,7 +9,7 @@ const DemoBestHorror: NextPage = () => {
   const { setActivated } = useContext(HeaderContext);
   useEffect(() => {
     setActivated(true);
-  }, []);
+  }, [setActivated]);
   return (
     <div className="movie-body">
       <HomeBackButton />

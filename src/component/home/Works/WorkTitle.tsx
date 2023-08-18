@@ -14,23 +14,24 @@ const WorkTitle = ({
 }) => {
   const router = useRouter();
   const { setActivated } = useContext(HeaderContext);
-  const handleScroll = () => {
-    const title = document.getElementById(titleId);
-    if (title && window.scrollY < 500) {
-      title.style.transition = '2s';
-      title.style.transitionDelay = '0.1s';
-      title.style.top = `calc(12vh   + ${window.scrollY / 5}px)`;
-    }
-  };
+
   useEffect(() => {
     setActivated(false);
+    const handleScroll = () => {
+      const title = document.getElementById(titleId);
+      if (title && window.scrollY < 500) {
+        title.style.transition = '2s';
+        title.style.transitionDelay = '0.1s';
+        title.style.top = `calc(12vh   + ${window.scrollY / 5}px)`;
+      }
+    };
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', () => {
         handleScroll;
       });
     };
-  }, []);
+  }, [setActivated, titleId]);
 
   return (
     <div>

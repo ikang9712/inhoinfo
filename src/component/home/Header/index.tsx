@@ -59,7 +59,7 @@ const Header = () => {
     } else {
       setActivateBodyLock(false);
     }
-  }, [aboutClicked, burgerClicked]);
+  }, [aboutClicked, burgerClicked, setActivateBodyLock]);
 
   return (
     <div>
@@ -170,6 +170,7 @@ const Header = () => {
                       ? 'about bottom'
                       : 'about top'
                   }
+                  style={aboutClicked ? { color: 'white' } : {}}
                   onClick={() => {
                     setAboutClicked(!aboutClicked);
                   }}

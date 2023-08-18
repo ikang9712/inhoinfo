@@ -23,7 +23,7 @@ const AboutSection = ({
     if (aboutClicked) {
       setInitialLoad(false);
     }
-  });
+  }, [aboutClicked, setInitialLoad]);
 
   return (
     <div>

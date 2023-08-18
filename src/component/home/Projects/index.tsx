@@ -29,7 +29,7 @@ const Projects = () => {
       second: false,
       third: false,
     });
-  }, []);
+  }, [setActivated, setClicked]);
   const bodyRef = useRef<HTMLDivElement>(null);
   const { activateBodyLock } = useContext(HeaderContext);
 
