@@ -40,10 +40,8 @@
           animation: outro 1s forwards;
         }
         a {
-          transform: rotateY(-35deg);
-          // transform: perspective(30em) rotateY(-45deg);
           transform-origin: right;
-          // transform: rotateY(-45deg) translateZ(0) scale(1);
+          transform: perspective(50em) rotateY(-45deg);
           transition: transform 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 
           width: min-content;
@@ -81,12 +79,12 @@
   0% {
     visibility: visible;
     opacity: 0;
-    transform: translate3d(0, -50vh, 0) rotate3d(0, -1, 0, -100deg);
+    transform: translate3d(0, -50vh, 0) rotate3d(0, -1, 0, 180deg);
   }
   100% {
     visibility: visible;
     opacity: 1;
-    transform: rotateZ(0);
+    transform: translate3d(0, 0, 0) rotate3d(0, 0, 0, 0);
   }
 }
 

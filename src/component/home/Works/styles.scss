@@ -42,7 +42,7 @@
     top: 12vh;
     right: 0;
     padding: 3vh 5vw;
-    font-family: druk;
+    font-family: druk, sans-serif;
     font-size: 4rem;
     text-transform: uppercase;
     color: transparent;
@@ -53,13 +53,16 @@
     visibility: hidden;
     animation: titleReveal 2s forwards;
     animation-delay: 1s;
+    span {
+      font-family: druk, sans-serif;
+    }
     @include breakpoint(sm) {
       font-size: 5rem;
       padding: 0vh 5vw;
     }
   }
   .work-content {
-    font-family: akzidenz;
+    font-family: akzidenz, sans-serif;
     font-style: normal;
 
     .work-section {
@@ -110,7 +113,7 @@
           height: fit-content;
         }
         .image-text {
-          font-family: akzidenz-roman;
+          font-family: akzidenz-roman, sans-serif;
           margin-top: 3vw;
           display: block;
           @include breakpoint(xl) {
@@ -132,7 +135,7 @@
           margin-bottom: 1em;
         }
         p {
-          font-family: akzidenz-roman;
+          font-family: akzidenz-roman, sans-serif;
           font-size: 18px;
           margin-bottom: 1em;
           line-height: 2rem;
@@ -147,7 +150,7 @@
       .right {
         display: none;
         flex: 1;
-        font-family: akzidenz-roman;
+        font-family: akzidenz-roman, sans-serif;
         margin-left: 0;
         padding: 0 5vw;
         @include breakpoint(sm) {
@@ -158,7 +161,7 @@
           margin-bottom: 1.5em;
         }
         h2 {
-          font-family: akzidenz;
+          font-family: akzidenz, sans-serif;
           font-weight: bold;
           margin-bottom: 1em;
           display: flex;
@@ -247,7 +250,7 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-end;
-  font-family: druk;
+  font-family: druk, sans-serif;
   transform-style: preserve-3d;
   position: relative;
   z-index: 1500;

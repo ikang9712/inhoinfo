@@ -55,7 +55,7 @@
       display: none;
     }
     .book {
-      font-family: proxima-nova-regular;
+      font-family: proxima-nova-regular, sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -79,7 +79,7 @@
     }
 
     ul {
-      font-family: freight-light;
+      font-family: freight-light, sans-serif;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
