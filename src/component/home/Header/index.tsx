@@ -7,6 +7,7 @@ import AboutSection from '../About';
 const Header = () => {
   const [init, setInit] = useState(true);
   const [aboutClicked, setAboutClicked] = useState(false);
+  const [bgDown, setBgDown] = useState(false);
   const [hideHeader, setHideHeader] = useState({
     hide: false,
     atBottom: false,
@@ -15,6 +16,7 @@ const Header = () => {
   const { activated, setActivateBodyLock } = useContext(HeaderContext);
   const router = useRouter();
   let pathname = useRef<string>(router.pathname);
+  const aboutRef = useRef<HTMLDivElement>(null);
 
   const handleScroll = () => {
     if (pathname.current != '/') {
@@ -65,94 +67,84 @@ const Header = () => {
         <></>
       ) : (
         <>
-          <div
+          {/* <div
             className={
               router.pathname == '/' ? 'background' : 'background work'
             }
-          ></div>
+          ></div> */}
           <div
             className={burgerClicked ? 'mobile-nav open' : 'mobile-nav'}
             style={aboutClicked ? { display: 'none' } : { display: 'flex' }}
             onClick={() => {
               setBurgerClicked(!burgerClicked);
-              const elem = document.querySelector('#header-about');
-              elem?.classList.add('clicked');
+              setBgDown(false);
+              setInit(false);
             }}
           >
             <div className="nav-burger"></div>
           </div>
           <div
             className={
-              burgerClicked
-                ? aboutClicked
-                  ? 'mobile-nav-bg disappear'
+              init
+                ? 'mobile-nav-bg'
+                : burgerClicked
+                ? // burger clicked
+                  aboutClicked
+                  ? 'mobile-nav-bg up'
+                  : bgDown
+                  ? 'mobile-nav-bg down'
                   : 'mobile-nav-bg open'
-                : init
-                ? 'mobile-nav-bg initial prev'
-                : 'mobile-nav-bg initial'
+                : // burger unclicked, or screen size over md
+                  'mobile-nav-bg close'
             }
+            // className={
+            //   init
+            //     ? 'mobile-nav-bg initial prev'
+            //     : 'mobile-nav-bg initial'
+            // }
           ></div>
           <a
             className={
               router.pathname == '/'
-                ? aboutClicked
-                  ? 'logo toTop'
+                ? aboutClicked || burgerClicked
+                  ? 'logo toTop white'
                   : 'logo toBottom'
                 : hideHeader.hide && !burgerClicked
                 ? 'logo toTop hide'
+                : aboutClicked || burgerClicked
+                ? 'logo toTop white'
                 : 'logo toTop'
             }
             onClick={() => {
-              router.push('/');
+              if (router.pathname == '/') {
+                router.reload();
+              } else {
+                router.push('/');
+              }
+
               setAboutClicked(false);
               setBurgerClicked(false);
             }}
           >
-            <span
-              className={init ? 'init' : aboutClicked ? 'about-span' : ''}
-              onAnimationEnd={() => {
-                setInit(false);
-              }}
-            >
-              Inho
-            </span>
-            <span
-              className={init ? 'init' : aboutClicked ? 'about-span' : ''}
-              onAnimationEnd={() => {
-                setInit(false);
-              }}
-            >
-              Kang.
-            </span>
+            <span className={'logo-span'}>Inho</span>
+            <span className={'logo-span'}>Kang.</span>
           </a>
           <div className={burgerClicked ? 'info clicked' : 'info'}>
             <div
-              className="info-wrapper"
-              style={
-                router.pathname == '/'
-                  ? // in home view.
-                    aboutClicked
-                    ? { color: 'white', opacity: 0 }
-                    : { color: 'white', opacity: 1 }
-                  : // in other view. work page.
-                  burgerClicked
+              className={
+                burgerClicked
                   ? aboutClicked
-                    ? { color: 'white', opacity: 0 }
-                    : { color: 'white', opacity: 1 }
-                  : // if burger is not clicked, maintain black.
-                  hideHeader.hide
-                  ? { color: 'black', opacity: 0 }
-                  : aboutClicked
-                  ? { color: 'white', opacity: 1 }
-                  : { color: 'black', opacity: 1 }
+                    ? 'info-wrapper white invisible'
+                    : 'info-wrapper white'
+                  : router.pathname == '/'
+                  ? 'info-wrapper white'
+                  : hideHeader.hide
+                  ? 'info-wrapper black invisible'
+                  : 'info-wrapper black'
               }
             >
               <div className="left">
-                <ul
-                  className={
-                    burgerClicked ? 'left-content clicked' : 'left-content'
-                  }
-                >
+                <ul>
                   <li>Web Developer</li>
                   <li className="github-source">
                     <a
@@ -169,45 +161,34 @@ const Header = () => {
                     </a>
                   </li>
                 </ul>
-                <ul
-                  className={
-                    burgerClicked ? 'left-content clicked' : 'left-content'
-                  }
-                >
+                <ul>
                   <li>South Korea</li>
                   <li className="email">ikang9712@gmail.com</li>
                 </ul>
                 <ul
                   id="header-about"
                   className={
-                    router.pathname == '/'
-                      ? // at home view.
-                        aboutClicked
-                        ? 'about toTop clicked'
-                        : 'about toBottom'
-                      : // at other view.
-                      hideHeader.atBottom
-                      ? 'about toBottom'
-                      : 'about toTop'
+                    burgerClicked
+                      ? aboutClicked
+                        ? 'about mid invisible'
+                        : 'about mid'
+                      : aboutClicked
+                      ? 'about top'
+                      : router.pathname == '/'
+                      ? 'about bottom'
+                      : hideHeader.atBottom
+                      ? 'about bottom'
+                      : 'about top'
                   }
                   onClick={() => {
-                    if (!aboutClicked) {
-                      setAboutClicked(true);
-                    } else {
-                      setAboutClicked(false);
-                    }
+                    setAboutClicked(!aboutClicked);
                   }}
-                  style={burgerClicked ? { transform: 'translateY(0)' } : {}}
                 >
                   <li> about </li>
                 </ul>
               </div>
               <div className="right">
-                <ul
-                  className={
-                    burgerClicked ? 'right-content clicked' : 'right-content'
-                  }
-                >
+                <ul>
                   <li>
                     <span>01</span>
                     <a
@@ -230,7 +211,12 @@ const Header = () => {
               </div>
             </div>
           </div>
-          <AboutSection clicked={aboutClicked} setClicked={setAboutClicked} />
+          <AboutSection
+            refObject={aboutRef}
+            aboutClicked={aboutClicked}
+            setClicked={setAboutClicked}
+            setBgDown={setBgDown}
+          />
         </>
       )}
     </div>

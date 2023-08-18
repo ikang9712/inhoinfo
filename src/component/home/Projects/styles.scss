@@ -1,4 +1,5 @@
 .project {
+  font-family: druk-super;
   transform-style: preserve-3d;
   font-weight: bolder;
   padding: 15vh 5vw;
@@ -21,6 +22,9 @@
       font-size: 6rem;
     }
     transform-style: preserve-3d;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     // @for $i from 1 through 4 {
     //   .project-li:nth-child(#{$i}) .project-container .triggerOutro {
     //     animation-delay: 4s - ($i / 4);
@@ -55,8 +59,13 @@
             // transform: perspective(200rem) rotateY(-30deg) rotateZ(-5deg);
             // transform: rotateY(-0deg) translateZ(0) scale(1);
             color: transparent;
-            -webkit-text-stroke: 2px;
+            -webkit-text-stroke: 1px;
             -webkit-text-stroke-color: #151515;
+            @include breakpoint(sm) {
+              color: transparent;
+              -webkit-text-stroke: 2px;
+              -webkit-text-stroke-color: #151515;
+            }
           }
           &:hover::before {
             color: black;

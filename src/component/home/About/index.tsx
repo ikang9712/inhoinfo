@@ -1,16 +1,26 @@
 import { IconContainer } from '@src/component/common/IconContainer';
-import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import {
+  Dispatch,
+  RefObject,
+  SetStateAction,
+  useEffect,
+  useState,
+} from 'react';
 
 const AboutSection = ({
-  clicked,
+  aboutClicked,
+  refObject,
   setClicked,
+  setBgDown,
 }: {
-  clicked: boolean;
+  aboutClicked: boolean;
+  refObject: RefObject<HTMLDivElement>;
   setClicked: Dispatch<SetStateAction<boolean>>;
+  setBgDown: Dispatch<SetStateAction<boolean>>;
 }) => {
   const [initialLoad, setInitialLoad] = useState(true);
   useEffect(() => {
-    if (clicked) {
+    if (aboutClicked) {
       setInitialLoad(false);
     }
   });
@@ -18,28 +28,19 @@ const AboutSection = ({
   return (
     <div>
       <div
+        ref={refObject}
         className={
           initialLoad
             ? 'about-container invisible'
-            : clicked
+            : aboutClicked
             ? 'about-container open'
             : 'about-container'
-          // router.pathname == '/'
-          //   ? clicked
-          //     ? 'about-container visible'
-          //     : initialLoad
-          //     ? 'about-container initial-load'
-          //     : 'about-container'
-          //   : clicked
-          //   ? 'about-container work visible'
-          //   : initialLoad
-          //   ? 'about-container work initial-load'
-          //   : 'about-container work'
         }
       >
         <div
           className="about-go-back"
           onClick={() => {
+            setBgDown(true);
             setClicked(false);
           }}
         >
@@ -51,7 +52,7 @@ const AboutSection = ({
               Crafting dynamic, responsive, and engaging web experiences with a
               focus on animated, responsive, and interactive content.
             </h1>
-            <p>Thank you for visiting!</p>
+            <h2>Thank you for visiting!</h2>
             <p>
               I am a full stack developer focused on designing interactive web
               enviornment. Feel free to contact me for any queries. :&#41;

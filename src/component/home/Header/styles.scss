@@ -1,13 +1,4 @@
-.background {
-  background: $bg-primary-color !important;
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-}
-.background.work {
-  background: $bg-secondary-color !important;
-}
-
+// mobile hamburger
 .mobile-nav {
   position: fixed;
   display: flex;
@@ -22,7 +13,7 @@
     right: 50px;
   }
   overflow: hidden;
-  z-index: 100;
+  z-index: 5;
   cursor: pointer;
   transition: all 0.5s ease-in-out;
   opacity: 1;
@@ -54,7 +45,6 @@
     }
   }
 }
-
 .mobile-nav.open {
   .nav-burger {
     transform: translateX(-50px);
@@ -73,42 +63,30 @@
   background: $bg-primary-color;
   opacity: 0.8;
   z-index: 4;
+  width: 100vw;
+  height: 100vh;
+  transform: translateY(140vh);
 }
 .mobile-nav-bg.open {
-  position: fixed;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-  background: $bg-primary-color;
-  opacity: 0.8;
-  animation: aboutSlideUp 1.5s forwards;
-  @include breakpoint(md) {
-    width: 0;
-    height: 0;
-  }
+  animation: bgOpen 1s forwards;
 }
-.mobile-nav-bg.initial.prev {
-  width: 0;
-  height: 0;
+.mobile-nav-bg.close {
+  animation: bgClose 1s forwards;
 }
-.mobile-nav-bg.initial {
-  width: 100vw;
-  height: 100vh;
-  background: $bg-primary-color;
-  opacity: 0.8;
-  animation: aboutSlideDown 1s forwards;
+.mobile-nav-bg.up {
+  animation: bgLeft 1s forwards;
 }
-.mobile-nav-bg.disappear {
-  width: 100vw;
-  height: 100vh;
-  background: $bg-primary-color;
-  opacity: 0.8;
-  animation: bgDisappear 1s forwards;
+.mobile-nav-bg.down {
+  animation: bgRight 1s forwards;
 }
 
+// logo
+.logo-span {
+  animation: logoIntro 1s forwards;
+}
 .logo {
   position: fixed;
-  z-index: 1000;
+  z-index: 10;
   font-family: druk-regular, sans-serif;
   text-transform: uppercase;
   width: fit-content;
@@ -118,15 +96,12 @@
   margin: 0;
   padding: 0;
   margin-left: 8vw;
-
+  color: white;
   @include breakpoint(sm) {
     margin-left: 50px;
     font-size: 2rem;
   }
   font-weight: 800;
-  .init {
-    animation: logoIntro 1s forwards;
-  }
 }
 .logo.toBottom {
   transition: transform 1s ease-in-out;
@@ -139,6 +114,18 @@
   }
   span {
     transition: all 1s;
+  }
+  &:hover {
+    span {
+      transition: all 1s;
+      color: transparent;
+      -webkit-text-stroke: 0.5px;
+      -webkit-text-stroke-color: white;
+    }
+  }
+}
+.logo.toTop.white {
+  span {
     color: white;
   }
   &:hover {
@@ -158,12 +145,8 @@
   }
 
   span {
-    transition: all 1s;
     color: black;
-  }
-  .about-span {
     transition: all 1s;
-    color: white;
   }
   &:hover {
     span {
@@ -171,12 +154,6 @@
       color: transparent;
       -webkit-text-stroke: 0.5px;
       -webkit-text-stroke-color: black;
-    }
-    .about-span {
-      transition: all 1s;
-      color: transparent;
-      -webkit-text-stroke: 0.5px;
-      -webkit-text-stroke-color: white;
     }
   }
 }
@@ -187,19 +164,8 @@
     -webkit-text-stroke: 0.1px;
     -webkit-text-stroke-color: black;
   }
-  .about-span {
-    transition: all 1s;
-    color: transparent;
-    -webkit-text-stroke: 0.1px;
-    -webkit-text-stroke-color: black;
-  }
   &:hover {
     span {
-      transition: all 1s;
-      color: black;
-      -webkit-text-stroke: 0px;
-    }
-    .about-span {
       transition: all 1s;
       color: black;
       -webkit-text-stroke: 0px;
@@ -212,22 +178,18 @@
 }
 .info {
   position: fixed;
-  z-index: 1000;
+  z-index: 10;
   width: 100vw;
   bottom: 0;
   padding: 0 50px;
-  padding-bottom: 50px;
+  margin-bottom: 50px;
   transition: transform 1s;
   transform: translateY(40vh);
   @include breakpoint(md) {
     transform: translateY(0);
   }
   .info-wrapper {
-    // position: fixed;
     font-family: sans-serif;
-    // bottom: 0;
-    // padding: 0 50px;
-    // padding-bottom: 50px;
     width: 100%;
     animation: slideUp 1.5s forwards;
     animation-timing-function: cubic-bezier(0.175, 1.5, 0.32, 1);
@@ -235,35 +197,12 @@
     flex-direction: column;
     justify-content: space-between;
     color: white;
-    transition: color 1s;
-    transition: opacity 1s;
+    transition: all 1s;
     @include breakpoint(sm) {
       flex-direction: row;
     }
   }
 
-  // .left-content,
-  // .right-content {
-  //   transition: transform 1s ease-in-out;
-  //   transform: translateY(40vh);
-  // }
-  // .left-content.clicked,
-  // .right-content.clicked {
-  //   transition: transform 1s ease-in-out;
-  //   transform: translateY(-40vh);
-  // }
-  // @include breakpoint(md) {
-  //   .left-content,
-  //   .right-content {
-  //     transition: transform 1s ease-in-out;
-  //     transform: translateY(0);
-  //   }
-  //   .left-content.clicked,
-  //   .right-content.clicked {
-  //     transition: transform 1s ease-in-out;
-  //     transform: translateY(0);
-  //   }
-  // }
   .left {
     display: flex;
     flex-direction: column;
@@ -273,6 +212,7 @@
       margin-bottom: 0px;
     }
     ul {
+      transition: all 1s;
       margin-right: 3vw;
       margin-bottom: 10px;
 
@@ -290,6 +230,7 @@
   }
   .right {
     ul {
+      transition: all 1s;
       li {
         margin-bottom: 5px;
         span {
@@ -304,23 +245,25 @@
     }
   }
 }
-
-.about.clicked {
-  opacity: 1;
+.info-wrapper.white {
+  color: white;
+}
+.info-wrapper.black {
+  color: black;
+}
+.info-wrapper.invisible {
+  opacity: 0;
 }
 
 .about {
   font-weight: bold;
   display: flex;
   transition: transform 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
   &::before {
     content: '/';
     font-weight: 300;
     font-size: 10px;
-  }
-  opacity: 0;
-  @include breakpoint(md) {
-    opacity: 1;
   }
   li {
     &:hover {
@@ -341,24 +284,26 @@
     }
   }
 }
-
-.about.toTop {
-  transform: translateY(calc(-40vh + -120vh));
+.about.top {
+  transition: transform 1s ease-in-out;
+  transform: translateY(0);
   @include breakpoint(md) {
     transform: translateY(calc(-90vh + 80px));
   }
 }
-.about.toBottom {
+.about.mid {
+  transition: transform 1s ease-in-out;
   transform: translateY(0);
-  // transform: translateY(40vh);
-  // @include breakpoint(md) {
-  //   transform: translateY(0);
-  // }
+  opacity: 1;
 }
-
-.about.toTop.clicked,
-.about.toBottom.clicked {
+.about.bottom {
+  transition: transform 1s ease-in-out;
   transform: translateY(0);
+}
+.about.mid.invisible {
+  transition: transform 1s ease-in-out;
+  transform: translateY(0);
+  opacity: 0;
 }
 
 .github-source {
@@ -400,11 +345,37 @@
   }
 }
 
-@keyframes bgDisappear {
+@keyframes bgOpen {
+  0% {
+    transform: translateY(140vh);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes bgClose {
   0% {
     transform: translateY(0);
   }
   100% {
-    transform: translateY(-140vh);
+    transform: translateY(140vh);
+  }
+}
+
+@keyframes bgLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-140vw);
+  }
+}
+@keyframes bgRight {
+  0% {
+    transform: translateX(-140vw);
+  }
+  100% {
+    transform: translateX(0);
   }
 }

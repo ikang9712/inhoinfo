@@ -3,14 +3,23 @@ import HeaderProvider from '@src/provider/header.provider';
 
 import '@styles/global.scss';
 import type { AppProps } from 'next/app';
+import Head from 'next/head';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <HeaderProvider>
-      <Main>
-        <Component {...pageProps} />
-      </Main>
-    </HeaderProvider>
+    <>
+      <Head>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1"
+        />
+      </Head>
+      <HeaderProvider>
+        <Main>
+          <Component {...pageProps} />
+        </Main>
+      </HeaderProvider>
+    </>
   );
 }
 

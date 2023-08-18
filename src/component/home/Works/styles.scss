@@ -1,6 +1,6 @@
 .work-container {
   position: relative;
-  z-index: 3;
+  z-index: 1;
   width: 100vw;
   top: 0;
   background-color: transparent;
@@ -42,8 +42,12 @@
     top: 12vh;
     right: 0;
     padding: 3vh 5vw;
-    font-family: druk, sans-serif;
-    font-size: 4rem;
+    text-size-adjust: none;
+    -ms-text-size-adjust: none;
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    font-size: 60px;
+
     text-transform: uppercase;
     color: transparent;
     -webkit-text-stroke: 2px;
@@ -54,10 +58,10 @@
     animation: titleReveal 2s forwards;
     animation-delay: 1s;
     span {
-      font-family: druk, sans-serif;
+      font-family: druk-super, sans-serif;
     }
     @include breakpoint(sm) {
-      font-size: 5rem;
+      font-size: 100px;
       padding: 0vh 5vw;
     }
   }
@@ -250,10 +254,10 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-end;
-  font-family: druk, sans-serif;
+  font-family: druk-super, sans-serif;
   transform-style: preserve-3d;
   position: relative;
-  z-index: 1500;
+  z-index: 3;
   margin-bottom: 100px;
   p {
     font-size: 1rem;
@@ -289,7 +293,7 @@
 
 .work-back-button {
   position: fixed;
-  z-index: 15;
+  z-index: 3;
   color: black;
   top: 40px;
   right: 50px;
@@ -321,60 +325,6 @@
   }
 }
 
-// .image-slider {
-//   width: 100%;
-//   height: auto;
-//   position: relative;
-//   .content-img-wrapper {
-//     position: relative;
-//     overflow: hidden;
-//     width: 100%;
-//     height: 100%;
-//     img {
-//       position: relative;
-//       width: 100%;
-//       height: 100%;
-//     }
-//   }
-//   .left-arrow,
-//   .right-arrow {
-//     position: absolute;
-//     z-index: 2;
-//     top: 45%;
-//     font-size: 45px;
-//     color: white;
-//     margin: 0 0 0 0;
-//     // transform: translate(0,-50%)
-//   }
-//   .left-arrow {
-//     left: 32px;
-//   }
-//   .right-arrow {
-//     right: 32px;
-//   }
-//   .caret-left-icon,
-//   .caret-right-icon {
-//     opacity: 0.5;
-//     &:hover {
-//       opacity: 1;
-//     }
-//   }
-//   .img-bar-wrapper {
-//     display: flex;
-//     flex-direction: column;
-//     .progress-bar {
-//       position: relative;
-//       width: 100%;
-//       height: 5px;
-//       background: gray;
-//       .bar {
-//         position: absolute;
-//         height: 5px;
-//         background: black;
-//       }
-//     }
-//   }
-// }
 @keyframes arrowAnimation {
   0% {
     transform: translateX(0);

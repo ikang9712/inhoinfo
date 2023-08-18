@@ -3,8 +3,8 @@ import WorkFooter from '@src/component/home/Works/WorkFooter';
 import WorkImageSlider from '@src/component/home/Works/WorkImageSlider';
 import WorkTitle from '@src/component/home/Works/WorkTitle';
 import HeaderContext from '@src/context/header.context';
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import { useContext, useEffect, useRef } from 'react';
+import { lock, unlock } from 'tua-body-scroll-lock';
 
 const WorkInhoInfo = () => {
   const firstSwiperSrcList = [
@@ -17,13 +17,12 @@ const WorkInhoInfo = () => {
   ];
   const { activateBodyLock } = useContext(HeaderContext);
   const workRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     if (activateBodyLock) {
-      console.log('disable body scroll');
-      disableBodyScroll(workRef.current as HTMLElement);
+      lock(workRef.current as HTMLElement);
     } else {
-      console.log('enable body scroll');
-      enableBodyScroll(workRef.current as HTMLElement);
+      unlock(workRef.current as HTMLElement);
     }
   }, [activateBodyLock]);
   return (

@@ -35,17 +35,15 @@ const Projects = () => {
   const bodyRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (activateBodyLock) {
-      console.log('disable body scroll');
       disableBodyScroll(bodyRef.current as HTMLElement);
     } else {
-      console.log('enable body scroll');
       enableBodyScroll(bodyRef.current as HTMLElement);
     }
   }, [activateBodyLock]);
 
   return (
     <div ref={bodyRef} className="project">
-      <ul>
+      <ul className="project-ul">
         <li className="project-li">
           <div className="project-container">
             <a
