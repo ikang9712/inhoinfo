@@ -23,11 +23,11 @@ You can easily run the same website as mine with simple command. You can also ru
 For dev-dependencies,
 
 - _prettier_ is used as a code formatter.
-- _husky_ helps me to coordinate the commit history in uniformed manner. You can check the commit format on commitlint.config.js and commit, push rules in .husky folder.
+- _husky_ helps me to coordinate the commits and pushs in uniformed manner. For example, before commit, it runs ESLint to check any warnings or errors. While pusing to repo, it runs _yarn build_ to check any potential hazard for building. You can check the commit formats and rules on commitlint.config.js and .husky folder.
 
 For dependencies,
 
-- _sass_ and \_react-icons_were used for stylings and icons.
+- _sass_ and _react-icons_ were used for stylings and icons.
 - _swiper_ creates an image slider in work pages. I initially tried to build my own image slider with javascript, but it is very tedious to create your own considering that it has to work in both web and mobile. Swiper helps you to make image slider with many different modules with easy styling. You only need to change the variable within swiper class.
 - _tua-body-scroll-lock_ is the best body scroll lock package. I initially used _body-scroll-lock_, but it has weird bugs in mobile environment such as jumping to the top of the page and weirdly change the viewport width of the page while lock is enabled. Use _tua-body-scroll-lock_!!
 
