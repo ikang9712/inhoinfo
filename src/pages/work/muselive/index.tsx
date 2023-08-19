@@ -62,10 +62,10 @@ const WorkMuseLive = () => {
                         as Audacity.
                       </p>
                       <p>
-                        My main task was implementing the streaming service that
-                        is restricted to mobile app on web browser. Such
-                        extension of platform allows us to contact more
-                        potential users with increased accessibility.
+                        My main task was implementing the current mobile
+                        streaming service on web browser. Such extension of
+                        platform allows us to contact more potential users with
+                        increased accessibility.
                       </p>
                     </div>
                   </div>

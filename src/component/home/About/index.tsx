@@ -54,8 +54,8 @@ const AboutSection = ({
             </h1>
             <h2>Thank you for visiting!</h2>
             <p>
-              I am a full stack developer focused on designing interactive web
-              enviornment. Feel free to contact me for any queries. :&#41;
+              I am a full stack developer with passion in designing interactive
+              web enviornment. Feel free to contact me for any queries. :&#41;
             </p>
           </div>
           <div className="about-content-section">

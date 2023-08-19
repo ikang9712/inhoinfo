@@ -1,8 +1,3 @@
-export interface LoadingContextProps {
-  loading: boolean;
-  setLoading: (_loaded: boolean) => void;
-}
-
 export interface HeaderContextProps {
   activated: boolean;
   activateBodyLock: boolean;

@@ -150,8 +150,8 @@ const WorkCaseStudy = () => {
                       <p>
                         I needed to learn how an image element behaves with
                         respect to its parent as the website uses more than 20
-                        images. This experience helped me a lot while I am
-                        implementing my own website.
+                        images. This experience helped me a lot when I implement
+                        my own.
                       </p>
                     </div>
                   </div>

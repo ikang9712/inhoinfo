@@ -46,9 +46,8 @@ const WorkInhoInfo = () => {
                         works and projects.
                       </h1>
                       <p>
-                        Current version of the website is built on Typescript
-                        and React. The design was inspired by Studio of Eric Van
-                        Holtz and his website,{' '}
+                        The design of the current website is inspired by Studio
+                        of Eric Van Holtz and his website,{' '}
                         <a target="_blank" href="https://vanholtz.co">
                           vanholtz.co
                         </a>
@@ -102,25 +101,37 @@ const WorkInhoInfo = () => {
                         Most challenging part of the implementation was dynamic
                         interchange of CSS properties including animation and
                         transition. Animation and transition are similar but
-                        different in many parts. Transition reverse its action
-                        when it gets stopped, but animation does not. For
-                        example, the displacement of the header between page
-                        navigations was implemented with transition for smooth
-                        user experience.
+                        different in some parts.
+                      </p>
+                      <p>
+                        Transition reverse its action from the current state
+                        when user leaves the mouse &#40;for hover&#41; or the
+                        action gets stopped, but animation does not. The
+                        displacement of the header between page navigations and
+                        most hover effects were implemented with transition for
+                        smooth user experience.
                       </p>
                     </div>
 
                     <div className="text-block">
                       <p>
-                        I also utilized scroll behavior of users to change
-                        styling of header. As user scroll down and enter the
-                        main text part of the article, header disappears. The
-                        title of the page also slightly moves up and down
-                        accordingly. I used window scrollY property, but due to
-                        its performance issue, it seems better to apply
-                        intersection observer API or other alternative solutions
-                        such as GSAP scroll trigger. But honestly GSAP
-                        membership is too expensive :&#40;
+                        I also worked with scroll actions a lot. As user scroll
+                        down and enter the main text part of the article, header
+                        disappears. The title of the page also slightly moves up
+                        and down according to the user&apos;s scroll actions.
+                      </p>
+                      <p>
+                        I used window scrollY property, but due to its
+                        performance issue, it seems better to apply intersection
+                        observer API or other alternative solutions such as GSAP
+                        scroll trigger. &#40; But GSAP scroll trigger is not
+                        free..!&#41;
+                      </p>
+                      <p>
+                        Also when user opens about section the scroll behavior
+                        gets locked. I initially used body-scroll-lock for this,
+                        but use tua-body-scroll-lock! it works the best for
+                        mobile environment.
                       </p>
                     </div>
                   </div>
