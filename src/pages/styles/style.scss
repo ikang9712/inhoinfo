@@ -1,0 +1,56 @@
+@import '_variables';
+
+.layout {
+  transition: all 1s;
+  min-height: 100vh;
+  max-height: fit-content;
+  background: $bg-primary-color;
+}
+.layout.work {
+  background: $bg-secondary-color;
+}
+
+.home {
+  font-family: druk-regular, sans-serif;
+}
+
+.page-not-found-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: druk-super, sans-serif;
+  transform-style: preserve-3d;
+  position: relative;
+  z-index: 1;
+  a {
+    text-decoration: none;
+    transform-style: preserve-3d;
+    text-align: center;
+  }
+  h1 {
+    transform-style: preserve-3d;
+    font-size: 4rem;
+    color: transparent;
+    -webkit-text-stroke: 2px;
+    -webkit-text-stroke-color: #151515;
+    transition: all 1s;
+    transform-origin: center;
+    &::after {
+      content: ' Page Not Found';
+    }
+    &:hover {
+      color: black;
+      transform: perspective(100rem) rotateY(45deg) rotateZ(0);
+    }
+    &:hover::before {
+      content: 'Escape from ';
+    }
+    &:hover::after {
+      font-size: 3rem;
+      content: ' to Home';
+    }
+  }
+}

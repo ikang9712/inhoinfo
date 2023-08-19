@@ -1,0 +1,246 @@
+@import '_variables';
+// add comment to fix bug issue for vercel
+.movie-body {
+  font-family: sans-serif;
+  box-sizing: border-box;
+  display: block;
+  outline: none;
+  background: $gradient-red;
+  .movie-sort,
+  .movie-main {
+    @include breakpoint(lg) {
+      margin-left: $headerWidthLg;
+    }
+    @include breakpoint(xl) {
+      margin-left: $headerWidthXl;
+    }
+  }
+}
+
+.movie-header {
+  @include breakpoint(md) {
+    position: relative;
+  }
+  top: 0;
+  left: 0;
+  background-color: $white;
+  @include breakpoint(lg) {
+    width: $headerWidthLg;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+  }
+  @include breakpoint(xl) {
+    width: $headerWidthXl;
+  }
+  color: $red;
+  .hgroup {
+    flex: 1;
+    padding: 4vh 0 0 36px;
+    @include breakpoint(sm) {
+      padding: 10vh 0 0 72px;
+    }
+    h1,
+    span {
+      vertical-align: middle;
+      font-size: 13vw;
+      width: 100%;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      @include breakpoint(sm) {
+        font-size: 5.5rem;
+      }
+    }
+    .svg-container {
+      vertical-align: middle;
+      img {
+        width: 13vw;
+        height: 13vw;
+        @include breakpoint(sm) {
+          width: 66px;
+          height: 66px;
+        }
+        @include keyframes(blink) {
+          90% {
+            transform: none;
+            animation-timing-function: ease-in;
+          }
+          93% {
+            transform: translateY(15px) scaleY(0);
+          }
+          100% {
+            animation-timing-function: ease-out;
+          }
+        }
+        @include animate(blink, 2.4s, linear, infinite);
+        @include keyframes(squeeze) {
+          90% {
+            transform: none;
+            animation-timing-function: ease-in;
+          }
+          93% {
+            transform: translateY(3px) scaleY(0.8);
+          }
+          100% {
+            animation-timing-function: ease-out;
+          }
+        }
+        @include animate(squeeze, 2.4s, linear, infinite);
+      }
+    }
+  }
+  .h3group {
+    padding: 36px;
+    @include breakpoint(sm) {
+      padding: 72px;
+    }
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    @include breakpoint(md) {
+      max-width: 100%;
+      width: 100%;
+    }
+    @include breakpoint(lg) {
+      max-width: 480px;
+      width: 80%;
+    }
+    line-height: 1.4;
+    h3 {
+      font-size: 1.3em;
+      @include breakpoint(sm) {
+        font-size: 1.6rem;
+      }
+      line-height: 1.2;
+      margin-bottom: 1em;
+    }
+    p {
+      text-align: justify;
+      text-indent: -0.3em;
+    }
+  }
+
+  nav {
+    width: 100%;
+    margin-top: 2em;
+    line-height: 1.5;
+    font-size: 0.9em;
+    a {
+      cursor: pointer;
+      display: inline-block;
+      margin: 0 1em 0.25em 0;
+      text-decoration: none;
+      color: rgba(0, 0, 0, 0.6);
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.6);
+      white-space: nowrap;
+      font-weight: 600;
+      &:hover {
+        color: rgba(0, 0, 0, 1);
+      }
+    }
+  }
+}
+
+.movie-sort {
+  background-color: rgba($red, 0.8);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  color: #fff;
+  font-size: 1rem;
+  @include breakpoint(sm) {
+    font-size: 1.3rem;
+    .box {
+      padding: 65px;
+    }
+  }
+  position: sticky;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  .box {
+    padding: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  a {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
+    color: $darkred;
+    box-shadow: 0 1px 0 $darkred;
+    font-size: inherit;
+    &:hover {
+      color: white;
+    }
+  }
+}
+
+.movie-main {
+  min-height: 100vh;
+  color: white;
+  section {
+    background: $gradient-red;
+    color: white;
+    display: block;
+    .article {
+      padding: 72px;
+      header {
+        h4 {
+          font-size: 3em;
+          font-weight: 700;
+        }
+        h5 {
+          padding-top: 10px;
+          font-size: 1.5em;
+        }
+        padding-bottom: 24px;
+        @include breakpoint(sm) {
+          h4 {
+            font-size: 4em;
+          }
+          h5 {
+            font-size: 2em;
+          }
+        }
+        @include breakpoint(lg) {
+          display: block;
+          align-items: normal;
+          h4 {
+            font-size: 3em;
+          }
+          h5 {
+            text-align: left;
+            font-size: 1.2em;
+          }
+          padding-bottom: 24px;
+        }
+        @include breakpoint(xl) {
+          display: flex;
+          align-items: flex-end;
+          justify-content: space-between;
+          h4 {
+            font-size: 4em;
+          }
+          h5 {
+            text-align: right;
+          }
+          padding-bottom: 36px;
+        }
+      }
+    }
+    .video-container {
+      width: 100%;
+      height: 40vw;
+      iframe {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}

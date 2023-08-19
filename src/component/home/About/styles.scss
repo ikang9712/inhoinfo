@@ -1,0 +1,150 @@
+.about-container.invisible {
+  opacity: 0;
+}
+.about-container {
+  position: fixed;
+  z-index: 6;
+  background: rgba($bg-primary-color, 0.8);
+  transform: translateY(0);
+  animation: bgClose 1.3s forwards;
+}
+.about-container.open {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: rgba($bg-primary-color, 0.8);
+  transform: translateY(100vh);
+  animation: bgOpen 1.3s forwards;
+}
+
+.about-content {
+  font-family: sans-serif;
+  padding: 10vw 10vw;
+  margin-top: 60px;
+  @include breakpoint(sm) {
+    margin-top: 100px;
+  }
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .about-content-title {
+    flex: 2;
+    margin-right: 5vw;
+    margin-bottom: 5vh;
+    h1 {
+      transition: font-size 1s;
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin-bottom: 2vw;
+    }
+    h2 {
+      font-family: sans-serif;
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 2vw;
+    }
+    p {
+      transition: font-size 1s;
+      font-size: 1rem;
+      font-weight: 400;
+    }
+  }
+  .about-content-section {
+    flex: 1;
+    margin-right: 5vw;
+    h1 {
+      transition: font-size 1s;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 2vw;
+    }
+    p {
+      transition: font-size 1s;
+      font-size: 1rem;
+      font-weight: 400;
+      margin-bottom: 1vw;
+    }
+    .section-content {
+      margin-bottom: 5vw;
+    }
+  }
+  @include breakpoint(sm) {
+    flex-direction: row;
+    .about-content-title {
+      margin-right: 5vw;
+      h1 {
+        font-size: 1.5rem;
+      }
+      p {
+        font-size: 1.2rem;
+      }
+    }
+  }
+  @include breakpoint(md) {
+    flex-direction: row;
+    .about-content-title {
+      margin-right: 5vw;
+      h1 {
+        font-size: 2rem;
+      }
+      p {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+
+.about-go-back {
+  position: absolute;
+  color: white;
+  top: 20px;
+  right: 20px;
+  @include breakpoint(sm) {
+    top: 50px;
+    right: 50px;
+  }
+  border: solid 1px transparent;
+  border-radius: 100vh;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  svg {
+    transition: font-size 0.2s ease-in-out 0.2s;
+    font-size: 50px;
+    stroke-width: 0.8px;
+  }
+  &:hover {
+    border: solid 1px white;
+    svg {
+      font-size: 30px;
+      animation: xIconAnimation 2s ease-in-out 0.4s;
+    }
+  }
+}
+
+@keyframes xIconAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(20vw);
+  }
+  45% {
+    transform: translateX(-20vw);
+  }
+  50% {
+    transform: translateY(-20vw);
+  }
+  60% {
+    transform: translateY(-20vw);
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
