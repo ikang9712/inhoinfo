@@ -89,7 +89,7 @@ const Header = () => {
                   : bgDown
                   ? 'mobile-nav-bg down'
                   : 'mobile-nav-bg open'
-                : // burger unclicked, or screen size over md
+                : // burger unclicked (automatically unclicked when screen size over md)
                   'mobile-nav-bg close'
             }
           ></div>
