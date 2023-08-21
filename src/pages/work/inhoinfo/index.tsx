@@ -32,7 +32,7 @@ const WorkInhoInfo = () => {
         <WorkTitle
           titleName={['inho.', 'info']}
           titleId="inhoinfo-title"
-          titleImgSrc="/images/home/work/inhoinfo/inhoinfo.title.png"
+          titleImgSrc="/images/home/work/inhoinfo/inhoinfo.title.jpg"
         />
 
         <div className="work-content">
