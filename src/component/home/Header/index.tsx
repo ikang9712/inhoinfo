@@ -64,9 +64,9 @@ const Header = () => {
   return (
     <div>
       {activated ? (
-        <></>
+        <div></div>
       ) : (
-        <>
+        <div>
           <div
             className={burgerClicked ? 'mobile-nav open' : 'mobile-nav'}
             style={aboutClicked ? { display: 'none' } : { display: 'flex' }}
@@ -93,124 +93,126 @@ const Header = () => {
                   'mobile-nav-bg close'
             }
           ></div>
-          <a
-            className={
-              router.pathname == '/'
-                ? // home
-                  aboutClicked || burgerClicked
-                  ? 'logo toTop white'
-                  : 'logo toBottom'
-                : // not home
-                hideHeader.hide && !burgerClicked
-                ? 'logo toTop hide'
-                : aboutClicked || burgerClicked
-                ? 'logo toTop white'
-                : 'logo toTop'
-            }
-            onClick={() => {
-              if (router.pathname == '/') {
-                router.reload();
-              } else {
-                router.push('/');
-              }
-
-              setAboutClicked(false);
-              setBurgerClicked(false);
-            }}
-          >
-            <span className={'logo-span'}>Inho</span>
-            <span className={'logo-span'}>Kang.</span>
-          </a>
-          <div className={burgerClicked ? 'info clicked' : 'info'}>
-            <div
-              className={
-                burgerClicked
-                  ? aboutClicked
-                    ? 'info-wrapper white invisible'
-                    : 'info-wrapper white'
-                  : router.pathname == '/'
-                  ? 'info-wrapper white'
-                  : hideHeader.hide
-                  ? 'info-wrapper black invisible'
-                  : 'info-wrapper black'
-              }
-            >
-              <div className="left">
-                <ul>
-                  <li>Web Developer</li>
-                  <li className="github-source">
-                    <a
-                      target="_blank"
-                      href="https://github.com/ikang9712/inhoinfo"
-                    >
-                      <span>
-                        <IconContainer
-                          className="github-icon"
-                          iconName="github"
-                        />
-                      </span>
-                      <span> Source</span>
-                    </a>
-                  </li>
-                </ul>
-                <ul>
-                  <li>South Korea</li>
-                  <li className="email">ikang9712@gmail.com</li>
-                </ul>
-                <ul
-                  id="header-about"
-                  className={
-                    burgerClicked
-                      ? aboutClicked
-                        ? 'about mid invisible'
-                        : 'about mid'
-                      : aboutClicked
-                      ? 'about top'
-                      : router.pathname == '/'
-                      ? 'about bottom'
-                      : hideHeader.atBottom
-                      ? 'about bottom'
-                      : 'about top'
-                  }
-                  style={aboutClicked ? { color: 'white' } : {}}
-                  onClick={() => {
-                    setAboutClicked(!aboutClicked);
-                  }}
-                >
-                  <li> about </li>
-                </ul>
-              </div>
-              <div className="right">
-                <ul>
-                  <li>
-                    <span>01</span>
-                    <a
-                      target="_blank"
-                      href="https://www.instagram.com/innnnhok/"
-                    >
-                      instagram
-                    </a>
-                  </li>
-                  <li>
-                    <span>02</span>
-                    <a
-                      target="_blank"
-                      href="https://www.linkedin.com/in/inho-kang-6813261a8/"
-                    >
-                      linkedin
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
           <AboutSection
             refObject={aboutRef}
             aboutClicked={aboutClicked}
             setClicked={setAboutClicked}
             setBgDown={setBgDown}
           />
-        </>
+          <div id="info-logo-container">
+            <a
+              className={
+                router.pathname == '/'
+                  ? // home
+                    aboutClicked || burgerClicked
+                    ? 'logo toTop white'
+                    : 'logo toBottom'
+                  : // not home
+                  hideHeader.hide && !burgerClicked
+                  ? 'logo toTop hide'
+                  : aboutClicked || burgerClicked
+                  ? 'logo toTop white'
+                  : 'logo toTop'
+              }
+              onClick={() => {
+                if (router.pathname == '/') {
+                  router.reload();
+                } else {
+                  router.push('/');
+                }
+
+                setAboutClicked(false);
+                setBurgerClicked(false);
+              }}
+            >
+              <span className={'logo-span'}>Inho</span>
+              <span className={'logo-span'}>Kang.</span>
+            </a>
+            <div className={burgerClicked ? 'info clicked' : 'info'}>
+              <div
+                className={
+                  burgerClicked
+                    ? aboutClicked
+                      ? 'info-wrapper white invisible'
+                      : 'info-wrapper white'
+                    : router.pathname == '/'
+                    ? 'info-wrapper white'
+                    : hideHeader.hide
+                    ? 'info-wrapper black invisible'
+                    : 'info-wrapper black'
+                }
+              >
+                <div className="left">
+                  <ul>
+                    <li>Web Developer</li>
+                    <li className="github-source">
+                      <a
+                        target="_blank"
+                        href="https://github.com/ikang9712/inhoinfo"
+                      >
+                        <span>
+                          <IconContainer
+                            className="github-icon"
+                            iconName="github"
+                          />
+                        </span>
+                        <span> Source</span>
+                      </a>
+                    </li>
+                  </ul>
+                  <ul>
+                    <li>South Korea</li>
+                    <li className="email">ikang9712@gmail.com</li>
+                  </ul>
+                  <ul
+                    id="header-about"
+                    className={
+                      burgerClicked
+                        ? aboutClicked
+                          ? 'about mid invisible'
+                          : 'about mid'
+                        : aboutClicked
+                        ? 'about top'
+                        : router.pathname == '/'
+                        ? 'about bottom'
+                        : hideHeader.atBottom
+                        ? 'about bottom'
+                        : 'about top'
+                    }
+                    style={aboutClicked ? { color: 'white' } : {}}
+                    onClick={() => {
+                      setAboutClicked(!aboutClicked);
+                    }}
+                  >
+                    <li> about </li>
+                  </ul>
+                </div>
+                <div className="right">
+                  <ul>
+                    <li>
+                      <span>01</span>
+                      <a
+                        target="_blank"
+                        href="https://www.instagram.com/innnnhok/"
+                      >
+                        instagram
+                      </a>
+                    </li>
+                    <li>
+                      <span>02</span>
+                      <a
+                        target="_blank"
+                        href="https://www.linkedin.com/in/inho-kang-6813261a8/"
+                      >
+                        linkedin
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );
