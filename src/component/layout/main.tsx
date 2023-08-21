@@ -4,8 +4,8 @@ const Main = ({ children }: { children: any }) => {
   const router = useRouter();
   return (
     <div className={router.pathname == '/' ? 'layout' : 'layout work'}>
-      <Header />
       {children}
+      <Header />
       <style jsx global>
         {`
           body {
