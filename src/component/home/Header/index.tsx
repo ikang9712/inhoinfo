@@ -89,17 +89,19 @@ const Header = () => {
                   : bgDown
                   ? 'mobile-nav-bg down'
                   : 'mobile-nav-bg open'
-                : // burger unclicked, or screen size over md
+                : // burger unclicked (automatically unclicked when screen size over md)
                   'mobile-nav-bg close'
             }
           ></div>
           <a
             className={
               router.pathname == '/'
-                ? aboutClicked || burgerClicked
+                ? // home
+                  aboutClicked || burgerClicked
                   ? 'logo toTop white'
                   : 'logo toBottom'
-                : hideHeader.hide && !burgerClicked
+                : // not home
+                hideHeader.hide && !burgerClicked
                 ? 'logo toTop hide'
                 : aboutClicked || burgerClicked
                 ? 'logo toTop white'

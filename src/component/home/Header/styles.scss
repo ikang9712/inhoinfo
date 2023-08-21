@@ -60,23 +60,35 @@
 .mobile-nav-bg {
   position: fixed;
   top: 0;
+  z-index: 4;
   background: $bg-primary-color;
   opacity: 0.8;
-  z-index: 4;
   width: 100vw;
   height: 100vh;
   transform: translateY(140vh);
 }
 .mobile-nav-bg.open {
+  position: fixed;
+  top: 0;
+  z-index: 4;
   animation: bgOpen 1s forwards;
 }
 .mobile-nav-bg.close {
+  position: fixed;
+  top: 0;
+  z-index: 4;
   animation: bgClose 1s forwards;
 }
 .mobile-nav-bg.up {
+  position: fixed;
+  top: 0;
+  z-index: 4;
   animation: bgLeft 1s forwards;
 }
 .mobile-nav-bg.down {
+  position: fixed;
+  top: 0;
+  z-index: 4;
   animation: bgRight 1s forwards;
 }
 
@@ -95,8 +107,10 @@
   flex-direction: column;
   margin: 0;
   padding: 0;
+  top: 0;
   margin-left: 8vw;
   color: white;
+  opacity: 1;
   @include breakpoint(sm) {
     margin-left: 50px;
     font-size: 2rem;
@@ -185,6 +199,7 @@
   margin-bottom: 50px;
   transition: transform 1s;
   transform: translateY(40vh);
+  opacity: 1;
   @include breakpoint(md) {
     transform: translateY(0);
   }
@@ -260,11 +275,6 @@
   display: flex;
   transition: transform 1s ease-in-out;
   transition: opacity 1s ease-in-out;
-  &::before {
-    content: '/';
-    font-weight: 300;
-    font-size: 10px;
-  }
   li {
     &:hover {
       --color-one: hsla(257, 100%, 84%, 1);
