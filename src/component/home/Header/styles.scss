@@ -275,11 +275,6 @@
   display: flex;
   transition: transform 1s ease-in-out;
   transition: opacity 1s ease-in-out;
-  &::before {
-    content: '/';
-    font-weight: 300;
-    font-size: 10px;
-  }
   li {
     &:hover {
       --color-one: hsla(257, 100%, 84%, 1);

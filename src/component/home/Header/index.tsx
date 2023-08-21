@@ -96,10 +96,12 @@ const Header = () => {
           <a
             className={
               router.pathname == '/'
-                ? aboutClicked || burgerClicked
+                ? // home
+                  aboutClicked || burgerClicked
                   ? 'logo toTop white'
                   : 'logo toBottom'
-                : hideHeader.hide && !burgerClicked
+                : // not home
+                hideHeader.hide && !burgerClicked
                 ? 'logo toTop hide'
                 : aboutClicked || burgerClicked
                 ? 'logo toTop white'
