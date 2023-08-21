@@ -268,23 +268,28 @@
     transform-style: preserve-3d;
   }
   h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     color: transparent;
     -webkit-text-stroke: 2px;
     -webkit-text-stroke-color: #151515;
-    transform-origin: right center;
-    transform: perspective(100rem) rotateY(-30deg) rotateZ(0);
-    transition: all 1s;
-    &:hover {
-      color: black;
-      transform: perspective(100rem) rotateY(0) rotateZ(0);
-    }
   }
   @include breakpoint(sm) {
     padding-bottom: 30vw;
     p {
       font-size: 1.5rem;
     }
+    h1 {
+      font-size: 4rem;
+      transform-origin: right center;
+      transform: perspective(100rem) rotateY(-30deg) rotateZ(0);
+      transition: all 1s;
+      &:hover {
+        color: black;
+        transform: perspective(100rem) rotateY(0) rotateZ(0);
+      }
+    }
+  }
+  @include breakpoint(md) {
     h1 {
       font-size: 5rem;
     }
