@@ -6,8 +6,7 @@ I give warm credit to Studio of Eric Van Holtz and all of its members. The desig
 
 ## Future Implementation (Todo List)
 
-- Image CDN
-- Global page preloader and media asset preloader.
+- set up jest and enzyme for testing
 
 ## Getting Started
 
