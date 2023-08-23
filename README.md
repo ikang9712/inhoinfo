@@ -6,7 +6,9 @@ I give warm credit to Studio of Eric Van Holtz and all of its members. The desig
 
 ## Future Implementation (Todo List)
 
-- set up jest and enzyme for testing
+- set up jest and ~~enzyme~~, instead RTL, for testing
+  - enzyme is dead. There is no support for React 18.
+  - clean up the setup and testing for enzyme and need to get used to RTL.
 
 ## Getting Started
 
